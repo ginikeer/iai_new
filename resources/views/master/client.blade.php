@@ -43,7 +43,7 @@
 						</div>
 					</li>
 					<li>
-						<a href="{{ url('/case') }}" class="cases_info">产品使用案例<i></i></a>
+						<a href="{{ url('/case') }}" class="cases_info @if($nav == 'case') active @endif">产品使用案例<i></i></a>
 						<div class="wrap sub_nav" id="cases_nav">
 							<div class="container">
 								<ul class="nav nav-primary nav_list">
