@@ -1,0 +1,152 @@
+#news_main{
+	padding-top: 79px;
+	padding-bottom: 30px;
+}
+#news_main .row [class*=col-]{
+	padding: 0 6px;
+}
+#news_main .container{
+	width: 70%;
+}
+#news_main .crumb{
+	background: #EEEEEE;
+}
+#news_main .breadcrumb{
+	padding: 10px 0;
+}
+#news_main .breadcrumb>li:after {
+    content: '/';
+    margin: 0 8px 0 13px;
+}
+#news_main .breadcrumb>li a{
+	text-decoration: underline;
+}
+#news_main .breadcrumb>li:last-child:after {
+    content: '';
+}
+.bg-gary{
+	background: rgb(238,238,238);
+	transition: all 0.5s;
+}
+.bg-gary:hover{
+	background: rgba(238,238,238,0.5);
+}
+.news_list{
+	display: table;
+	width: 100%;
+}
+.news_left{
+	display: table-cell;
+    vertical-align: top;
+}
+.news_title a{
+	font-size: 20px;
+	color: #333;
+	font-weight: 600;
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	transition: all 0.5s;
+}
+.news_title a:hover{
+	border-color: #333333;
+}
+.news_right{
+	display: table-cell;
+    vertical-align: top;
+    width: 200px;
+    overflow: hidden;
+}
+.news_right img{
+	min-width: 200px;
+	transition: all 0.5s;
+}
+.news_right img:hover{
+	transform: scale(1.2);
+}
+.news_type{
+	width: 80px;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.news_type_product{
+	background: #d83b22;
+}
+.news_type_company{
+	background: #0075c1;
+}
+.news_date{
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	font-weight: 600;
+}
+.news_abstract{
+	margin-top: 15px;
+	font-size: 14px;
+	line-height: 20px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.news_detail_title{
+	padding-bottom: 15px;
+	border-bottom: 2px solid #af1f39;
+	margin-bottom: 20px;
+}
+.news_detail_title a{
+	font-size: 28px;
+	border: none;
+}
+.news_detail_title a:hover{
+	border: none;
+}
+.sub_title{
+	margin-top: 15px;
+}
+.article-content{
+	margin-top: 30px;
+	text-align: center;
+}
+.article-content p{
+	margin-bottom: 15px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: left;
+	text-indent: 2em;
+}
+.article-content img{
+	max-width: 100%;
+	margin-bottom: 15px;
+}
+@media screen and (max-width: 750px) {
+	#news_main{
+		padding-top: 0;
+	}
+	#news_main .container{
+		width: 90%;
+	}
+	.card{
+		padding: 15px;
+	}
+	.news_list{
+		display: block;
+		width: 100%;
+	}
+	.news_left{
+		display: block;
+		margin-bottom: 15px;
+	}
+	.news_right{
+		display: block;
+		width: 100%;
+	}
+	.news_right img{
+		width: 100%;
+	}
+}
