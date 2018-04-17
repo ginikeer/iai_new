@@ -108,7 +108,7 @@ class ProductController extends Controller {
 				$data->image_name							= $request->input('image_name');
 				$data->pdf_name								= $request->input('pdf_name');
 				//相关产品关联
-				$data->related_product						= $this->handelRelatedIds($related_ids);
+				$data->related_product_ids					= $this->handelRelatedIds($related_ids);
 				$data->save();
 				
 				$pid 										= $data->id;	//产品id

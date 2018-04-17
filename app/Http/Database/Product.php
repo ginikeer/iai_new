@@ -77,7 +77,7 @@ class Product extends Model {
 	static public function getRelatedByCategoryId($pid, $cid, $select, $type) {
 		
 		$res													= array();
-		$related 												= self::where('id', $pid)->pluck('related_product');
+		$related 												= self::where('id', $pid)->pluck('related_product_ids');
 		
 		if( !empty($related) ) {
 			
@@ -103,7 +103,7 @@ class Product extends Model {
 	static public function getRelatedProduct($id) {
 		
 		$res													= array();
-		$related												= self::where('id', $id)->pluck('related_product');
+		$related												= self::where('id', $id)->pluck('related_product_ids');
 		
 		if( !empty($related) ) {
 			

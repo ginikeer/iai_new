@@ -4,10 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Database\Product;
+use App\Http\Database\Cases;
 use App\Http\Database\Product_Category;
-use App\Http\Database\Manual;
-use App\Http\Database\Product_Manual_Relationship;
 
 
 use Redirect, Input, Auth, Session, DB;
