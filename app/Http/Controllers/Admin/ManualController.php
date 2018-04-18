@@ -40,7 +40,9 @@ class ManualController extends Controller {
 	
 	public function postUpload(Request $request)
 	{
-		Helper::uploadFile($request, 'manual_pdf');
+		$res 												= Helper::uploadFile($request, 'manual_pdf');
+		
+		echo (json_encode($res));
 	}
 	
 	public function postSave(Request $request)
@@ -74,12 +76,12 @@ class ManualController extends Controller {
 	
 	private function save($request) 
 	{
-		$id 								= $request->input('id');
-		$data 								= empty($id) ? new Manual : Manual::find($id);
-		$data->title 						= $request->input('title');
-		$data->cn_pdf_name					= $request->input('cn_pdf_name');
-		$data->en_pdf_name					= $request->input('en_pdf_name');
-		$data->ja_pdf_name					= $request->input('ja_pdf_name');
+		$id 												= $request->input('id');
+		$data 												= empty($id) ? new Manual : Manual::find($id);
+		$data->title 										= $request->input('title');
+		$data->cn_pdf_name									= $request->input('cn_pdf_name');
+		$data->en_pdf_name									= $request->input('en_pdf_name');
+		$data->ja_pdf_name									= $request->input('ja_pdf_name');
 		
 		$data->save();
 	}

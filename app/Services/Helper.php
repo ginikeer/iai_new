@@ -109,8 +109,8 @@ class Helper {
 		if(!isset($file)) {
 			$res["code"] 						= 0;
 			$res["message"] 					= "文件过大或者文件错误！!";
-			echo (json_encode($res));
-			die();
+			
+			return $res;
 		}
 		
         // 文件是否上传成功
@@ -127,7 +127,6 @@ class Helper {
 			if($bool) {
 				$res["code"] 					= 1;
 				$res["message"] 				= $filename;
-				$res["full_path"]				= ($is_img ? PRODUCT_IMG_PATH : PRODUCT_PDF_PATH) . $filename; 				
 			} else {
 				$res["code"] 					= 0;
 				$res["message"] 				= "上传失败";
@@ -137,7 +136,7 @@ class Helper {
 			$res["message"] 					= "文件过大或者文件错误！";
   		}
   		
-  		echo (json_encode($res));
+  		return $res;
 	}
 	
 	

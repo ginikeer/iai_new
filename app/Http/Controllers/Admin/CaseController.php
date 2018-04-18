@@ -8,11 +8,15 @@ use App\Services\Helper;
 
 use App\Http\Database\Cases;
 use App\Http\Database\Product_Category;
+use App\Http\Database\Case_logo;
 
 use Redirect, Input, Auth, Session, DB;
 
 class CaseController extends Controller {
 
+	public $category;
+	public $logo;
+	
 	
 	/**
 	 * Create a new controller instance.
@@ -22,7 +26,8 @@ class CaseController extends Controller {
 	public function __construct()
 	{
 //		$this->middleware('auth');
-
+		$this->category 									= Product_Category::getAll();
+		$this->logo											= Case_logo::getAll();
 	}
 
 	/**
@@ -30,19 +35,44 @@ class CaseController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getIndex()
+	public function getList()
 	{
 		$data = Cases::orderBy('id', 'desc')->paginate(PER);
 		
 		return view('admin/case-list', ['data' => $data]);
 	}
 	
-	public function postUpload(Request $request)
+	public function getSingle(Request $request)
 	{
-		Helper::uploadFile($request, 'manual_pdf');
+		$id 												= $request->input('id', '');
+		
+		if(empty($id)) {	//新增
+			 
+		} else {	//编辑
+			
+		}
+		
+		return view('admin/case-single', [
+			'category' 										=> $this->category,
+			'logo'											=> $this->logo,
+			
+		]);
 	}
 	
+	public function postUpload(Request $request)
+	{
+		$res 												= Helper::uploadFile($request, 'case_img');
+		$res["img_full_path"]								= $res["code"] ? CASE_IMG_PATH . $res["message"] : '';
+		
+		echo json_encode($res);
+	}
 	
+	public function postVideoUpload(Request $request)
+	{
+		$res 												= Helper::uploadFile($request, 'case_video');
+		
+		echo json_encode($res);
+	}
 	
 	public function postDel(Request $request)
 	{

@@ -1,6 +1,6 @@
 $(function() {
 	$(".upload-file").on("change", function() {
-		var _url = $("#url_file_upload").val();
+		var _url = ( $(this).attr("data-action") == undefined ) ? $("#url_file_upload").val() : $(this).attr("data-action");
 		
 		var $this = $(this);
 		var $file_name = $(this).siblings(".file-name");
@@ -27,7 +27,7 @@ $(function() {
 				var file_name = res.message;
 				$file_name.val(file_name);
 				if(_is_img) {
-					$img_preview.attr("src", res.full_path);
+					$img_preview.attr("src", res.img_full_path);
 				} else {
 					$img_success.show();
 				}

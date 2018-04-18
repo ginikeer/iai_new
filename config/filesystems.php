@@ -74,6 +74,16 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/uploads/manual/pdf'),
         ],
+        
+        'case_img' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/case/img'),
+        ],
+        
+        'case_video' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/case/video'),
+        ],
 
 		'rackspace' => [
 			'driver'    => 'rackspace',

@@ -22,7 +22,7 @@ class ProductController extends Controller {
 	{
 //		$this->middleware('auth');
 
-		$this->category = Product_Category::getAll();
+		$this->category 									= Product_Category::getAll();
 	}
 
 	public function getIndex()
@@ -54,8 +54,6 @@ class ProductController extends Controller {
 		foreach($category as $c) {
 			$related["cid_" . $c->id]						= Product::getDataByCategoryId($c->id);
 		}
-		
-		
 		
 		if(empty($id)) {	//新增
 			$selected_manual['titles']						= "";
@@ -148,7 +146,10 @@ class ProductController extends Controller {
 	
 	public function postUpload(Request $request)
 	{
-		Helper::uploadFile($request);
+		$res 												= Helper::uploadFile($request);
+		$res["img_full_path"]								= $res["code"] ? PRODUCT_IMG_PATH . $res["message"] : '';
+		
+		echo json_encode($res);
 	}
 	
 	

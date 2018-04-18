@@ -64,8 +64,8 @@
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>{{ $m->title }}</big></div>
 								<div class="col-lg-4 text-right">
 									@if(!empty($m->cn_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->cn_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(CN)</a> @else <div class="btn btn-gray btn-xs">下载(CN)</div> @endif
-									@if(!empty($m->en_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->en_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(CN)</a> @else <div class="btn btn-gray btn-xs">下载(EN)</div> @endif
-									@if(!empty($m->ja_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->ja_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(CN)</a> @else <div class="btn btn-gray btn-xs">下载(JA)</div> @endif
+									@if(!empty($m->en_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->en_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(EN)</a> @else <div class="btn btn-gray btn-xs">下载(EN)</div> @endif
+									@if(!empty($m->ja_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->ja_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(JA)</a> @else <div class="btn btn-gray btn-xs">下载(JA)</div> @endif
 								</div>
 							</div>
 						</div>

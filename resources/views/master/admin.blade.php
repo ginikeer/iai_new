@@ -9,6 +9,7 @@
 
 	<link href="{{ asset('/css/admin/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/admin/common.css') }}" rel="stylesheet">
+	<link href="{{ asset('favicon.ico') }}" rel="SHORTCUT ICON">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -51,8 +52,18 @@
 							<li>
 								<a href="{{ url('admin/manual') }}">产品使用说明管理</a>
 							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+							产品案例管理 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="{{ url('') }}">产品相关案例管理</a>
+								<a href="{{ url('admin/case/list') }}">产品案例列表</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/case/single') }}">产品案例新增</a>
 							</li>
 						</ul>
 					</li>
