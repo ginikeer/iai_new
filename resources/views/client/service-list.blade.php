@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 产品使用案例 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 服务 @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/service.css') }}"/>
@@ -22,7 +22,7 @@
 	<div class="container">
 		<div class="row service-row">
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service-testmachine') }}">
+				<a href="{{ url('/service/testmachine') }}">
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-1.png') }}" />
 					</div>
@@ -30,7 +30,7 @@
 				</a>
 			</div>
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service-guide') }}">
+				<a href="{{ url('/service/guide') }}">
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-2.png') }}" />
 					</div>
@@ -38,7 +38,7 @@
 				</a>
 			</div>
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service-manual') }}">
+				<a href="{{ url('/service/manual') }}">
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-3.png') }}" />
 					</div>
@@ -46,7 +46,7 @@
 				</a>
 			</div>
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service-catalog') }}">
+				<a href="{{ url('/service/catalog') }}">
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-4.png') }}" />
 					</div>
@@ -54,7 +54,7 @@
 				</a>
 			</div>
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service-settings') }}">
+				<a href="{{ url('/service/settings') }}">
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-5.png') }}" />
 					</div>
@@ -62,7 +62,7 @@
 				</a>
 			</div>
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service-versionhistory') }}">
+				<a href="{{ url('/service/versionhistory') }}">
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-6.png') }}" />
 					</div>
@@ -70,7 +70,7 @@
 				</a>
 			</div>
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service-others') }}">
+				<a href="{{ url('/service/others') }}">
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-7.png') }}" />
 					</div>

@@ -106,7 +106,7 @@
 					<input type="button" id="next-btn" value=" 下 一 步 " />
 				</div>
 				<div class="login-btn check-btn">
-					<input type="hidden" id="regist-btn-link" value="{{ url('/member-complete') }}" />
+					<input type="hidden" id="regist-btn-link" value="{{ url('/regist/membercomplete') }}" />
 					<input type="button" id="regist-check-btn" value=" 注 册 " />
 					<input type="button" id="back-btn" value=" 返 回 " />
 				</div>

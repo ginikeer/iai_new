@@ -40,8 +40,46 @@ class ServiceController extends Controller {
 		
 	}
 	
+	public function getTestmachine(Request $request){
+		return view('client/service-testmachine', [
+			'nav'											=> $this->nav
+		]);
+	}
 	
+	public function getGuide(Request $request){
+		return view('client/service-guide', [
+			'nav'											=> $this->nav
+		]);
+	}
 	
+	public function getManual(Request $request){
+		return view('client/service-manual', [
+			'nav'											=> $this->nav
+		]);
+	}
 	
-
+	public function getCatalog(Request $request){
+		return view('client/service-catalog', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
+	public function getSettings(Request $request){
+		return view('client/service-settings', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
+	public function getVersionhistory(Request $request){
+		return view('client/service-versionhistory', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
+	public function getOthers(Request $request){
+		return view('client/service-others', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
 }

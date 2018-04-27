@@ -62,14 +62,14 @@
 						<div class="wrap sub_nav" id="download_nav">
 							<div class="container">
 								<ul class="nav nav-primary nav_list">
-									<li><a href="/download/catalog.php">综合产品目录</a></li>
-									<li><a href="/download/manual.php">使用说明书</a></li>
+									<li><a href="{{ url('/service/catalog') }}">综合产品目录</a></li>
+									<li><a href="{{ url('/service/manual') }}">使用说明书</a></li>
 									<li><a href="https://linkable.partcommunity.com/3d-cad-models/">CAD图纸</a></li>
 									<li><a href="/faq/">常见问题</a></li>
 									<li><a href="/delivery/">交货期查询</a></li>
-									<li><a href="/download/settings.php">现场网络文件</a></li>
-									<li><a href="/download/versionhistory.php">示教器履历</a></li>
-									<li><a href="/download/others.php">其他公司相关</a></li>
+									<li><a href="{{ url('/service/settings') }}">现场网络文件</a></li>
+									<li><a href="{{ url('/service/versionhistory') }}">示教器履历</a></li>
+									<li><a href="{{ url('/service/others') }}">其他公司相关</a></li>
 								</ul>
 							</div>
 						</div>
@@ -96,16 +96,17 @@
 						<ul class="list-text">
 							<li><a href="/product/category.html?type=slider"><small>滑块型</small></a></li>
 							<li><a href="/product/category.html?type=rod"><small>拉杆型</small></a></li>
-							<li><a href="/product/category.html?type=cleanroom"><small>无尘室型</small></a></li>
-							<li><a href="/product/category.html?type=table"><small>平台型</small></a></li>
-							<li><a href="/product/category.html?type=waterproof"><small>防水防尘型</small></a></li>
-							<li><a href="/product/category.html?type=gripper"><small>夹爪型</small></a></li>
-							<li><a href="/product/category.html?type=rotary"><small>旋转型</small></a></li>
-							<li><a href="/product/category.html?type=linear"><small>线性伺服型</small></a></li>
-							<li><a href="/product/category.html?type=controller"><small>控制器</small></a></li>
-							<li><a href="/product/category.html?type=teach"><small>示教器</small></a></li>
-							<li><a href="/product/category.html?type=direct"><small>直驱马达</small></a></li>
-							<li><a href="/product/category.html?type=manipulator"><small>机械手</small></a></li>
+							<li><a href="/product/category.html?type=cleanroom"><small>平台型</small></a></li>
+							<li><a href="/product/category.html?type=table"><small>线性伺服马达型</small></a></li>
+							<li><a href="/product/category.html?type=waterproof"><small>直交机械手</small></a></li>
+							<li><a href="/product/category.html?type=gripper"><small>桌上型机械手</small></a></li>
+							<li><a href="/product/category.html?type=rotary"><small>水平多关节机械手</small></a></li>
+							<li><a href="/product/category.html?type=linear"><small>伺服压力机</small></a></li>
+							<li><a href="/product/category.html?type=controller"><small>夹爪型、旋转型</small></a></li>
+							<li><a href="/product/category.html?type=teach"><small>无尘规格</small></a></li>
+							<li><a href="/product/category.html?type=direct"><small>防尘・防滴规格</small></a></li>
+							<li><a href="/product/category.html?type=manipulator"><small>控制器</small></a></li>
+							<li><a href="/product/category.html?type=manipulator"><small>其他</small></a></li>
 						</ul>
 					</li>
 					<li>

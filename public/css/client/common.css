@@ -260,6 +260,7 @@ a{
 .nav_list{
 	border: none;
 	display: inline-block;
+	padding: 13px 0;
 }
 .nav_list li{
 	border: none;
@@ -274,7 +275,7 @@ a{
 	color: #FFFFFF;
 	font-size: 14px;
 	line-height: 20px;
-	padding: 18px 0 18px;
+	padding: 5px 0;
 	/*font-weight: bolder;*/
 }
 .nav_list li a:hover{
@@ -344,7 +345,7 @@ a{
 	line-height: 24px;
 }
 .footer_nav_list li ul small{
-	font-size: 14px;
+	font-size: 12px;
 }
 .footer_nav_list li .cases_list_text li{
 	padding-left: 4%;

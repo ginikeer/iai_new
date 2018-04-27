@@ -27,7 +27,7 @@
 					<p class="detail-text">
 						{!! $product->description !!}
 					</p>
-					<div class="row row-no-offset">
+					<div class="row row-no-offset product-detail-btn-list">
 						<div class="col-lg-4">
 							<a class="detail-btn" href="##">纸质产品目录申请</a>
 						</div>
@@ -36,6 +36,12 @@
 						</div>
 						<div class="col-lg-4">
 							<a class="detail-btn" href="##">3D CAD图纸</a>
+						</div>
+						<div class="col-lg-4">
+							<a class="detail-btn" href="##">3D图纸流程</a>
+						</div>
+						<div class="col-lg-4">
+							<a class="detail-btn" href="mailto:shanghai@iai-robot.com">联系我们</a>
 						</div>
 					</div>
 				</div>
@@ -49,7 +55,7 @@
 				<div class="container">
 					<div class="row row-no-offset">
 						<div class="col-lg-3 tab-item"><a href="##">产品说明书<i></i></a></div>
-						<div class="col-lg-3 tab-item"><a href="##">产品使用案例<i></i></a></div>
+						<div class="col-lg-3 tab-item case-item"><a href="##">产品使用案例<i></i></a></div>
 						<div class="col-lg-3 tab-item"><a href="##">相关产品<i></i></a></div>
 					</div>
 				</div>
@@ -85,7 +91,6 @@
 								<a href="##">垫片压入装置</a>
 								<span>用于在机械部件上压入垫片的装置中。</span>
 							</p>
-							<!--<span>検査・試験</span>-->
 						</div>
 						<div class="col-lg-3">
 							<a href="javascript:;">
@@ -95,7 +100,6 @@
 								<a href="##">注塑部件的装箱装置</a>
 								<span>用于注塑部件的装箱装置上。</span>
 							</p>
-							<!--<span>検査・試験</span>-->
 						</div>
 						<div class="col-lg-3">
 							<a href="javascript:;">
@@ -105,7 +109,6 @@
 								<a href="##">汽车部件异物吸出装置</a>
 								<span>用于汽车部件中的异物吸出装置上</span>
 							</p>
-							<!--<span>検査・試験</span>-->
 						</div>
 						<div class="col-lg-3">
 							<a href="javascript:;">
@@ -115,7 +118,6 @@
 								<a href="##">注塑部件毛边去除装置</a>
 								<span>用于汽车注塑部件毛边去除装置上</span>
 							</p>
-							<!--<span>検査・試験</span>-->
 						</div>
 					</div>
 				</div>

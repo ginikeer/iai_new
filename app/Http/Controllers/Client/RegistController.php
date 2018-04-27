@@ -40,8 +40,20 @@ class RegistController extends Controller {
 		
 	}
 	
-	
-	
-	
+	public function getMemberinfo(Request $request)
+	{
+		
+		return view('client/member-info', [
+			'nav'											=> $this->nav
+		]);
+	}
+		
+	public function getMembercomplete(Request $request)
+	{
+		
+		return view('client/member-complete', [
+			'nav'											=> $this->nav
+		]);
+	}
 
 }

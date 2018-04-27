@@ -85,5 +85,12 @@ class ProductController extends Controller {
 		echo json_encode($res);
 	}
 	
+	public function getNew(Request $request)
+	{
+		return view('client/product-l', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
 
 }

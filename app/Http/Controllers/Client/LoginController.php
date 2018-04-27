@@ -40,8 +40,28 @@ class LoginController extends Controller {
 		
 	}
 	
+	public function getForgetpassword(Request $request)
+	{
+		
+		return view('client/forget-password', [
+			'nav'											=> $this->nav
+		]);
+	}
 	
+	public function getPwdlost(Request $request)
+	{
+		
+		return view('client/pwd-lost-input', [
+			'nav'											=> $this->nav
+		]);
+	}
 	
-	
+	public function getPwdlostpost(Request $request)
+	{
+		
+		return view('client/pwd-lost-post', [
+			'nav'											=> $this->nav
+		]);
+	}
 
 }

@@ -24,7 +24,7 @@
 			<div class="news_list">
 				<div class="news_left">
 					<h3 class="news_title">
-							<a href="{{ url('/news-detail') }}">IAI 2017综合产品目录正式上线！</a>
+							<a href="{{ url('/news/detail') }}">IAI 2017综合产品目录正式上线！</a>
 						</h3>
 					<div>
 						<span class="news_type news_type_company">公司动态</span>
@@ -41,7 +41,7 @@
 			<div class="news_list">
 				<div class="news_left">
 					<h3 class="news_title">
-							<a href="{{ url('/news-detail') }}">【重要】XSEL-J/JX停产通知</a>
+							<a href="{{ url('/news/detail') }}">【重要】XSEL-J/JX停产通知</a>
 						</h3>
 					<div>
 						<span class="news_type news_type_product">产品发布</span>
@@ -50,7 +50,7 @@
 					<p class="news_abstract">万分抱歉，由于敝司工作上的纰漏，2017综合产品目录封底中刊载的深圳分公司的联系电话有误。 正确号码为0755-2393-2307，敬请注意。 </p>
 				</div>
 				<div class="news_right">
-					<a href="{{ url('/news-detail') }}"><img src="{{ asset('i/client/news/news-2.jpg') }}" /></a>
+					<a href="{{ url('/news/detail') }}"><img src="{{ asset('i/client/news/news-2.jpg') }}" /></a>
 				</div>
 			</div>
 		</div>

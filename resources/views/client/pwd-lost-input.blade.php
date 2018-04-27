@@ -39,7 +39,7 @@
 				</div>
 				<p class="text-red error-text"></p>
 				<div class="login-btn">
-					<input type="hidden" id="send-new-link" value="{{ url('/pwd-lost-post') }}" />
+					<input type="hidden" id="send-new-link" value="{{ url('/login/pwdlostpost') }}" />
 					<input type="button" id="send-new-btn" value=" 发送 " />
 				</div>
 			</div>

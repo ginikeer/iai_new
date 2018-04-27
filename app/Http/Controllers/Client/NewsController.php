@@ -34,9 +34,11 @@ class NewsController extends Controller {
 		]);
 	}
 	
-	public function getDetail($id)
+	public function getDetail(Request $request)
 	{
-		
+		return view('client/news-detail', [
+			'nav'											=> $this->nav
+		]);
 		
 	}
 	

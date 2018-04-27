@@ -10,30 +10,37 @@
 	<div class="wrap" id="bxslider">
 		<ul class="bxslider">
 			<li class="slider slider1">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider01.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider01.jpg') }}" alt="" />
-				<a class="slider-btn" target="_blank" href="assets/pdf/product/e电缸_CC0250-3A.pdf">
+				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider05.jpg') }}" alt="" />
+				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider05.jpg') }}" alt="" />
+				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/RCON样本.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
 			<li class="slider slider2">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider02.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider02.jpg') }}" alt="" />
-				<a class="slider-btn" target="_blank" href="assets/pdf/product/RCS4_CC0255-1A.pdf">
+				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider01.jpg') }}" alt="" />
+				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider01.jpg') }}" alt="" />
+				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/e电缸_CC0250-3A.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
 			<li class="slider slider3">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider03.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider03.jpg') }}" alt="" />
-				<a class="slider-btn" target="_blank" href="assets/pdf/product/TB-03(CC0254-1A-1).pdf">
+				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider02.jpg') }}" alt="" />
+				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider02.jpg') }}" alt="" />
+				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/RCS4_CC0255-1A.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
 			<li class="slider slider4">
+				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider03.jpg') }}" alt="" />
+				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider03.jpg') }}" alt="" />
+				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/TB-03(CC0254-1A-1).pdf') }}">
+					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
+				</a>
+			</li>
+			<li class="slider slider5">
 				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider04.jpg') }}" alt="" />
 				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider04.jpg') }}" alt="" />
-				<a class="slider-btn" target="_blank" href="assets/pdf/product/IXA_CC0256-1A.pdf">
+				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/IXA_CC0256-1A.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
@@ -46,7 +53,7 @@
 			<div class="row row-no-offset row-case">
 				<div class="col-lg-2 mian_product_list mian_product_img mian_product_new">
 					<div class="hover-bg"></div>
-					<a href="{{ url('/product-late') }}">
+					<a href="{{ url('/product/new') }}">
 						<p class="case-cover case-cover-img">
 							<img src="{{ asset('i/client/home/category_01.png') }}" />
 						</p>
@@ -54,7 +61,7 @@
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=slider">
+					<a href="{{ url('/product?category=slider') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_1.jpg') }}" />
 						</p>
@@ -63,7 +70,7 @@
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=rod">
+					<a href="{{ url('/product?category=rod') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_2.jpg') }}" />
 						</p>
@@ -72,93 +79,102 @@
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=cleanroom">
+					<a href="{{ url('/product?category=table') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_3.jpg') }}" />
 						</p>
-						<p class="case-description">无尘室型</p>
+						<p class="case-description">平台型</p>
 					</a>
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=table">
+					<a href="{{ url('/product?category=linear') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_4.jpg') }}" />
 						</p>
-						<p class="case-description">平台型</p>
+						<p class="case-description">线性伺服马达型</p>
 					</a>
 				</div>
 				
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=waterproof">
+					<a href="{{ url('/product?category=manipulator') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_5.jpg') }}" />
 						</p>
-						<p class="case-description">防水防尘型</p>
+						<p class="case-description">直交机械手</p>
 					</a>
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=gripper">
+					<a href="{{ url('/product?category=table_manipulator') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_6.jpg') }}" />
-						</p>
-						<p class="case-description">夹爪型</p>
+						</p> 
+						<p class="case-description">桌上型机械手</p>
 					</a>
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=rotary">
+					<a href="{{ url('/product?category=multi_joint_manipulator') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_7.jpg') }}" />
 						</p>
-						<p class="case-description">旋转型</p>
+						<p class="case-description">水平多关节机械手</p>
 					</a>
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=linear">
+					<a href="{{ url('/product?category=press') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_8.jpg') }}" />
 						</p>
-						<p class="case-description">线性伺服型</p>
+						<p class="case-description">伺服压力机</p>
 					</a>
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=controller">
+					<a href="{{ url('/product?category=gripper_rotary') }}">
+						<p class="case-cover">
+							<img src="{{ asset('i/client/home/product_category_8.jpg') }}" />
+						</p>
+						<p class="case-description">夹爪型、旋转型</p>
+					</a>
+				</div>
+				<div class="col-lg-2 mian_product_list">
+					<div class="hover-bg"></div>
+					<a href="{{ url('/product?category=cleanroom') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_9.jpg') }}" />
+						</p>
+						<p class="case-description">无尘规格</p>
+					</a>
+				</div>
+				<div class="col-lg-2 mian_product_list">
+					<div class="hover-bg"></div>
+					<a href="{{ url('/product?category=waterproof') }}">
+						<p class="case-cover">
+							<img src="{{ asset('i/client/home/product_category_10.jpg') }}" />
+						</p>
+						<p class="case-description">防尘・防滴规格</p>
+					</a>
+				</div>
+				<div class="col-lg-2 mian_product_list">
+					<div class="hover-bg"></div>
+					<a href="{{ url('/product?category=controller') }}">
+						<p class="case-cover">
+							<img src="{{ asset('i/client/home/product_category_11.jpg') }}" />
 						</p>
 						<p class="case-description">控制器</p>
 					</a>
 				</div>
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="product/category.html?type=teach">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_10.jpg') }}" />
-						</p>
-						<p class="case-description">示教器</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="product/category.html?type=direct">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_11.jpg') }}" />
-						</p>
-						<p class="case-description">直驱马达</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="product/category.html?type=manipulator">
+					<a href="{{ url('/product?category=other') }}">
 						<p class="case-cover">
 							<img src="{{ asset('i/client/home/product_category_12.jpg') }}" />
 						</p>
-						<p class="case-description">机械手</p>
+						<p class="case-description">其他</p>
 					</a>
 				</div>
 			</div>
@@ -171,17 +187,17 @@
 		<div class="container">
 			<div class="row row-no-offset row-case">
 				<div class="col-lg-3">
-					<a href="download/catalog.php">
+					<a href="{{ url('/service/catalog') }}">
 						<p>综合产品目录</p>
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="download/manual.php">
+					<a href="{{ url('/service/catalog') }}">
 						<p>使用说明书</p>
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="https://linkable.partcommunity.com/3d-cad-models/">
+					<a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/">
 						<p>CAD图纸</p>
 					</a>
 				</div>
@@ -196,17 +212,17 @@
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="download/settings.php">
+					<a href="{{ url('/service/settings') }}">
 						<p>现场网络文件</p>
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="download/versionhistory.php">
+					<a href="{{ url('/service/versionhistory') }}">
 						<p>示教器履历</p>
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="download/others.php">
+					<a href="{{ url('/service/others') }}">
 						<p>其他公司相关 </p>
 					</a>
 				</div>
@@ -222,32 +238,32 @@
 				<div class="col-lg-2">2017-12-21</div>
 				<div class="col-lg-1 news_product"><span>产品发布</span></div>
 				<div class="col-lg-7">
-					<a href="news/pdf_download.php?i=47">【重要】XSEL-J/JX停产通知</a>
+					<a href="{{ url('/news/detail') }}">【重要】XSEL-J/JX停产通知</a>
 				</div>
 			</div>
 			<div class="row row-case news_row">
 				<div class="col-lg-2">2017-11-23</div>
 				<div class="col-lg-1"><span>公司动态</span></div>
 				<div class="col-lg-7">
-					<a href="news/detail.php?i=45">【重要】2017综合产品目录勘误通知</a>
+					<a href="{{ url('/news/detail') }}">【重要】2017综合产品目录勘误通知</a>
 				</div>
 			</div>
 			<div class="row row-case news_row">
 				<div class="col-lg-2">2017-11-21</div>
 				<div class="col-lg-1 news_product"><span>产品发布</span></div>
 				<div class="col-lg-7">
-					<a href="news/detail.php?i=44">IAI 2017综合产品目录正式上线！</a>
+					<a href="{{ url('/news/detail') }}">IAI 2017综合产品目录正式上线！</a>
 				</div>
 			</div>
 			<div class="row row-case news_row">
 				<div class="col-lg-2">2017-09-05</div>
 				<div class="col-lg-1"><span>公司动态</span></div>
 				<div class="col-lg-7">
-					<a href="news/detail.php?i=42">2017年中国国际工业博览会参展通知</a>
+					<a href="{{ url('/news/detail') }}">2017年中国国际工业博览会参展通知</a>
 				</div>
 			</div>
 			<div class="row news_more_row">
-				<a href="/news" class="news_more">查看更多</a>
+				<a href="{{ url('/news') }}" class="news_more">查看更多</a>
 			</div>
 		</div>
 	</div><!-- #mian_news -->
@@ -299,7 +315,7 @@
 				</div>
 			</div>
 			<div class="row news_more_row">
-				<a href="cases/index.html" class="news_more">产品案例一览</a>
+				<a href="{{ url('/case') }}" class="news_more">产品案例一览</a>
 			</div>
 		</div>
 	</div><!-- #mian_case -->

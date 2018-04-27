@@ -35,7 +35,7 @@
 					<p class="text-red">请输入正确的邮箱地址和密码</p>
 				</div>
 				<div class="forget-password">
-					<a href="{{ url('/forget-password') }}">忘记登陆密码？</a>
+					<a href="{{ url('/login/forgetpassword') }}">忘记登陆密码？</a>
 				</div>
 				<div class="login-btn">
 					<input type="submit" id="login-btn" value=" 登 陆 " />
