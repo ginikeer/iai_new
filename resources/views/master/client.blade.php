@@ -102,7 +102,7 @@
 			<div class="row footer_nav_row">
 				<ul class="nav nav-primary footer_nav footer_nav_list">
 					<li><a href="{{ url('/') }}">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><i></i></li>
-					<li>
+					<li class="foot-nav-sp">
 						<a href="{{ url('/product') }}">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品</a><i></i>
 						<ul class="list-text">
 							@foreach ($product_category as $c)

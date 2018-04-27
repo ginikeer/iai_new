@@ -1,7 +1,3 @@
-.service_warp{
-	padding-top: 79px;
-	margin-bottom: 50px;
-}
 .service_warp .row [class*=col-]{
 	padding: 0 6px;
 }
@@ -106,8 +102,16 @@ small{
 .profile_row{
 	margin-bottom: 0px;
 }
+@media screen and (max-width: 950px){{
+	.service_warp{
+		padding-top: 0;
+	}
+}
 @media screen and (max-width: 750px){
 	.service_warp .container{
 		width: 90%;
+	}
+	#profile .col-lg-6{
+		width: 100%;
 	}
 }

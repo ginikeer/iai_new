@@ -448,7 +448,7 @@ a{
 	.footer_nav_list li ul{
 		padding-left: 10%;
 	}
-	.footer_nav_list>li:nth-child(2){
+	.footer_nav_list .foot-nav-sp{
 		width: 14%;
 	}
 }
@@ -608,5 +608,8 @@ a{
 	}
 	.sp_tel a{
 		color: #FFFFFF;
+	}
+	#frame{
+		width: 100% !important;
 	}
 }
