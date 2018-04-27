@@ -1,6 +1,6 @@
 #news_main{
 	padding-top: 79px;
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 }
 #news_main .row [class*=col-]{
 	padding: 0 6px;
@@ -124,10 +124,12 @@
 	max-width: 100%;
 	margin-bottom: 15px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 950px) {
 	#news_main{
 		padding-top: 0;
 	}
+}
+@media screen and (max-width: 750px) {
 	#news_main .container{
 		width: 90%;
 	}

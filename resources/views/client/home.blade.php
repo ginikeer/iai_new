@@ -46,7 +46,7 @@
 			<div class="row row-no-offset row-case">
 				<div class="col-lg-2 mian_product_list mian_product_img mian_product_new">
 					<div class="hover-bg"></div>
-					<a href="javascript:;">
+					<a href="{{ url('/product-late') }}">
 						<p class="case-cover case-cover-img">
 							<img src="{{ asset('i/client/home/category_01.png') }}" />
 						</p>

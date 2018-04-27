@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+/* ----- common styles ----- */
+
+@import "frame.css";
+@import "component.css";
+@import "subnavigation.css";
+@import "tab.css";
+#new_products_main{
+	padding-top: 79px;
+}
+#new_products_main .container{
+	width: 70%;
+}
+#new_products_main .crumb{
+	background: #EEEEEE;
+}
+#new_products_main .breadcrumb{
+	padding: 10px 0;
+}
+#new_products_main .breadcrumb>li:after {
+    content: '/';
+    margin: 0 8px 0 13px;
+}
+#new_products_main .breadcrumb>li a{
+	text-decoration: underline;
+}
+#new_products_main .breadcrumb>li:last-child:after {
+    content: '';
+}
+.img{
+	max-width: 100%;
+}
+.clearfix{
+	display: table;
+}
+.left-cell,.right-cell{
+	display: table-cell;
+    vertical-align: top;
+    padding: 0 5px;
+}
+.bass-conversion-A01 .bass-conversion-download .download-list{
+	width: auto;
+}
+.bass-tabnavigation-A01 .tab li{
+	width: 17%;
+}
+.bass-feature-heading-A01 .bass-feature-text{
+	line-height: 24px;
+	font-size: 13px;
+}
+ul{
+	list-style: none;
+}
+.bass-conversion-A01 .bass-conversion-download .download-list li{
+	border: 0;
+}
+.bass-conversion-A01 .bass-conversion-download .download-list li a{
+	font-size: 14px;
+    line-height: 3;
+    background: #666 url(../../i/client/home/icon2.png) no-repeat 95% center;
+    background-size: 12px 12px;
+    color: #FFF !important;
+    padding: 0 5%;
+    transition: all 0.5s linear;
+    text-shadow: none;
+    border: 0;
+}
+.bass-heading-A01 h2{
+	font-size: 20px;
+}
+.bass-feature-heading-A01 h3{
+	font-size: 16px;
+}
+.new-product-title{
+	padding: 30px 0px 10px 5px; 
+	font-size: 18px; 
+	font-weight: bold;
+	border-bottom-color: rgb(204, 204, 204); 
+	border-bottom-width: 1px; 
+	border-bottom-style: solid;
+	margin: 0 0 8px;
+}
+.new-product-title-first{
+	padding: 10px 0px 10px 5px; 
+}
+.new-sub-title{
+	margin: 20px 0 10px;
+	font-size: 16px;
+}
+.sub-title-no-margin{
+	margin: 4px 0;
+	font-size: 16px;
+}
+.bass-conversion-A01 .bass-conversion-download, .bass-conversion-A02 .bass-conversion-download{
+	float: none;
+}
+ #bass-content-area .bass-frame-content{
+	padding: 0;
+	width: 70%;
+}
+ #bass-content-area #bass-content-body{
+	width: 100%;
+}
+.bass-tabnavigation-A01 .tab li{
+	font-size: 13px;
+}
+.no-margin-top{
+	margin-top: 0px;
+}
+.new-table{
+	width: 100%; text-align: center;
+}
+.small-size{
+	margin: 10px 0px 30px; font-size: 80%;
+}
+#bass-content-area{
+	z-index: 0;
+}
+.content{
+	margin-bottom: 50px;
+}
+.small-title{
+	margin: 0 0px 5px;
+	font-size: 13px;
+}
+.advantage-table{
+	display: table;
+	margin-bottom: 30px;
+}
+.table-left{
+	display: table-cell;
+	width: 50%;
+	padding-right: 20px;
+	vertical-align: top;
+}
+.table-right{
+	display: table-cell;
+	width: 50%;
+	padding-left: 20px;
+	vertical-align: top;
+}
+.mar-bot5{
+	margin-bottom: 5px;
+}
+.mar-5{
+	margin: 5px 0;
+}
+.bass-feature-heading-A01{
+	margin-top: 0;
+}
+@media screen and (max-width: 1008px) {
+	.bass-frame{
+		min-width: 200px;
+	}
+	.bass-frame-content{
+		width: 90%;
+    	padding: 0 5%;
+	}
+	 #bass-content-area #bass-content-body{
+		width: 100%;
+	}
+}
+@media screen and (max-width: 950px) {
+	.bass-tabnavigation-A01 .tab.pc-only{
+		display: none;
+	}
+	#new_products_main{
+		padding-top: 0;
+	}
+	#new_products_main .container{
+		width: 90%;
+	}
+	#bass-content-area .bass-frame-content{
+		width: 90%;
+	}
+	.bass-frame{
+		min-width: 100%;
+	}
+	.bass-frame-content{
+		padding: 0;
+		width: 90%;
+	}
+	#bass-content-area .bass-frame-content{
+		padding-top: 0;
+	}
+	#bass-content-area #bass-content-body{
+		width: 100%;
+	}
+	.bass-conversion-A01 .bass-conversion-download .download-list li, .bass-conversion-A02 .bass-conversion-download .download-list li{
+		width: 47%;
+    	margin-left: 1%;
+	}
+	.bass-conversion-A01 .bass-conversion-download .download-list, .bass-conversion-A02 .bass-conversion-download .download-list{
+		width: 100%;
+		margin: 0;
+	}
+	.bass-conversion-A01 .bass-conversion-contact{
+		width: 99%;
+    	padding-left: 0%;
+    	margin-top: 20px;
+	}
+	.bass-tabnavigation-A01 .tab{
+	}
+	.bass-tabnavigation-A01 .tab li{
+		width: 94%;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+	.bass-conversion-A01 .bass-conversion-download .download-list li a{
+		font-size: 12px;
+	}
+	.bass-heading-A01 h2{
+		font-size: 18px;
+	}
+	.bass-table-B02 th, .bass-table-B02 td{
+		padding: 6px 3px;
+	}
+	.advantage-table{
+		display: block;
+		margin-bottom: 0;
+	}
+	.table-left,.table-right{
+		display: block;
+		width: 100%;
+		padding: 0;
+		margin-top: 30px;
+	}
+	.left-cell, .right-cell{
+		display: block;
+	}
+	.left-cell{
+		width: 100%;
+	    text-align: center;
+	    margin-bottom: 30px;
+	}
+}

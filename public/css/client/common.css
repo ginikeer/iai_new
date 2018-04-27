@@ -1,6 +1,9 @@
 html,a,p,div{
 	font-family: 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
+body {
+    font-size: 14px;
+}
 a{
 	text-decoration: none;
 }
@@ -412,14 +415,18 @@ a{
 .sp_menu{
 	display: none;
 }
-
+[class*=icon-20]{
+	background-image: url(../../i/client/common/icons_20.png);
+}
 @media screen and (max-width: 1100px) {
 	.header_nav_list>li>a{
 		padding: 30px 10px 0;
 	}
+	.wrap{
+		min-width: auto;
+	}
 }
-
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 950px) {
 	.pc-only {
 		display: none;
 	}

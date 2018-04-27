@@ -1,4 +1,4 @@
-/*-------------------------------------login--------------------------*/
+75/*-------------------------------------login--------------------------*/
 .clear:after {
   content: "020";
   display: block;
@@ -72,10 +72,10 @@
 	width: 40px;
 }
 .user-name label{
-	background: #BABABA url(../images/login/user.png) no-repeat center center;
+	background: #BABABA url(../../i/client/login/user.png) no-repeat center center;
 }
 .password label{
-	background: #BABABA url(../images/login/password.png) no-repeat center center;
+	background: #BABABA url(../../i/client/login/password.png) no-repeat center center;
 }
 .form-item label:hover{
 	opacity: 0.7;
@@ -141,6 +141,11 @@ form{
 }
 input[type=text][disabled], input[type=email][disabled], input[type=tel][disabled], input[type=password][disabled], textarea[disabled], select[disabled] {
     background-color: #F1F1F1;
+}
+@media screen and (max-width: 950px) {
+	#login_main{
+		padding-top: 0;
+	}
 }
 @media screen and (max-width: 750px) {
 	#login_main{

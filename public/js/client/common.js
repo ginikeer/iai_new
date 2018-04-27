@@ -60,6 +60,22 @@ function sameHeight(obj){
 	});
 }
 
+//没有子元素
+function sameHeightOnly(obj){
+	var heiList = [];
+	$(obj).each(function(){
+		var hei = 0;
+		hei += parseInt($(this).height());
+		heiList.push(hei);
+	});
+	
+	var maxHei = Math.max.apply(null, heiList);
+	$(obj).each(function(){
+		$(this).height(maxHei);
+	});
+}
+
+
 function brEscape(str) {
 	return str.replace(/<br\/>/g, "\n");
 }
