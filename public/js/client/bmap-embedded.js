@@ -30,7 +30,7 @@ function createInfoWindow(data){
     return iw;
 }
 function createIcon(data){
-    var icon = new BMap.Icon("assets/images/map_marker.png", new BMap.Size(data.w,data.h),{
+    var icon = new BMap.Icon("/public/i/client/common/map_marker.png", new BMap.Size(data.w,data.h),{
 		anchor: new BMap.Size(data.ox,data.oy),
 		imageOffset: new BMap.Size(-data.l,-data.t)
 	});

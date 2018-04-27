@@ -29,7 +29,18 @@
 			<div class="col-lg-7 header_nav">
 				<ul class="nav nav-primary header_nav_list">
 					<li><a href="{{ url('/') }}" @if($nav == 'home') class="active" @endif>首页<i></i></a></li>
-					<li><a href="{{ url('/company') }}">公司介绍<i></i></a></li>
+					<li>
+						<a href="{{ url('/company') }}" class="company_info @if($nav == 'company') active @endif">公司介绍<i></i></a>
+						<div class="wrap sub_nav" id="company_nav">
+							<div class="container">
+								<ul class="nav nav-primary nav_list">
+									<li><a href="{{ url('/company/profile') }}">公司概要</a></li>
+									<li><a href="{{ url('/company/message') }}">致辞</a></li>
+									<li><a href="{{ url('/company/history') }}">沿革</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
 					<li>
 						<a href="{{ url('/product') }}" class="product_info @if($nav == 'product') active @endif">产品<i></i></a>
 						<div class="wrap sub_nav" id="product_nav">
@@ -58,15 +69,15 @@
 						</div>
 					</li>
 					<li>
-						<a href="{{ url('/service') }}" class="download_info">服务<i></i></a>
+						<a href="{{ url('/service') }}" class="download_info @if($nav == 'service') active @endif">服务<i></i></a>
 						<div class="wrap sub_nav" id="download_nav">
 							<div class="container">
 								<ul class="nav nav-primary nav_list">
 									<li><a href="{{ url('/service/catalog') }}">综合产品目录</a></li>
 									<li><a href="{{ url('/service/manual') }}">使用说明书</a></li>
 									<li><a href="https://linkable.partcommunity.com/3d-cad-models/">CAD图纸</a></li>
-									<li><a href="/faq/">常见问题</a></li>
-									<li><a href="/delivery/">交货期查询</a></li>
+									<li><a href="{{ url('/service/faq') }}">常见问题</a></li>
+									<li><a href="{{ url('/service/delivery') }}">交货期查询</a></li>
 									<li><a href="{{ url('/service/settings') }}">现场网络文件</a></li>
 									<li><a href="{{ url('/service/versionhistory') }}">示教器履历</a></li>
 									<li><a href="{{ url('/service/others') }}">其他公司相关</a></li>
@@ -74,8 +85,8 @@
 							</div>
 						</div>
 					</li>
-					<li><a href="{{ url('/news') }}">最新信息<i></i></a></li>
-					<li><a href="{{ url('/contact') }}">联系我们<i></i></a></li>
+					<li><a href="{{ url('/news') }}" class="@if($nav == 'news') active @endif">最新信息<i></i></a></li>
+					<li><a href="{{ url('/contact') }}" class="@if($nav == 'contact') active @endif">联系我们<i></i></a></li>
 				</ul>
 			</div>
 			<div class="header_menu"></div>
@@ -92,21 +103,11 @@
 				<ul class="nav nav-primary footer_nav footer_nav_list">
 					<li><a href="{{ url('/') }}">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><i></i></li>
 					<li>
-						<a href="{{ url('/product') }}">产品</a><i></i>
+						<a href="{{ url('/product') }}">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品</a><i></i>
 						<ul class="list-text">
-							<li><a href="/product/category.html?type=slider"><small>滑块型</small></a></li>
-							<li><a href="/product/category.html?type=rod"><small>拉杆型</small></a></li>
-							<li><a href="/product/category.html?type=cleanroom"><small>平台型</small></a></li>
-							<li><a href="/product/category.html?type=table"><small>线性伺服马达型</small></a></li>
-							<li><a href="/product/category.html?type=waterproof"><small>直交机械手</small></a></li>
-							<li><a href="/product/category.html?type=gripper"><small>桌上型机械手</small></a></li>
-							<li><a href="/product/category.html?type=rotary"><small>水平多关节机械手</small></a></li>
-							<li><a href="/product/category.html?type=linear"><small>伺服压力机</small></a></li>
-							<li><a href="/product/category.html?type=controller"><small>夹爪型、旋转型</small></a></li>
-							<li><a href="/product/category.html?type=teach"><small>无尘规格</small></a></li>
-							<li><a href="/product/category.html?type=direct"><small>防尘・防滴规格</small></a></li>
-							<li><a href="/product/category.html?type=manipulator"><small>控制器</small></a></li>
-							<li><a href="/product/category.html?type=manipulator"><small>其他</small></a></li>
+							@foreach ($product_category as $c)
+							<li><a href="{{ url('/product?category=' . $c->alias) }}"><small>{{ $c->title }}</small></a></li>
+							@endforeach
 						</ul>
 					</li>
 					<li>
@@ -123,16 +124,21 @@
 					<li>
 						<a href="{{ url('/service') }}">服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务</a><i></i>
 						<ul class="list-text">
-							<li><a href="/login"><small>会员登录</small></a></li>
-							<li><a href="/regist"><small>会员注册</small></a></li>
-							<li><a href="/mypage/"><small>我的页面</small></a></li>
+							<li><a href="{{ url('/service/catalog') }}"><small>综合产品目录</small></a></li>
+							<li><a href="{{ url('/service/manual') }}"><small>使用说明书</small></a></li>
+							<li><a href="https://linkable.partcommunity.com/3d-cad-models/"><small>CAD图纸</small></a></li>
+							<li><a href="{{ url('/service/faq') }}"><small>常见问题</small></a></li>
+							<li><a href="{{ url('/service/delivery') }}"><small>交货期查询</small></a></li>
+							<li><a href="{{ url('/service/settings') }}"><small>现场网络文件</small></a></li>
+							<li><a href="{{ url('/service/versionhistory') }}"><small>示教器履历</small></a></li>
+							<li><a href="{{ url('/service/others') }}"><small>其他公司相关</small></a></li>
 						</ul>
 					</li>
 					<li><a href="{{ url('/news') }}">最新信息</a><i></i></li>
 					<li><a href="{{ url('/faq') }}">常见问题</a><i></i></li>
 					<li><a href="{{ url('/company') }}">公司介绍</a><i></i></li>
 					<li><a href="{{ url('/contact') }}">联系我们</a><i></i></li>
-					<li><a href="{{ url('/privacy') }}">个人信息保护方针</a></li>
+					<li><a href="{{ url('/contact/privacy') }}">个人信息保护方针</a></li>
 				</ul>
 				<div class="footer_company">
 					<div class="footer_company_logo"></div>

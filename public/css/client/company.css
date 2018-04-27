@@ -1,0 +1,113 @@
+.service_warp{
+	padding-top: 79px;
+	margin-bottom: 50px;
+}
+.service_warp .row [class*=col-]{
+	padding: 0 6px;
+}
+.service_warp .container{
+	width: 70%;
+}
+.service_warp .crumb{
+	background: #EEEEEE;
+}
+.service_warp .breadcrumb{
+	padding: 10px 0;
+}
+.service_warp .breadcrumb>li:after {
+    content: '/';
+    margin: 0 8px 0 13px;
+}
+.service_warp .breadcrumb>li a{
+	text-decoration: underline;
+}
+.service_warp .breadcrumb>li:last-child:after {
+    content: '';
+}
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.right span{
+	margin-left: 10px;
+}
+.photo_img{
+	margin-left: 15px;
+}
+table{
+	width: 100%;
+	line-height: 24px;
+}
+tr{
+	border-bottom: 1px solid #E9E9E9;
+}
+th{
+	vertical-align: top;
+	padding-top: 10px;
+}
+table .list-lined{
+	padding-top: 10px;
+	border-top: none;
+	padding-bottom: 10px;
+}
+table .list-lined .list-item{
+	border-bottom: none;
+	line-height: 24px;
+}
+.profile-section{
+	margin-top: 50px;
+}
+.group-section .row{
+	margin-bottom: 15px;
+}
+.profile_title{
+	margin-top: 15px;
+	color: #af1f39;
+}
+small{
+	font-size: 90%;
+}
+.service_system{
+	/*background: url(assets/images/profile_bg1.jpg) no-repeat left 50px;*/
+}
+.service_system_small{
+	margin: 10px 3%;
+}
+.outstanding_performance_img{
+	text-align: center;
+	margin-top: 10px;
+}
+.outstanding_performance_img p{
+	margin-top: 10px;
+}
+.product_rich{
+	margin-left: 20px;
+}
+.product_rich dd,.product_rich dt{
+	font-size: 12px;
+	line-height: 18px;
+}
+.product_rich dd{
+	margin-left: 20px;
+	position: relative;
+}
+.product_rich dd:before{
+	content: '';
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: #af1f39;
+	left: -18px;
+	top: 7px;
+}
+.profile_row{
+	margin-bottom: 0px;
+}
+@media screen and (max-width: 750px){
+	.service_warp .container{
+		width: 90%;
+	}
+}

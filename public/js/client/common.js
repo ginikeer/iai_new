@@ -17,6 +17,8 @@ $(function() {
 		$('.closed_btn').hide();
 	});
 	
+	//	公司介绍子菜单
+	subMenu($('.company_info'));
 	//	产品介绍子菜单
 	subMenu($('.product_info'));
 	

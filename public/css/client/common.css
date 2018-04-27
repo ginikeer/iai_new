@@ -419,7 +419,18 @@ a{
 [class*=icon-20]{
 	background-image: url(../../i/client/common/icons_20.png);
 }
+@media screen and (max-width: 1200px) {
+	.footer_nav_list li ul{
+		padding-left: 10%;
+	}
+	.footer_nav_list>li:nth-child(2){
+		width: 14%;
+	}
+}
 @media screen and (max-width: 1100px) {
+	.footer_nav_list>li{
+		font-size: 14px;
+	}
 	.header_nav_list>li>a{
 		padding: 30px 10px 0;
 	}

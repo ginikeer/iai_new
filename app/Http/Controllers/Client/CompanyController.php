@@ -4,15 +4,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Database\Product;
+use App\Http\Database\Cases;
 use App\Http\Database\Product_Category;
-use App\Http\Database\Manual;
-use App\Http\Database\Product_Manual_Relationship;
 
 
 use Redirect, Input, Auth, Session, DB;
 
-class ContactController extends Controller {
+class CompanyController extends Controller {
 
 	public $nav;
 
@@ -23,27 +21,36 @@ class ContactController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->nav											= 'contact';
+		$this->nav											= 'company';
 	}
 
 	public function getIndex(Request $request)
 	{
-		
-		return view('client/contact', [
+		return view('client/company', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getPrivacy(Request $request)
+	public function getProfile(Request $request)
 	{
-		
-		return view('client/privacy', [
+		return view('client/profile', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
 	
+	public function getMessage(Request $request)
+	{
+		return view('client/message', [
+			'nav'											=> $this->nav
+		]);
+	}
 	
-	
+	public function getHistory(Request $request)
+	{
+		return view('client/history', [
+			'nav'											=> $this->nav
+		]);
+	}
 
 }

@@ -82,4 +82,15 @@ class ServiceController extends Controller {
 		]);
 	}
 	
+	public function getDelivery(Request $request){
+		return view('client/delivery', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
+	public function getFaq(Request $request){
+		return view('client/faq', [
+			'nav'											=> $this->nav
+		]);
+	}
 }

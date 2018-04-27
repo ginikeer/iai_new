@@ -202,12 +202,12 @@
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="faq/">
+					<a href="{{ url('/service/faq') }}">
 						<p>常见问题</p>
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="delivery/">
+					<a href="{{ url('/service/delivery') }}">
 						<p>交货期查询</p>
 					</a>
 				</div>
