@@ -104,6 +104,28 @@ div.service-list>.service-list-item{
 	.service_warp{
 		padding-top: 0;
 	}
+	.span_ur{
+		display: block;
+	}
+	.faq-search td select{
+		display: block;
+	}
+	.faq-search td{
+		width: 60%;
+	}
+	.faq-search .next-td{
+		text-align: center;
+	}
+	.faq-search .search-btn{
+		padding: 15px 8px;
+	}
+	.faq-search td input#keywords{
+		width: 100%;
+	}
+	.next-icon{
+		transform: rotateZ(90deg);
+		display: inline-block;
+	}
 }
 @media screen and (max-width: 750px){
 	.col-lg-2-5{

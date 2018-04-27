@@ -93,4 +93,10 @@ class ServiceController extends Controller {
 			'nav'											=> $this->nav
 		]);
 	}
+	
+	public function getApply(Request $request){
+		return view('client/apply', [
+			'nav'											=> $this->nav
+		]);
+	}
 }

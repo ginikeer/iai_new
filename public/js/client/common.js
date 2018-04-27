@@ -27,6 +27,8 @@ $(function() {
 	
 //	下载子菜单
 	subMenu($('.cases_info'));
+	
+	$("img:last").hide();
 });
 	
 function subMenu(obj){

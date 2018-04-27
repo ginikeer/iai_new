@@ -23,7 +23,32 @@ a{
 .pre {
 	white-space: pre;
 }
-
+.service_warp{
+	padding-top: 79px;
+	margin-bottom: 50px;
+}
+.service_warp .row [class*=col-]{
+	padding: 0 6px;
+}
+.service_warp .container{
+	width: 70%;
+}
+.service_warp .crumb{
+	background: #EEEEEE;
+}
+.service_warp .breadcrumb{
+	padding: 10px 0;
+}
+.service_warp .breadcrumb>li:after {
+    content: '/';
+    margin: 0 8px 0 13px;
+}
+.service_warp .breadcrumb>li a{
+	text-decoration: underline;
+}
+.service_warp .breadcrumb>li:last-child:after {
+    content: '';
+}
 #header{
 	/*min-height: 88px;*/
 	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -448,7 +473,9 @@ a{
 	.sp-only-ib {
 		display: inline-block;
 	}
-	
+	.service_warp{
+		padding-top: 0;
+	}
 	#header{
 		height: 75px;
 		position: relative;
