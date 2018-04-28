@@ -79,7 +79,7 @@
 											<a href="{{ url('product/detail/' . $d->id) }}">
 												<img src="{{ PRODUCT_IMG_PATH . $d->cover_image_name }}" />
 												<h4>{{ $d->title }}</h4>
-												<p class="ppp">{!! $d->description !!}</p>
+												<p>{!! $d->description !!}</p>
 											</a>
 										</div>
 									</div>
@@ -133,7 +133,8 @@
 			<a href="{{ url('product/detail') }}/${id}">
 				<img src="{{ PRODUCT_IMG_PATH }}${cover_image_name}" />
 				<h4>${title}</h4>
-				<p class="ppp pre">${brEscape(description)}</p>
+				<!--<p class="pre">${brEscape(description)}</p>-->
+				<p>${brEscape(description)}</p>
 			</a>
 		</div>
 	</div>
@@ -156,7 +157,8 @@
 			<a href="{{ url('product/detail') }}/${id}">
 				<img src="{{ PRODUCT_IMG_PATH }}${cover_image_name}" />
 				<h4>${title}</h4>
-				<p class="pre">${brEscape(description)}</p>
+				<!--<p class="pre">${brEscape(description)}</p>-->
+				<p>${brEscape(description)}</p>
 			</a>
 		</div>
 	</div>

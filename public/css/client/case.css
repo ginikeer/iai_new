@@ -147,7 +147,7 @@
 	display: block;
 	font-size: 15px;
 	line-height: 20px;
-	background: url(../images/case/localvav_icon_arrow_01.png) no-repeat left center;
+	background: url(../../i/client/case/localvav_icon_arrow_01.png) no-repeat left center;
 	color: #333;
 }
 .right_nav dd{
@@ -162,7 +162,7 @@
 }
 .right_nav dd.active a{
 	color: #FFF;
-	background: url(../images/case/localvav_icon_arrow_02.png) no-repeat left center;
+	background: url(../../i/client/case/localvav_icon_arrow_02.png) no-repeat left center;
 }
 .fontBold{
 	margin-top: 30px;
@@ -201,7 +201,7 @@
 .icon-case{
     width: 56px;
     height: 56px;
-    background: url(../images/icon_features.jpg) no-repeat;
+    background: url(../../i/client/common/icon_features.jpg) no-repeat;
     display: block;
     text-indent: -9999px;
 }
@@ -243,7 +243,9 @@
 	background: #af1f39;
 	line-height: 26px;
 }
-
+.case-detail-row {
+    margin-bottom: 50px;
+}
 @media screen and (max-width: 1100px){
 	.case_row .col-lg-3{
 		width: 33.333333%;
@@ -368,5 +370,14 @@
     background: url(../../i/client/product/r_ico_link_01.png) no-repeat;
     background-size: 100%;
     content: "";
+}
+.case_row .col-lg-3{
+	width: 100%;
+}
+.col-lg-8{
+	width: 100%;
+}
+.col-lg-4{
+	width: 100%;
 }
 }

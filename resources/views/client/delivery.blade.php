@@ -23,7 +23,7 @@
 		<!-- InstanceBeginEditable name="main" -->
 		<div class="color-white">
         <h1>预定出货日</h1>
-        <iframe src="http://www.iai-robot.co.jp/delivery/asp_ch/delivery_ch.asp" width="100%" height="900" frameborder="0"></iframe>
+        <iframe id="myFrame" name="myFrame" src="http://www.iai-robot.co.jp/delivery/asp_ch/delivery_ch.asp" width="100%" height="900" frameborder="0"></iframe>
 		</div>
 		<!-- InstanceEndEditable -->
 	</div>

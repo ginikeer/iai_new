@@ -21,7 +21,7 @@
 	</div>
 	<div class="container">
 		<div class="pc-only">
-			<div class="row row-no-offset">
+			<div class="row">
 				<div class="case_nav">
 					<ul class="case_nav_blocks clear">
 						<li class="active">
@@ -66,14 +66,14 @@
 					</ul>
 				</div>
 			</div>
-			<div class="row row-no-offset case_row">
+			<div class="row case_row">
 				<div class="col-lg-3">
-					<a class="case_img" href="case-detail.html">
+					<a class="case_img" href="{{ url('/case/detail') }}">
 						<img src="{{ asset('i/client/case/case_1.jpg') }}">
 					</a>
 					<div class="case_text">
 						<p>
-							<a href="case-detail.html">垫片压入装置</a>
+							<a href="{{ url('/case/detail') }}">垫片压入装置</a>
 							<span>用于在机械部件上压入垫片的装置中。</span>
 						</p>
 						<div class="case-tag">
@@ -83,12 +83,12 @@
 					</div>
 				</div>
 				<div class="col-lg-3">
-					<a class="case_img" href="case-detail.html">
+					<a class="case_img" href="{{ url('/case/detail') }}">
 						<img src="{{ asset('i/client/case/case_1.jpg') }}">
 					</a>
 					<div class="case_text">
 						<p>
-							<a href="case-detail.html">注塑部件的装箱装置</a>
+							<a href="{{ url('/case/detail') }}">注塑部件的装箱装置</a>
 							<span>用于注塑部件的装箱装置上。</span>
 						</p>
 						<div class="case-tag">
@@ -99,12 +99,12 @@
 					
 				</div>
 				<div class="col-lg-3">
-					<a class="case_img" href="case-detail.html">
+					<a class="case_img" href="{{ url('/case/detail') }}">
 						<img src="{{ asset('i/client/case/case_1.jpg') }}">
 					</a>
 					<div class="case_text">
 						<p>
-							<a href="case-detail.html">汽车部件异物吸出装置</a>
+							<a href="{{ url('/case/detail') }}">汽车部件异物吸出装置</a>
 							<span>用于汽车部件中的异物吸出装置上</span>
 						</p>
 						<div class="case-tag">

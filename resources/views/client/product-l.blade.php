@@ -35,13 +35,13 @@
 							<H2 class="download-title">RCON产品信息</H2>
 							<UL class="download-list">
 								<LI class="download-catalog">
-									<A href="/application/" target="_blank">纸质产品目录申请</A>
+									<A href="{{ url('/service/catalog') }}" target="_blank">纸质产品目录申请</A>
 								</LI>
 								<LI class="download-manual">
-									<A href="##" target="_blank">产品目录下载</A>
+									<A href="{{ asset('pdf/client/product/RCON样本.pdf') }}" target="_blank">产品目录下载</A>
 								</LI>
 								<LI class="download-cad2">
-									<A href="https://linkable.partcommunity.com/3d-cad-models/" target="_blank">3D CAD图纸</A>
+									<A href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai" target="_blank">3D CAD图纸</A>
 								</LI>
 								<!-- /download-list -->
 							</UL>
@@ -109,7 +109,8 @@
 								<BR>
 							</LI>
 							<LI>
-								<SPAN>订购方法/<BR>包装形态·包装外形</SPAN>
+								<SPAN>订购方法</SPAN>
+								<BR>
 								<BR>
 								<BR>
 							</LI>
@@ -1167,86 +1168,82 @@
 							</DIV>
 							<DIV class="bass-table-B02">
 								<p class="small-title">● 订单型号</p>
-								<TABLE class="new-table" cellspacing="0" cellpadding="0">
+								<TABLE class="new-table product-table" cellspacing="0" cellpadding="0">
 									<COLGROUP>
 										<TBODY>
 											<TR>
-												<TH width="20%" colspan="5">品名</TH>
-												<TH width="75%" colspan="5">型号</TH>
-												<TH width="5%">数量</TH>
+												<TH colspan="5">品名</TH>
+												<TH colspan="5">型号</TH>
+												<TH>数量</TH>
 											</TR>
 											<TR>
 												<TD colspan="5">RCP6高推力型驱动轴</TD>
 												<TD colspan="5">RCP6-SA8C-WA-56SP-20-500-P5-R05</TD>
-												<TD align="right">1</TD>
+												<TD>1</TD>
 											</TR>
 											<TR>
 												<TD colspan="5">RCON驱动单元</TD>
 												<TD colspan="5">RCON-PCF-1</TD>
-												<TD align="right">1</TD>
+												<TD>1</TD>
 											</TR>
 											<TR>
 												<TD colspan="5">RCA2系列驱动轴</TD>
 												<TD colspan="5">RCA2-TCA4NA-I-20-6-30-A6-R05</TD>
-												<TD align="right">2</TD>
+												<TD>2</TD>
 											</TR>
 											<TR>
 												<TD colspan="5">RCON驱动单元</TD>
 												<TD colspan="5">RCON-AC-2</TD>
-												<TD align="right">1</TD>
+												<TD>1</TD>
 											</TR>
 											<TR>
 												<TD colspan="5">RCON网关单元</TD>
 												<TD colspan="5">RCON-GW-CC</TD>
-												<TD align="right">1</TD>
+												<TD>1</TD>
 											</TR>
 										</TBODY>
 								</TABLE>
 							</DIV>
 							<DIV class="bass-table-B02">
 								<p class="small-title">● 根据需要可补充订购：</p>
-								<TABLE class="new-table" cellspacing="0" cellpadding="0">
+								<TABLE class="new-table product-table" cellspacing="0" cellpadding="0">
 									<COLGROUP>
 										<TBODY>
 											<TR>
-												<TH width="20%" colspan="5">品名</TH>
-												<TH width="75%" colspan="5">型号</TH>
-												<TH width="5%">数量</TH>
+												<TH colspan="5">品名</TH>
+												<TH colspan="5">型号</TH>
+												<TH>数量</TH>
 											</TR>
 											<TR>
 												<TD colspan="5">联机软件</TD>
 												<TD colspan="5">RCM-101-USB</TD>
-												<TD align="right">1</TD>
+												<TD>1</TD>
 											</TR>
 											<TR>
 												<TD colspan="5">示教器</TD>
 												<TD colspan="5">TB-02</TD>
-												<TD align="right">1</TD>
+												<TD>1</TD>
 											</TR>
 										</TBODY>
 								</TABLE>
 							</DIV>
 							<DIV class="bass-table-B02">
 								<p class="small-title">● 可在主页下载的：</p>
-								<TABLE class="new-table" cellspacing="0" cellpadding="0">
+								<TABLE class="new-table product-table" cellspacing="0" cellpadding="0">
 									<COLGROUP>
 										<TBODY>
 											<TR>
-												<TH width="20%" colspan="5">品名</TH>
-												<TH width="75%" colspan="5">型号</TH>
-												<TH width="5%">数量</TH>
+												<TH colspan="5">品名</TH>
+												<TH colspan="5">型号</TH>
+												<TH>数量</TH>
 											</TR>
 											<TR>
 												<TD colspan="5">网关参数设定工具</TD>
 												<TD colspan="5">－</TD>
-												<TD align="right">1</TD>
+												<TD>1</TD>
 											</TR>
 										</TBODY>
 								</TABLE>
-							</DIV>
-							<H3 class="new-product-title">包装形态／包装外形</H3>
-							<DIV class="bass-table-B02">
-								<IMG alt="" src="{{ asset('i/client/product/product-late/new_rcon_img43.jpg') }}">
 							</DIV>
 						</LI>
 					</UL>

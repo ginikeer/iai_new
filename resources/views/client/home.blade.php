@@ -197,7 +197,7 @@
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/">
+					<a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai">
 						<p>CAD图纸</p>
 					</a>
 				</div>

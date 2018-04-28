@@ -75,7 +75,7 @@
 								<ul class="nav nav-primary nav_list">
 									<li><a href="{{ url('/service/catalog') }}">综合产品目录</a></li>
 									<li><a href="{{ url('/service/manual') }}">使用说明书</a></li>
-									<li><a href="https://linkable.partcommunity.com/3d-cad-models/">CAD图纸</a></li>
+									<li><a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai">CAD图纸</a></li>
 									<li><a href="{{ url('/service/faq') }}">常见问题</a></li>
 									<li><a href="{{ url('/service/delivery') }}">交货期查询</a></li>
 									<li><a href="{{ url('/service/settings') }}">现场网络文件</a></li>
@@ -126,7 +126,7 @@
 						<ul class="list-text">
 							<li><a href="{{ url('/service/catalog') }}"><small>综合产品目录</small></a></li>
 							<li><a href="{{ url('/service/manual') }}"><small>使用说明书</small></a></li>
-							<li><a href="https://linkable.partcommunity.com/3d-cad-models/"><small>CAD图纸</small></a></li>
+							<li><a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai"><small>CAD图纸</small></a></li>
 							<li><a href="{{ url('/service/faq') }}"><small>常见问题</small></a></li>
 							<li><a href="{{ url('/service/delivery') }}"><small>交货期查询</small></a></li>
 							<li><a href="{{ url('/service/settings') }}"><small>现场网络文件</small></a></li>

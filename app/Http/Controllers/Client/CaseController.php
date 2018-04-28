@@ -32,9 +32,11 @@ class CaseController extends Controller {
 		]);
 	}
 	
-	public function getDetail($id)
+	public function getDetail(Request $request)
 	{
-		
+		return view('client/case-detail', [
+			'nav'											=> $this->nav
+		]);
 		
 	}
 	
