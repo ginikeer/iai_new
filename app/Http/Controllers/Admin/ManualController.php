@@ -8,12 +8,13 @@ use App\Services\Helper;
 
 use App\Http\Database\Product;
 use App\Http\Database\Manual;
+use App\Http\Database\Manual_Category;
 
 use Redirect, Input, Auth, Session, DB;
 
 class ManualController extends Controller {
 
-	
+	public $category;
 	
 	/**
 	 * Create a new controller instance.
@@ -23,7 +24,8 @@ class ManualController extends Controller {
 	public function __construct()
 	{
 //		$this->middleware('auth');
-
+		$this->category										= Manual_Category::getAll();
+		
 	}
 
 	/**
@@ -35,7 +37,7 @@ class ManualController extends Controller {
 	{
 		$data = Manual::orderBy('id', 'desc')->paginate(PER);
 		
-		return view('admin/manual', ['data' => $data]);
+		return view('admin/manual', ['data' => $data, 'category' => $this->category]);
 	}
 	
 	public function postUpload(Request $request)
@@ -79,6 +81,7 @@ class ManualController extends Controller {
 		$id 												= $request->input('id');
 		$data 												= empty($id) ? new Manual : Manual::find($id);
 		$data->title 										= $request->input('title');
+		$data->category 									= $request->input('category');
 		$data->cn_pdf_name									= $request->input('cn_pdf_name');
 		$data->en_pdf_name									= $request->input('en_pdf_name');
 		$data->ja_pdf_name									= $request->input('ja_pdf_name');

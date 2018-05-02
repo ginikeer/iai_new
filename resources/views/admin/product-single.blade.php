@@ -68,6 +68,12 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<label for="" class="col-sm-3 control-label">产品介绍：</label>
+						<div class="col-sm-6">
+							<textarea class="form-control" rows="6" id="content" name="content" required>@if(isset($p->content)){{ Helper::brEscape($p->content) }}@endif</textarea>
+						</div>
+					</div>
+					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">产品目录：</label>
 						<div class="col-sm-3 ">
 							<input type="file" class="upload-file" />
@@ -97,7 +103,32 @@
 					</div>
 					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">相关案例：</label>
-						<div class="col-sm-7 ">
+						<div class="col-sm-2">
+							<select class="form-control" id="case-category">
+								@foreach ($category as $c)
+								<option value="{{ $c->id }}">{{ $c->title }}</option>
+								@endforeach
+							</select>
+						</div>
+						<div class="col-sm-4">
+							@for ($i = 0; $i < count($category); $i++)
+							<div class="multiple-select related-case related-case-{{ $category[$i]->id }}" @if($i != 0) style="display: none;" @endif>
+		                        <div class="select-input">{{ $related_case["cid_" . $category[$i]->id]['titles'] }}</div>
+		                        <ul class="select-list">
+		                        	@foreach ( $cases["cid_" . $category[$i]->id] as $r )
+	                        		<li>
+                        				<input name="case_select_{{ $category[$i]->id }}" data-str="{{ $r->title }}" type="checkbox" value="{{ $r->id }}"
+                        					@if(in_array($r->id, $related_case["cid_" . $category[$i]->id]['ids'])) checked @endif >
+                        				<span>{{ $r->title }}</span>
+	                        		</li>
+	                        		@endforeach
+	                        		<li>
+	                        			<div data-input-name="case_select_{{ $category[$i]->id }}" class="btn btn-success">确定</div>
+	                        			<input type="hidden" name="case_ids[]" value="{{ implode(',', $related_case['cid_' . $category[$i]->id]['ids']) }}" />
+	                        		</li>
+	                        	</ul>
+							</div>
+							@endfor
 						</div>
 					</div>
 					<div class="form-group">
@@ -144,4 +175,5 @@
 <script type="text/javascript" src="{{ asset('js/admin/single.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/admin/upload.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/admin/related-product.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/admin/related-case.js') }}"></script>
 @stop

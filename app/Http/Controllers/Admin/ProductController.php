@@ -10,6 +10,7 @@ use App\Http\Database\Product;
 use App\Http\Database\Product_Category;
 use App\Http\Database\Manual;
 use App\Http\Database\Product_Manual_Relationship;
+use App\Http\Database\Cases;
 
 use Redirect, Input, Auth, Session, DB;
 
@@ -50,9 +51,12 @@ class ProductController extends Controller {
 		$selected_manual									= array();
 		$related											= array();
 		$related_product									= array();
+		$cases												= array();
+		$related_case										= array();
 		
 		foreach($category as $c) {
 			$related["cid_" . $c->id]						= Product::getDataByCategoryId($c->id);
+			$cases["cid_" . $c->id]							= Cases::getDataByCategoryId($c->id);
 		}
 		
 		if(empty($id)) {	//新增
@@ -62,6 +66,8 @@ class ProductController extends Controller {
 			foreach($category as $c) {
 				$related_product["cid_" . $c->id]["titles"]	= "";
 				$related_product["cid_" . $c->id]["ids"]	= array();
+				$related_case["cid_" . $c->id]["titles"]	= "";
+				$related_case["cid_" . $c->id]["ids"]		= array();
 			}
 			 
 		} else {	//编辑
@@ -72,10 +78,13 @@ class ProductController extends Controller {
 			$selected_manual['titles']						= implode('，', Product_Manual_Relationship::getTitle($pid));
 			$selected_manual['ids']							= Product_Manual_Relationship::getId($pid);
 			
-			//获取相关产品
 			foreach($category as $c) {
+				//获取相关产品
 				$related_product["cid_" . $c->id]["titles"]	= Product::getRelatedByCategoryId($id, $c->id, 'title', 'string');
 				$related_product["cid_" . $c->id]["ids"]	= Product::getRelatedByCategoryId($id, $c->id, 'id', 'array');
+				//获取相关案例
+				$related_case["cid_" . $c->id]["titles"]	= Product::getCaseByCategoryId($id, $c->id, 'title', 'string');
+				$related_case["cid_" . $c->id]["ids"]		= Product::getCaseByCategoryId($id, $c->id, 'id', 'array');
 			}
 		}
 		
@@ -85,7 +94,9 @@ class ProductController extends Controller {
 			'selected_manual'								=> $selected_manual,
 			'p' 											=> $product,
 			'related'										=> $related,
-			'related_product' 								=> $related_product
+			'related_product' 								=> $related_product,
+			'cases'											=> $cases,
+			'related_case'									=> $related_case
 		]);
 	}
 	
@@ -96,6 +107,7 @@ class ProductController extends Controller {
 				$id 										= $request->input('id');
 				$manual_ids									= $request->input('manual_ids');
 				$related_ids 								= $request->input('related_ids');
+				$case_ids									= $request->input('case_ids');
 				
 				$data 										= empty($id) ? new Product : Product::find($id);
 				$data->title								= $request->input('title');
@@ -104,9 +116,10 @@ class ProductController extends Controller {
 				$data->is_new								= $request->input('is_new');
 				$data->cover_image_name						= $request->input('cover_image_name');
 				$data->image_name							= $request->input('image_name');
+				$data->content								= Helper::newlineEscape($request->input('content'));
 				$data->pdf_name								= $request->input('pdf_name');
-				//相关产品关联
-				$data->related_product_ids					= $this->handelRelatedIds($related_ids);
+				$data->related_product_ids					= $this->handelRelatedIds($related_ids);	//相关产品关联
+				$data->related_case_ids						= $this->handelRelatedIds($case_ids);	//相关案例
 				$data->save();
 				
 				$pid 										= $data->id;	//产品id
@@ -114,13 +127,9 @@ class ProductController extends Controller {
 				//使用说明关联
 				$mids 										= empty($manual_ids) ? array() : explode(',', $manual_ids);
 				Product_Manual_Relationship::updateData($pid, $mids);
-				
-				
-				
-				
 			});
 			
-			return Redirect::to($this->genUrl('admin/product/single', $request->input('id')));
+			return Redirect::to(Helper::genUrl('admin/product/single', $request->input('id')));
 		} catch (\Exception $e) {
 			print_r($e); 
 		}
@@ -152,13 +161,6 @@ class ProductController extends Controller {
 		echo json_encode($res);
 	}
 	
-	
-	private function genUrl($redirect, $id)
-	{
-		$param 												= empty($id) ? '' : '?id=' . $id;
-		
-		return $redirect . $param;
-	}
 	
 	//$arr形如：Array ( [0] => 27 [1] => [2] => [3] => 25,23,19 [4] => [5] => [6] => [7] => [8] => [9] => [10] => [11] => [12] => )
 	//拼接成字符串

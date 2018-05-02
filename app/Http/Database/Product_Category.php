@@ -12,9 +12,9 @@ class Product_Category extends Model {
 	 *
 	 * @return array
 	 */
-	static public function getAll() {
+	static public function getAll($param = array()) {
 		
-		return self::orderBy('sorting', 'asc')->get();
+		return count($param) > 0 ? self::select($param)->orderBy('sorting', 'asc')->get() : self::orderBy('sorting', 'asc')->get();
 		
 	}
 	

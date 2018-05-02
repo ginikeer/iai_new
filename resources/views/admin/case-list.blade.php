@@ -23,7 +23,7 @@
 				    <tr>
 				    	<td><span class="form-span">{{ $d->title }}</span></td>
 				    	<td><img src="{{ CASE_IMG_PATH . $d->cover_image_name }}" alt="" /></td>
-				    	<td><span class="form-span"></span></td>
+				    	<td><span class="form-span">{{ $d->str_tags }}</span></td>
 				    	<td>
 				    		<a class="btn btn-info edit" href="{{ url('admin/case/single?id=' . $d->id) }}">编辑</a>
 				    		<div class="btn btn-danger del" data-id="{{ $d->id }}">删除</div>

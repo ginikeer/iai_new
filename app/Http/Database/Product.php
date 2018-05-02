@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Http\Database\Cases;
+
 use DB;
 
 class Product extends Model {
@@ -83,6 +85,36 @@ class Product extends Model {
 			
 			$related_arr 										= explode(',', $related);
 			$res 												= self::where('category', $cid)->whereIn('id', $related_arr)
+																		->orderBy('id', 'desc')->lists($select);
+			
+			return 	$type == 'string' ? implode('，', $res) : $res;												
+			
+		} else {
+			
+			return $type == 'string' ? '' : $res;
+			
+		}
+	}
+	
+	/**
+	 * 获取单个产品某个分类下相关案例
+	 * @param $pid 产品id
+	 * @param $cid 分类id
+	 * @param $type 返回类型
+	 * 
+	 * @return strng 逗号连接的字符串
+	 * 或者
+	 * @return array 数组
+	 */
+	static public function getCaseByCategoryId($pid, $cid, $select, $type) {
+		
+		$res													= array();
+		$related 												= self::where('id', $pid)->pluck('related_case_ids');
+		
+		if( !empty($related) ) {
+			
+			$related_arr 										= explode(',', $related);
+			$res 												= Cases::where('category', $cid)->whereIn('id', $related_arr)
 																		->orderBy('id', 'desc')->lists($select);
 			
 			return 	$type == 'string' ? implode('，', $res) : $res;												

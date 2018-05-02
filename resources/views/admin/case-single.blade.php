@@ -41,17 +41,17 @@
 						<label for="" class="col-sm-3 control-label">标签：</label>
 						<div class="col-sm-3">
 							<div class="multiple-select">
-		                        <div class="select-input"></div>
+		                        <div class="select-input">{{ $selected_tag['str_titles'] }}</div>
 		                        <ul class="select-list">
-		                        	
+		                        	@foreach ( $tag as $t )
 	                        		<li>
-                        				<input name="tag_select" data-str="" type="checkbox" value="">
-                        				<span></span>
+                        				<input name="tag_select" @if(in_array($t->id, $selected_tag['arr_ids'])) checked @endif data-str="{{ $t->title }}" type="checkbox" value="{{ $t->id }}">
+                        				<span>{{ $t->title }}</span>
 	                        		</li>
-	                        		
+	                        		@endforeach
 	                        		<li>
 	                        			<div data-input-name="tag_select" class="btn btn-success">确定</div>
-	                        			<input type="hidden" name="tag_ids" value="" />
+	                        			<input type="hidden" name="tag_ids" value="{{ $case->tag_ids or '' }}" />
 	                        		</li>
 	                        	</ul>
 							</div>
@@ -88,22 +88,29 @@
 							<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
 							<input type="hidden" class="file-name" id="video_name" name="video_name" value="{{ $case->video_name or '' }}" />
 						</div>
+						@if(isset($case->video_name))
+						<div class="col-sm-12 ">
+							<div class="col-sm-offset-3">
+								<video class="col-sm-6" src="{{ CASE_VIDEO_PATH . $case->video_name }}" controls="controls"></video>
+							</div>
+						</div>
+						@endif
 					</div>
 					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">图标：</label>
 						<div class="col-sm-3">
 							<div class="multiple-select">
-		                        <div class="select-input"></div>
+		                        <div class="select-input">{{ $selected_icon['str_titles'] }}</div>
 		                        <ul class="select-list">
-		                        	
+		                        	@foreach ( $icon as $i )
 	                        		<li>
-                        				<input name="icon_select" data-str="" type="checkbox" value="">
-                        				<span></span>
+                        				<input name="icon_select" @if(in_array($i->id, $selected_icon['arr_ids'])) checked @endif data-str="{{ $i->title }}" type="checkbox" value="{{ $i->id }}">
+                        				<span>{{ $i->title }}</span>
 	                        		</li>
-	                        		
+	                        		@endforeach
 	                        		<li>
 	                        			<div data-input-name="icon_select" class="btn btn-success">确定</div>
-	                        			<input type="hidden" name="icon_ids" value="" />
+	                        			<input type="hidden" name="icon_ids" value="{{ $case->icon_ids or '' }}" />
 	                        		</li>
 	                        	</ul>
 							</div>
@@ -112,7 +119,7 @@
 					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">详细内容：</label>
 						<div class="col-sm-9">
-							 <script id="editor" type="text/plain"></script>
+							 <script id="editor" name="content" type="text/plain">{!! $case->content or '' !!}</script>
 						</div>
 					</div>
 					<div class="col-sm-12 text-right">

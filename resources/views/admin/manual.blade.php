@@ -13,29 +13,44 @@
 		 		<form action="{{ url('admin/manual/save') }}" method="post" class="form-horizontal">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 		 			<input type="hidden" id="url_file_upload" value="{{ url('admin/manual/upload') }}" />
-		 			<div class="form-group">
-						<div class="col-sm-3">
-							<input type="text" class="form-control" name="title" required placeholder="产品使用说明名称" maxlength="255">
+		 			<div class="form-group ">
+						<div class="col-sm-6">
+							<label for="" class="col-sm-3 control-label">标题：</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="title" required placeholder="产品使用说明名称" maxlength="255">
+							</div>
 						</div>
-						<div class="col-sm-3">
-							<label for="cn" class="col-sm-2 control-label">CN：</label>
-							<div class="col-sm-10">
+						<div class="col-sm-6">
+							<label for="" class="col-sm-3 control-label">分类：</label>
+							<div class="col-sm-6">
+								<select class="form-control" name="category">
+									@foreach ($category as $c)
+									<option value="{{ $c->id }}">{{ $c->title }}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group mt20">
+						<div class="col-sm-4">
+							<label for="cn" class="col-sm-3 control-label">CN文档：</label>
+							<div class="col-sm-9">
 								<input type="file" id="cn" class="upload-file" />
 								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
 								<input type="hidden" class="file-name " name="cn_pdf_name" value="" />
 							</div>
 						</div>
-						<div class="col-sm-3">
-							<label for="en" class="col-sm-2 control-label">EN：</label>
-							<div class="col-sm-10">
+						<div class="col-sm-4">
+							<label for="en" class="col-sm-3 control-label">EN文档：</label>
+							<div class="col-sm-9">
 								<input type="file" id="en" class="upload-file" />
 								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
 								<input type="hidden" class="file-name" name="en_pdf_name" value="" />
 							</div>
 						</div>
-						<div class="col-sm-3">
-							<label for="ja" class="col-sm-2 control-label">JA：</label>
-							<div class="col-sm-10">
+						<div class="col-sm-4">
+							<label for="ja" class="col-sm-3 control-label">JA文档：</label>
+							<div class="col-sm-9">
 								<input type="file" id="ja" class="upload-file" />
 								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
 								<input type="hidden" class="file-name" name="ja_pdf_name" value="" />
@@ -58,6 +73,7 @@
 				<table class="table table-bordered text-center ajax-table">
 				    <tr>
 				    	<td>名称</td>
+				    	<td>分类</td>
 				    	<td>PDF( CN )</td>
 				    	<td>PDF( EN )</td>
 				    	<td>PDF( JA )</td>
@@ -70,6 +86,13 @@
 					    	<td>
 					    		<input type="text" class="form-control table-input" required name="title" value="{{ $d->title }}" />
 					    		<span class="title-span table-span">{{ $d->title }}</span>
+					    	</td>
+					    	<td>
+					    		<select class="form-control table-select" disabled="disabled" name="category">
+					    			@foreach ($category as $c)
+									<option value="{{ $c->id }}" @if($d->category == $c->id) selected="selected" @endif>{{ $c->title }}</option>
+									@endforeach
+					    		</select>
 					    	</td>
 					    	<td>
 					    		<input type="file" class="table-input upload-file" />

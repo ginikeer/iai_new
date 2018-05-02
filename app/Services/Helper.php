@@ -2,31 +2,18 @@
 
 use Cookie, Storage;
 
-	
+//工具类
 class Helper {
 	
-	static public function hasSomething($arr)
+	//根据参数id判断url是否带参
+	static public function genUrl($redirect, $id)
 	{
-		foreach($arr as $a) {
-			if($a != "")	return true;
-		}
-		return false;
+		$param 									= empty($id) ? '' : '?id=' . $id;
+		
+		return $redirect . $param;
 	}
 	
-	static public function getMaxIndex($param)
-	{
-		$max = 0;
-		
-		if(count($param) > 0) {
-			foreach($param as $p) {
-				if($p->index >= $max) 
-					$max = $p->index;
-			}
-		}
-		
-		return $max;
-	}
-	
+	//保存数据
 	static public function tableSave($data, $param)
 	{
 		foreach($param as $k => $v) {
@@ -43,11 +30,13 @@ class Helper {
 		return str_replace("\n", "<br/>", $str);
 	}
 	
+	//将<br/>转义为换行符
 	static public function brEscape($str)
 	{
 		return str_replace("<br/>", "\n", $str);
 	}
 	
+	//删除换行
 	static public function removeNewline($str)
 	{
 		return str_replace("\x0d", "", $str);
@@ -87,8 +76,33 @@ class Helper {
 		return $code;
 	}
 	
+	//判断数组中是否至少有一项非空元素
+	static public function hasSomething($arr)
+	{
+		foreach($arr as $a) {
+			if($a != "")	return true;
+		}
+		return false;
+	}
+	
+	//获取最大值
+	static public function getMaxIndex($param)
+	{
+		$max = 0;
+		
+		if(count($param) > 0) {
+			foreach($param as $p) {
+				if($p->index >= $max) 
+					$max = $p->index;
+			}
+		}
+		
+		return $max;
+	}
+	
 	//判断传入的$content长度是否大于$length，若是则截断并加上...，否则输出原$content
-	static public function truncation($content, $length) {
+	static public function truncation($content, $length) 
+	{
 		$str = strip_tags($content);
 				
 		if(strlen($str) > $length) {
@@ -98,6 +112,9 @@ class Helper {
 		return $str;
 	}
 	
+	
+	
+	//将来源不同的文件上传至不同文件夹内
 	static public function uploadFile($request, $disk = "")
 	{
 		$res 									= array();

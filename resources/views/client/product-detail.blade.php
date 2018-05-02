@@ -25,7 +25,7 @@
 				<div class="col-lg-6">
 					<h3 class="detail-title">{{ $product->title }}</h3>
 					<p class="detail-text">
-						{!! $product->description !!}
+						{!! $product->content !!}
 					</p>
 					<div class="row row-no-offset product-detail-btn-list">
 						<div class="col-lg-4">

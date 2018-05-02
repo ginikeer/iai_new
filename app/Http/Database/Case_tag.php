@@ -4,13 +4,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use DB;
 
-class Case_logo extends Model {
-	protected $table = 'case_logo';
+class Case_tag extends Model {
+	protected $table = 'case_tag';
 	
 	protected $guarded  = ["id"];
 	
 	/**
-	 * 获取全部logo
+	 * 获取全部tag
 	 *
 	 * @return array
 	 */
@@ -20,5 +20,17 @@ class Case_logo extends Model {
 		
 	}
 	
+	/**
+	 * 根据id数组，获取对应的tag标题
+	 *
+	 * @return array
+	 */
+	static public function getTitle($arr) {
+		
+		return self::whereIn('id', $arr)
+					->orderBy('id', 'asc')
+					->lists('title');
+		
+	}
 	
 }

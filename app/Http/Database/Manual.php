@@ -14,7 +14,7 @@ class Manual extends Model {
 	 */
 	static public function getAll($param = array()) {
 		
-		return count($param) > 0 ? self::select($param)->get() : self::get();
+		return count($param) > 0 ? self::select($param)->orderBy('id', 'desc')->get() : self::orderBy('id', 'desc')->get();
 		
 	}
 }
