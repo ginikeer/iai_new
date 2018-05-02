@@ -1,4 +1,4 @@
-75/*-------------------------------------login--------------------------*/
+/*-------------------------------------login--------------------------*/
 .clear:after {
   content: "020";
   display: block;
@@ -141,6 +141,9 @@ form{
 }
 input[type=text][disabled], input[type=email][disabled], input[type=tel][disabled], input[type=password][disabled], textarea[disabled], select[disabled] {
     background-color: #F1F1F1;
+}
+.list-item-body .row .col-lg-6{
+	padding: 0;
 }
 @media screen and (max-width: 950px) {
 	#login_main{

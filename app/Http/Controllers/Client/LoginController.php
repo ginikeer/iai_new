@@ -63,5 +63,13 @@ class LoginController extends Controller {
 			'nav'											=> $this->nav
 		]);
 	}
+	
+	public function getMypage(Request $request)
+	{
+		
+		return view('client/mypage', [
+			'nav'											=> $this->nav
+		]);
+	}
 
 }
