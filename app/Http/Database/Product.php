@@ -147,4 +147,25 @@ class Product extends Model {
 		return $res;
 	}
 	
+	/**
+	 * 获取单个产品的相关案例数据
+	 * @param $id 产品id
+	 * 
+	 * @return array
+	 */
+	static public function getRelatedCase($id) {
+		
+		$res													= array();
+		$related												= self::where('id', $id)->pluck('related_case_ids');
+		
+		if( !empty($related) ) {
+			
+			$related_arr										= explode(',', $related);											
+			$res												= Cases::whereIn('id', $related_arr)
+																		->orderBy('id', 'desc')->get();
+		}
+		
+		return $res;
+	}
+	
 }

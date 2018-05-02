@@ -83,42 +83,17 @@
 				<div class="container">
 					<h4 class="product-title">产品使用案例 <i></i></h4>
 					<div class="row row-no-offset row-case case_row">
+						@foreach ($cases as $c)
 						<div class="col-lg-3">
-							<a href="javascript:;">
-								<img src="assets/images/index/case_1.jpg" />
+							<a href="">
+								<img src="{{ CASE_IMG_PATH . $c->cover_image_name }}" />
 							</a>
 							<p class="case_text">
-								<a href="##">垫片压入装置</a>
-								<span>用于在机械部件上压入垫片的装置中。</span>
+								<a href="">{{ $c->title }}</a>
+								<span>{!! $c->description !!}</span>
 							</p>
 						</div>
-						<div class="col-lg-3">
-							<a href="javascript:;">
-								<img src="assets/images/index/case_2.jpg" />
-							</a>
-							<p class="case_text">
-								<a href="##">注塑部件的装箱装置</a>
-								<span>用于注塑部件的装箱装置上。</span>
-							</p>
-						</div>
-						<div class="col-lg-3">
-							<a href="javascript:;">
-								<img src="assets/images/index/case_3.jpg" />
-							</a>
-							<p class="case_text">
-								<a href="##">汽车部件异物吸出装置</a>
-								<span>用于汽车部件中的异物吸出装置上</span>
-							</p>
-						</div>
-						<div class="col-lg-3">
-							<a href="javascript:;">
-								<img src="assets/images/index/case_4.jpg" />
-							</a>
-							<p class="case_text">
-								<a href="##">注塑部件毛边去除装置</a>
-								<span>用于汽车注塑部件毛边去除装置上</span>
-							</p>
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>

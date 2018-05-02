@@ -696,9 +696,6 @@
 	line-height: 1.5;
 	color: #333333;
 }
-.case-item,#product-case{
-	display: none;
-}
 .product-detail-btn-list .col-lg-4{
 	margin-bottom: 10px;
 }

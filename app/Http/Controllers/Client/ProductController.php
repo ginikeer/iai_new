@@ -50,7 +50,8 @@ class ProductController extends Controller {
 			'nav'											=> $this->nav,
 			'product'										=> Product::where('id', $id)->first(),
 			'manual'										=> Product_Manual_Relationship::getAll($id),
-			'related'										=> Product::getRelatedProduct($id)
+			'related'										=> Product::getRelatedProduct($id),
+			'cases'											=> Product::getRelatedCase($id)
 		]);
 	}
 	
