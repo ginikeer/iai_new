@@ -8,7 +8,7 @@
 @section('content')
 	
 
-<div class="wrap" id="case_main">
+<div class="wrap service_warp">
 	<div class="row crumb">
 		<div class="container">
 			<ul class="breadcrumb">
@@ -21,11 +21,11 @@
 	</div>
 	<div class="container">
 		<!-- InstanceBeginEditable name="main" -->
-		<div class="card color-white">
+		<div class="color-white">
 			<h1>个人信息保护方针</h1>
 			<hr>
 			<p><big>艾卫艾商贸(上海）有限公司（以下简称「IAI」），充分认识到个人信息的重要性，制定并遵守以下基本准则。</big></p>
-			<div class="row row-no-offset row-privacy">
+			<div class="row row-privacy">
 				<div class="col-lg-1">1</div><div class="col-lg-11">遵守与个人信息相关的法律及其它规范，努力并妥善保护个人信息。<br>&nbsp;</div>
 				<div class="col-lg-1">2</div><div class="col-lg-11">在收集个人的可识别信息（以下简称「个人信息」）时，要向获取个人信息的本人明确后在收集。<br>&nbsp;</div>
 				<div class="col-lg-1">3</div><div class="col-lg-11">以违法和不正当手段收集获得的个人信息，不收集、不持有也不使用。<br>&nbsp;</div>
@@ -37,7 +37,7 @@
 电子邮件 个人信息管理负责人：<a href="m&#97;il&#116;&#111;&#58;&#115;&#104;&#97;n&#103;h&#97;i&#64;&#105;&#97;i-r&#111;&#98;&#111;t&#46;&#99;om">&#115;ha&#110;gha&#105;&#64;&#105;&#97;&#105;-robot.co&#109;</a><br>&nbsp;</div>
 				<div class="col-lg-1">9</div><div class="col-lg-11">
 					<p>在本人提出对个人信息进行公开、订正、停止使用等要求时，我们将在合理的范围内及时修改，但是，需向本人确认，也有因无法得到本人确认而不能对其提出的要求作及时修改的情况。询问方法及受理窗口如下。</p>
-					<div class="row row-no-offset">
+					<div class="row">
 						<div class="col-lg-11 col-lg-offset-1">
 							<p>电子邮件<br>
 个人信息管理负责人：<a href="m&#97;il&#116;&#111;&#58;&#115;&#104;&#97;n&#103;h&#97;i&#64;&#105;&#97;i-r&#111;&#98;&#111;t&#46;&#99;om">&#115;ha&#110;gha&#105;&#64;&#105;&#97;&#105;-robot.co&#109;</a></p>

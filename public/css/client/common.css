@@ -613,3 +613,9 @@ a{
 		width: 100% !important;
 	}
 }
+
+@media screen and (max-width: 750px) {
+	.service_warp .container{
+		width: 90%;
+	}
+}
