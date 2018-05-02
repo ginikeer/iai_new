@@ -5,4 +5,6 @@ $(function(){
 	$('.media .idtab img').click(function(){
 		$(this).parents('.media').siblings('.tab-content').slideToggle();
 	});
+	
 });
+

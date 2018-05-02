@@ -111,14 +111,25 @@ ul{
 .new-table{
 	width: 100%; text-align: center;
 }
+.bass-table-B02 .product-table{
+	width: 70%;
+}
+.product-table tr td:nth-child(1){
+	width: 40%;
+}
+.product-table tr td:nth-child(2){
+	text-align: left;
+	width: 40%;
+}
+.product-table tr td:nth-child(3){
+	width: 20%;
+}
 .small-size{
 	margin: 10px 0px 30px; font-size: 80%;
 }
 #bass-content-area{
 	z-index: 0;
-}
-.content{
-	margin-bottom: 50px;
+	background: none;
 }
 .small-title{
 	margin: 0 0px 5px;
@@ -233,5 +244,8 @@ ul{
 		width: 100%;
 	    text-align: center;
 	    margin-bottom: 30px;
+	}
+	.bass-table-B02 .product-table{
+		width: 100%;
 	}
 }

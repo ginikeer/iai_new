@@ -19,143 +19,68 @@
 			</ul>
 		</div>
 	</div>
-	<div class="container">
-		<div class="row row-no-offset">
-			<div class="case_nav">
-				<ul class="case_nav_blocks clear">
-					<li class="active">
-						<a href="##">滑块型</a>
-					</li>
-					<li>
-						<a href="##">拉杆型</a>
-					</li>
-					<li>
-						<a href="##">无尘室型</a>
-					</li>
-					<li>
-						<a href="##">平台型</a>
-					</li>
-					<li>
-						<a href="##">防水防尘型</a>
-					</li>
-					<li>
-						<a href="##">夹爪型</a>
-					</li>
-					<li>
-						<a href="##">旋转型</a>
-					</li>
-					<li>
-						<a href="##">线性伺服型</a>
-					</li>
-					<li>
-						<a href="##">控制器</a>
-					</li>
-					<li>
-						<a href="##">示教器</a>
-					</li>
-					<li>
-						<a href="##">直驱马达</a>
-					</li>
-					<li>
-						<a href="##">机械手</a>
-					</li>
+	<div class="container case-detail-row">
+		<div class="row ">
+			<div class="col-lg-8">
+				<dl class="case_type">
+					<dt>行业</dt>
+					<dd>
+						<span class="case-tag-1">汽车部件</span>
+					</dd>
+					<dt>工程</dt>
+					<dd>
+						<span class="case-tag-2">定位</span>
+					</dd>
+				</dl>
+				<div class="case-text">
+					<img src="{{ asset('i/client/case/logo_01.png') }}">
+					<p class="fontBold">
+						使用电缸后省去了每个大约40万日元的力度传感器<br>
+						<strong style="font-size:160%;">降低了成本</strong>
+					</p>
+				</div>
+				<div class="case-movie">
+					<div class="case-movie-inner">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="240" height="180">
+								<param name="movie" value="{{ asset('i/client/case/10.swf') }}">
+								<param name="quality" value="high">
+								<embed src="{{ asset('i/client/case/10.swf') }}" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="240" height="180">
+							</object>
+					</div>
+				</div>
+				<ul class="case-fe-list clear">
+					<li class="fe-list-item"><i class="icon-case icon-push">推压</i></li>
+					<li class="fe-list-item"><i class="icon-case icon-location">推压</i></li>
 				</ul>
-			</div>
-		</div>
-		<div class="row row-no-offset case_row">
-			<div class="col-lg-3">
-				<a class="case_img" href="case-detail.html">
-					<img src="{{ asset('i/client/case/case_1.jpg') }}">
-				</a>
-				<div class="case_text">
-					<p>
-						<a href="case-detail.html">垫片压入装置</a>
-						<span>用于在机械部件上压入垫片的装置中。</span>
+				<div class="case-article">
+					<p>将从射出型注塑机中出来的注塑部件排放至周转箱的装置中,使用上图中的直交机械臂与夹爪型机械手。<br> 此作业以前使用6轴垂直多关节机械手，但使用垂直多关节机械手时，周转箱中的隔板位置稍有偏差，便会造成停顿。采用直交机械机械臂后,对XY方向的微调整变得简单，停顿现象也减少，提高了生产效率。另外，装置的成本也得到了降低。
 					</p>
-					<div class="case-tag">
-						<span class="case-tag-1">汽车部件</span>
-						<span class="case-tag-2">定位</span>
-					</div>
-				</div>
-				
-			</div>
-			<div class="col-lg-3">
-				<a class="case_img" href="case-detail.html">
-					<img src="{{ asset('i/client/case/case_1.jpg') }}">
-				</a>
-				<div class="case_text">
-					<p>
-						<a href="case-detail.html">注塑部件的装箱装置</a>
-						<span>用于注塑部件的装箱装置上。</span>
-					</p>
-					<div class="case-tag">
-						<span class="case-tag-1">汽车部件</span>
-						<span class="case-tag-2">定位</span>
-					</div>
-				</div>
-				
-			</div>
-			<div class="col-lg-3">
-				<a class="case_img" href="case-detail.html">
-					<img src="{{ asset('i/client/case/case_1.jpg') }}">
-				</a>
-				<div class="case_text">
-					<p>
-						<a href="case-detail.html">汽车部件异物吸出装置</a>
-						<span>用于汽车部件中的异物吸出装置上</span>
-					</p>
-					<div class="case-tag">
-						<span class="case-tag-1">汽车部件</span>
-						<span class="case-tag-2">定位</span>
-					</div>
 				</div>
 			</div>
-			<div class="col-lg-3">
-				<a class="case_img" href="case-detail.html">
-					<img src="{{ asset('i/client/case/case_1.jpg') }}">
-				</a>
-				<div class="case_text">
-					<p>
-						<a href="case-detail.html">垫片压入装置</a>
-						<span>用于在机械部件上压入垫片的装置中。</span>
-					</p>
-					<div class="case-tag">
-						<span class="case-tag-1">汽车部件</span>
-						<span class="case-tag-2">定位</span>
-					</div>
-				</div>
-				
-			</div>
-			<div class="col-lg-3">
-				<a class="case_img" href="case-detail.html">
-					<img src="{{ asset('i/client/case/case_1.jpg') }}">
-				</a>
-				<div class="case_text">
-					<p>
-						<a href="case-detail.html">注塑部件的装箱装置</a>
-						<span>用于注塑部件的装箱装置上。</span>
-					</p>
-					<div class="case-tag">
-						<span class="case-tag-1">汽车部件</span>
-						<span class="case-tag-2">定位</span>
-					</div>
-				</div>
-				
-			</div>
-			<div class="col-lg-3">
-				<a class="case_img" href="case-detail.html">
-					<img src="{{ asset('i/client/case/case_1.jpg') }}">
-				</a>
-				<div class="case_text">
-					<p>
-						<a href="case-detail.html">汽车部件异物吸出装置</a>
-						<span>用于汽车部件中的异物吸出装置上</span>
-					</p>
-					<div class="case-tag">
-						<span class="case-tag-1">汽车部件</span>
-						<span class="case-tag-2">定位</span>
-					</div>
-				</div>
+			<div class="col-lg-4">
+				<dl class="right_nav">
+					<dt>
+							<a href="##">产品使用案例</a>
+						</dt>
+					<dd class="active">
+						<a href="##">汽车部件</a>
+					</dd>
+					<dd>
+						<a href="##">电子部件</a>
+					</dd>
+					<dd>
+						<a href="##">食品·医药品</a>
+					</dd>
+					<dd>
+						<a href="##">纸·布·薄膜·线材·建材</a>
+					</dd>
+					<dd>
+						<a href="##">检查·试验</a>
+					</dd>
+					<dd>
+						<a href="##">其他</a>
+					</dd>
+				</dl>
 			</div>
 		</div>
 	</div>

@@ -33,7 +33,7 @@
 			<div class="service-list-item">
 				<div class="media">
 					<div class="media-left">
-						<a class="idtab" href="##"><img src="../../../public/i/client/service/catalog-1.jpg"></a>
+						<a class="idtab" href="##"><img src="{{ asset('i/client/service/catalog-1.jpg') }}"></a>
 					</div>
 					<div class="media-body">
 						<h4><strong>综合目录</strong></h4>
@@ -117,7 +117,7 @@
 			<div class="service-list-item">
 				<div class="media">
 					<div class="media-left">
-						<a href="#catalog-1" class="idtab"><img src="../../../public/i/client/service/catalog-2.jpg"></a>
+						<a href="#catalog-1" class="idtab"><img src="{{ asset('i/client/service/catalog-2.jpg') }}"></a>
 					</div>
 					<div class="media-body">
 						<h5><strong>电缸综合产品目录</strong></h5>
@@ -244,7 +244,7 @@
 			<div class="service-list-item">
 				<div class="media">
 					<div class="media-left">
-						<a href="#catalog-2" class="idtab"><img src="../../../public/i/client/service/catalog-3.jpg"></a>
+						<a href="#catalog-2" class="idtab"><img src="{{ asset('i/client/service/catalog-3.jpg') }}"></a>
 					</div>
 					<div class="media-body">
 						<h2>细小型电缸</h2>
