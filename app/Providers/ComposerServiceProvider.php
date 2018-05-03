@@ -23,9 +23,10 @@ class ComposerServiceProvider extends ServiceProvider {
         // 使用闭包来指定视图组件
         View::composer(['client.*'], function($view)
         {
-        	
+        	$nav 													= isset($view->nav) ? $view->nav : "";
         	
 			$view->with([
+				'nav'												=> $nav,
 				'product_category' 									=> Product_Category::getAll()
 			]);
         });

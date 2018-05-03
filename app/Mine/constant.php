@@ -1,5 +1,12 @@
 <?php
 	
+	define("USER_INFO_NOT_COMPLETED", 0);
+	define("USER_INFO_HAS_COMPLETED", 1);
+	define("USER_IS_DELETED", 2);
+	
+	
+	
+	
 	define("PER", 20);
 	
 	define("PRODUCT_IMG_PATH", '/storage/app/uploads/product/img/');
