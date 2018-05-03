@@ -8,7 +8,7 @@
 @section('content')
 	
 
-<div class="wrap" id="case_main">
+<div class="wrap service_warp">
 	<div class="row crumb">
 		<div class="container">
 			<ul class="breadcrumb">
@@ -59,9 +59,7 @@
 			</div>
 			<div class="col-lg-3">
 				<dl class="right_nav">
-					<dt>
-						<a href="##">产品使用案例</a>
-					</dt>
+					<dt>产品使用案例</dt>
 					<dd class="active">
 						<a href="##">滑块型</a>
 					</dd>

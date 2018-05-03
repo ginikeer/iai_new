@@ -9,31 +9,11 @@
   /* 触发 hasLayout */
   zoom: 1;
 }
-.service_warp{
-	padding-top: 79px;
-	margin-bottom: 50px;
+.manual-item{
+	display: none;
 }
-.service_warp .row [class*=col-]{
-	padding: 0 6px;
-}
-.service_warp .container{
-	width: 70%;
-}
-.service_warp .crumb{
-	background: #EEEEEE;
-}
-.service_warp .breadcrumb{
-	padding: 10px 0;
-}
-.service_warp .breadcrumb>li:after {
-    content: '/';
-    margin: 0 8px 0 13px;
-}
-.service_warp .breadcrumb>li a{
-	text-decoration: underline;
-}
-.service_warp .breadcrumb>li:last-child:after {
-    content: '';
+.manual-item.show{
+	display: block;
 }
 .col-lg-2-5{
 	width: 20%;
@@ -81,9 +61,13 @@ div.service-list>.service-list-item{
 .pad-top-30{
 	padding-top: 30px;
 }
+.nav-blocks>li{
+	margin-bottom: 10px;
+}
 .nav-blocks>li>a{
 	border-color: #AF1F39;
 	color: #AF1F39;
+
 }
 .nav-blocks>li.active>a, .nav-blocks>li>a:hover{
 	background: #AF1F39;

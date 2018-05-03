@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 产品使用案例 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ IAI 2017综合产品目录正式上线！@stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/news.css') }}"/>

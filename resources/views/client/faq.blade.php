@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 产品使用案例 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 常见问题 @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/service.css') }}"/>
@@ -15,7 +15,7 @@
 				<li>
 					<a href="{{ url('/') }}">首页</a>
 				</li>
-				<li>交货期查询</li>
+				<li>常见问题</li>
 			</ul>
 		</div>
 	</div>
