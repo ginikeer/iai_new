@@ -191,11 +191,11 @@
 					<a href="{{ url('/service') }}">服务</a><i></i>
 				</li>
 				<li><a href="{{ url('/news') }}">最新信息</a><i></i></li>
-				<li><a href="{{ url('/faq') }}">常见问题</a><i></i></li>
+				<li><a href="{{ url('/service/faq') }}">常见问题</a><i></i></li>
 				<li><a href="{{ url('/company') }}">公司介绍</a><i></i></li>
 				<li><a href="{{ url('/contact') }}">联系我们</a><i></i></li>
 				<li><a href="javascript:;">产品搜索</a><i></i></li>
-				<li><a href="{{ url('/privacy') }}">个人信息保护方针</a></li>
+				<li><a href="{{ url('/contact/privacy') }}">个人信息保护方针</a></li>
 			</ul>
 		</div>
 		<i class="closed_btn"></i>

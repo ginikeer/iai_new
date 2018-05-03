@@ -85,7 +85,7 @@
 					</a>
 				</div>
 				<div class="col-lg-3">
-					<a href="{{ url('/service/catalog') }}">
+					<a href="{{ url('/service/manual') }}">
 						<p>使用说明书</p>
 					</a>
 				</div>

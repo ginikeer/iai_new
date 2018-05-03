@@ -761,7 +761,7 @@
 		margin-right: 0;
 	}
 	.products-list .products-tab-item .products-items p{
-		height: 48px;
+		min-height: 48px;
 	}
 	.products-list .products-tab .tab-list-item{
 		width: 50%;

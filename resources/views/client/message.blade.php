@@ -24,7 +24,7 @@
 		<div class="color-white" id="speech">
 			<h1>致辞</h1>
 			<hr>
-			<div class="row row-no-offset">
+			<div class="row">
 				<div class="col-lg-12">
 					<h3>作为一家龙头企业，我们将迈向新的增长领域。</h3>
 					<p>“Quality and Innovation”（品质和创新）是IAI公司的声明，我们的经营理念是“提供让客户满意的商品和服务”。</p>
