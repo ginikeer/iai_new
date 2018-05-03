@@ -39,16 +39,17 @@
 	display: table-cell;
     vertical-align: top;
 }
-.news_title a{
-	font-size: 20px;
+.news_list a{
 	color: #333;
-	font-weight: 600;
-	text-decoration: none;
-	border-bottom: 1px solid transparent;
 	transition: all 0.5s;
 }
-.news_title a:hover{
-	border-color: #333333;
+.news_title a{
+	font-size: 20px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.news_list a:hover{
+	opacity: 0.7;
 }
 .news_right{
 	display: table-cell;

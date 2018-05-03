@@ -39,7 +39,7 @@
 						<h4><strong>综合目录</strong></h4>
 						<h2>2017</h2>
 						<p>各种商品按系列、类型分开放置，请选择所需要的PDF文件夹。</p>
-						<a class="catalog2017-btn" href="http://www.iai-robot.com/catalog2017/apply.php">纸质目录申请</a>
+						<a class="catalog2017-btn" href="{{url('/service/apply')}}">纸质目录申请</a>
 					</div>
 				</div>
 				<div class="tab-content" id="catalog-3">

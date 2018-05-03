@@ -1,8 +1,9 @@
 $(function(){
 	
 	sameHeight($('.col-lg-3 .case_text'));
+	sameHeight($('.col-lg-4 .case_text'));
 	
-	$('.case_nav_blocks li').click(function(){
+	$('.right_nav dd').click(function(){
 		$(this).addClass('active').siblings().removeClass('active');
 	})
 	

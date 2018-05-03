@@ -30,7 +30,7 @@ a{
 .service_warp .row [class*=col-]{
 	padding: 0 6px;
 }
-.service_warp .container,#footer .container{
+.service_warp .container{
 	width: 70%;
 }
 .service_warp .crumb{
@@ -314,35 +314,28 @@ a{
 	padding-top: 20px;
 }
 #footer .container{
+	width: 89.4%;
 	margin: 0 auto;
 	padding: 50px 0 20px;
 }
 #footer .container .footer_nav_row{
+	height: 325px;
 	position: relative;
 }
 .footer_nav_list{
 	border: none;
 }
-.footer_nav_list>li{
-	display: block;
-	text-align: left;
-	margin-bottom: 20px;
-	width: 80%;
-}
-.footer_nav_list>li.open ul{
-	display: block;
-}
 .footer_nav_list li{
 	border: none;
 	font-size: 16px;
 	line-height: 24px;
+	width: auto;
+	position: relative;
 }
 .footer_nav_list li a{
-	display: inline-block;
+	display: block;
 	padding: 0 10px;
 	color: #FFFFFF;
-	text-align: left;
-	padding: 0;
 }
 .footer_nav_list>li a:last-child{
 	padding: 0 ;
@@ -363,14 +356,14 @@ a{
 	right: 0;
 }
 .footer_nav_list li ul{
+	position: absolute;
 	width: 100%;
-	padding-left: 20px;
+	padding-left: 26%;
 	padding-top: 18px;
-	display: none;
 }
 .footer_nav_list li ul li{
 	background: url(../../i/client/common/bottom.png) no-repeat left 6px;
-	padding-left: 10px;
+	padding-left: 8%;
 }
 .footer_nav_list li ul li a{
 	text-align: left;
@@ -413,7 +406,7 @@ a{
 	height: 226px;
 	position: absolute;
 	right: 0;
-	top: 0;
+	bottom: 50px;
 }
 .footer_company .footer_company_logo{
 	background: url(../../i/client/common/footer_logo.jpg) no-repeat center top;
@@ -534,9 +527,6 @@ a{
 		height: auto;
 		margin-bottom: 0
 	}
-	.footer_nav_row .col-lg-3{
-		display: none;
-	}
 	.footer_nav_list{
 		display: none;
 	}
@@ -625,7 +615,7 @@ a{
 }
 
 @media screen and (max-width: 750px) {
-	.service_warp .container,#footer .container{
+	.service_warp .container{
 		width: 90%;
 	}
 }

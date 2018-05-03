@@ -8,7 +8,7 @@
 @section('content')
 	
 
-<div class="wrap service_warp">
+<div class="wrap" id="case_main">
 	<div class="row crumb">
 		<div class="container">
 			<ul class="breadcrumb">
@@ -21,100 +21,97 @@
 	</div>
 	<div class="container">
 		<div class="pc-only">
+			<div class="row">
+				<div class="case_nav">
+					<ul class="case_nav_blocks clear">
+						<li class="active">
+							<a href="##">滑块型</a>
+						</li>
+						<li>
+							<a href="##">拉杆型</a>
+						</li>
+						<li>
+							<a href="##">平台型</a>
+						</li>
+						<li>
+							<a href="##">线性伺服马达型</a>
+						</li>
+						<li>
+							<a href="##">直交机械手</a>
+						</li>
+						<li>
+							<a href="##">桌上型机械手</a>
+						</li>
+						<li>
+							<a href="##">水平多关节机械手</a>
+						</li>
+						<li>
+							<a href="##">伺服压力机</a>
+						</li>
+						<li>
+							<a href="##">夹爪型、旋转型</a>
+						</li>
+						<li>
+							<a href="##">无尘规格</a>
+						</li>
+						<li>
+							<a href="##">防尘・防滴规格</a>
+						</li>
+						<li>
+							<a href="##">控制器</a>
+						</li>
+						<li>
+							<a href="##">其他</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 			<div class="row case_row">
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail') }}">
-								<img src="{{ asset('i/client/case/case_1.jpg') }}">
-							</a>
-							<div class="case_text">
-								<p>
-									<a href="{{ url('/case/detail') }}">垫片压入装置</a>
-									<span>用于在机械部件上压入垫片的装置中。</span>
-								</p>
-								<div class="case-tag">
-									<span class="case-tag-1">汽车部件</span>
-									<span class="case-tag-2">定位</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail') }}">
-								<img src="{{ asset('i/client/case/case_1.jpg') }}">
-							</a>
-							<div class="case_text">
-								<p>
-									<a href="{{ url('/case/detail') }}">注塑部件的装箱装置</a>
-									<span>用于注塑部件的装箱装置上。</span>
-								</p>
-								<div class="case-tag">
-									<span class="case-tag-1">汽车部件</span>
-									<span class="case-tag-2">定位</span>
-								</div>
-							</div>
-							
-						</div>
-						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail') }}">
-								<img src="{{ asset('i/client/case/case_1.jpg') }}">
-							</a>
-							<div class="case_text">
-								<p>
-									<a href="{{ url('/case/detail') }}">汽车部件异物吸出装置</a>
-									<span>用于汽车部件中的异物吸出装置上</span>
-								</p>
-								<div class="case-tag">
-									<span class="case-tag-1">汽车部件</span>
-									<span class="case-tag-2">定位</span>
-								</div>
-							</div>
+				<div class="col-lg-3">
+					<a class="case_img" href="{{ url('/case/detail') }}">
+						<img src="{{ asset('i/client/case/case_1.jpg') }}">
+					</a>
+					<div class="case_text">
+						<p>
+							<a href="{{ url('/case/detail') }}">垫片压入装置</a>
+							<span>用于在机械部件上压入垫片的装置中。</span>
+						</p>
+						<div class="case-tag">
+							<span class="case-tag-1">汽车部件</span>
+							<span class="case-tag-2">定位</span>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3">
-					<dl class="right_nav">
-						<dt>产品使用案例</dt>
-						<dd class="active">
-							<a href="##">滑块型</a>
-						</dd>
-						<dd>
-							<a href="##">拉杆型</a>
-						</dd>
-						<dd>
-							<a href="##">平台型</a>
-						</dd>
-						<dd>
-							<a href="##">线性伺服马达型</a>
-						</dd>
-						<dd>
-							<a href="##">直交机械手</a>
-						</dd>
-						<dd>
-							<a href="##">桌上型机械手</a>
-						</dd>
-						<dd>
-							<a href="##">水平多关节机械手</a>
-						</dd>
-						<dd>
-							<a href="##">伺服压力机</a>
-						</dd>
-						<dd>
-							<a href="##">夹爪型、旋转型</a>
-						</dd>
-						<dd>
-							<a href="##">无尘规格</a>
-						</dd>
-						<dd>
-							<a href="##">防尘・防滴规格</a>
-						</dd>
-						<dd>
-							<a href="##">控制器</a>
-						</dd>
-						<dd>
-							<a href="##">其他</a>
-						</dd>
-					</dl>
+					<a class="case_img" href="{{ url('/case/detail') }}">
+						<img src="{{ asset('i/client/case/case_1.jpg') }}">
+					</a>
+					<div class="case_text">
+						<p>
+							<a href="{{ url('/case/detail') }}">注塑部件的装箱装置</a>
+							<span>用于注塑部件的装箱装置上。</span>
+						</p>
+						<div class="case-tag">
+							<span class="case-tag-1">汽车部件</span>
+							<span class="case-tag-2">定位</span>
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-lg-3">
+					<a class="case_img" href="{{ url('/case/detail') }}">
+						<img src="{{ asset('i/client/case/case_1.jpg') }}">
+					</a>
+					<div class="case_text">
+						<p>
+							<a href="{{ url('/case/detail') }}">汽车部件异物吸出装置</a>
+							<span>用于汽车部件中的异物吸出装置上</span>
+						</p>
+						<div class="case-tag">
+							<span class="case-tag-1">汽车部件</span>
+							<span class="case-tag-2">定位</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

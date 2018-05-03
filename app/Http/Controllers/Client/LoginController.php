@@ -71,5 +71,29 @@ class LoginController extends Controller {
 			'nav'											=> $this->nav
 		]);
 	}
+	
+	public function getPwdchange(Request $request)
+	{
+		
+		return view('client/pwd-change', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
+	public function getSecession(Request $request)
+	{
+		
+		return view('client/secession', [
+			'nav'											=> $this->nav
+		]);
+	}
+	
+	public function getSecessioncomplete(Request $request)
+	{
+		
+		return view('client/secession-complete', [
+			'nav'											=> $this->nav
+		]);
+	}
 
 }

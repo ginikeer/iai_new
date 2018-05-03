@@ -97,6 +97,17 @@ form{
 	font-weight: 600;
 	border: none;
 }
+.mypage-btn-row .login-btn{
+	margin-top: 0;
+}
+.login-btn .btn-mypage{
+	height: 40px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 40px;
+	display: inline-block;
+	width: 200px;
+}
 .forget-password{
 	text-align: right;
 }
@@ -186,5 +197,32 @@ input[type=text][disabled], input[type=email][disabled], input[type=tel][disable
 	.login-btn input,.login-btn .complete-btn{
 		display: inline-block;
 		width: 120px;
+	}
+	
+	.mypage-row .col-lg-8{
+		width: 100%;
+	}
+	.mypage-row .col-lg-offset-2{
+		margin-left: 0;
+	}
+	.mypage-row .list-lined>.list-item{
+		display: block;
+	}
+	.mypage-row .list-lined>.list-item>.list-item-header{
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.mypage-row .list-lined>.list-item>.list-item-body{
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.mypage-row .list-item-body .row .col-lg-6{
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.login-btn .btn-mypage{
+		width: 92px;
 	}
 }

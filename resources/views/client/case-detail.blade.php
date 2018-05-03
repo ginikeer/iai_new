@@ -21,7 +21,7 @@
 	</div>
 	<div class="container case-detail-row">
 		<div class="row ">
-			<div class="col-lg-8">
+			<div class="col-lg-9">
 				<dl class="case_type">
 					<dt>行业</dt>
 					<dd>
@@ -57,25 +57,46 @@
 					</p>
 				</div>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<dl class="right_nav">
 					<dt>
-							<a href="##">产品使用案例</a>
-						</dt>
+						<a href="##">产品使用案例</a>
+					</dt>
 					<dd class="active">
-						<a href="##">汽车部件</a>
+						<a href="##">滑块型</a>
 					</dd>
 					<dd>
-						<a href="##">电子部件</a>
+						<a href="##">拉杆型</a>
 					</dd>
 					<dd>
-						<a href="##">食品·医药品</a>
+						<a href="##">平台型</a>
 					</dd>
 					<dd>
-						<a href="##">纸·布·薄膜·线材·建材</a>
+						<a href="##">线性伺服马达型</a>
 					</dd>
 					<dd>
-						<a href="##">检查·试验</a>
+						<a href="##">直交机械手</a>
+					</dd>
+					<dd>
+						<a href="##">桌上型机械手</a>
+					</dd>
+					<dd>
+						<a href="##">水平多关节机械手</a>
+					</dd>
+					<dd>
+						<a href="##">伺服压力机</a>
+					</dd>
+					<dd>
+						<a href="##">夹爪型、旋转型</a>
+					</dd>
+					<dd>
+						<a href="##">无尘规格</a>
+					</dd>
+					<dd>
+						<a href="##">防尘・防滴规格</a>
+					</dd>
+					<dd>
+						<a href="##">控制器</a>
 					</dd>
 					<dd>
 						<a href="##">其他</a>

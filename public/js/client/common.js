@@ -22,11 +22,13 @@ $(function() {
 	//	产品介绍子菜单
 	subMenu($('.product_info'));
 	
-//	产品使用案例子菜单
+//	下载子菜单
 	subMenu($('.download_info'));
 	
-//	下载子菜单
-	subMenu($('.cases_info'));
+	
+	$('.footer_nav_list>li').click(function(){
+		$(this).toggleClass('active');
+	});
 	
 	$("img:last").hide();
 });

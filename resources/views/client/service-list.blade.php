@@ -22,19 +22,11 @@
 	<div class="container">
 		<div class="row service-row">
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service/testmachine') }}">
+				<a href="{{ url('/service/catalog') }}">
 					<div class="service-img">
-						<img src="{{ asset('i/client/service/service-1.png') }}" />
+						<img src="{{ asset('i/client/service/service-4.png') }}" />
 					</div>
-					<h4>快速试机指南</h4>
-				</a>
-			</div>
-			<div class="col-lg-2-5">
-				<a href="{{ url('/service/guide') }}">
-					<div class="service-img">
-						<img src="{{ asset('i/client/service/service-2.png') }}" />
-					</div>
-					<h4>初次操作指南</h4>
+					<h4>综合产品目录</h4>
 				</a>
 			</div>
 			<div class="col-lg-2-5">
@@ -46,11 +38,27 @@
 				</a>
 			</div>
 			<div class="col-lg-2-5">
-				<a href="{{ url('/service/catalog') }}">
+				<a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai">
 					<div class="service-img">
-						<img src="{{ asset('i/client/service/service-4.png') }}" />
+						<img src="{{ asset('i/client/service/service-1.png') }}" />
 					</div>
-					<h4>产品目录</h4>
+					<h4>CAD图纸</h4>
+				</a>
+			</div>
+			<div class="col-lg-2-5">
+				<a href="{{ url('/service/faq') }}">
+					<div class="service-img">
+						<img src="{{ asset('i/client/service/service-2.png') }}" />
+					</div>
+					<h4>常见问题</h4>
+				</a>
+			</div>
+			<div class="col-lg-2-5">
+				<a href="{{ url('/service/delivery') }}">
+					<div class="service-img">
+						<img src="{{ asset('i/client/service/service-2.png') }}" />
+					</div>
+					<h4>交货期查询</h4>
 				</a>
 			</div>
 			<div class="col-lg-2-5">

@@ -23,8 +23,8 @@
 		<div class="color-white">
 			<h1>我的页面</h1>
 			<hr>
-            <form name="inputForm" method="post" action="post.php">
-			<div class="row">
+            <form name="inputForm" method="post" action="">
+			<div class="row mypage-row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="list-lined">
 						<div class="list-item">
@@ -41,7 +41,7 @@
 										a1*****
 									</div>
 									<div class="col-lg-6">
-										<a href="pwd_change.php" class="btn btn-red btn-xs last-child">变更密码</a>
+										<a href="{{url('/login/pwdchange')}}" class="btn btn-red btn-xs last-child">变更密码</a>
 									</div>
 								</div>
 							</div>
@@ -135,15 +135,15 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mypage-btn-row">
 				<div class="col-lg-4 col-lg-offset-2">
-					<p class="text-center">
-						<button type="submit" class="btn btn-red btn-lg" onClick="javascript:if(confirm('确定保存信息吗?')) return true; else return false;">保存更改</button>
+					<p class="text-center login-btn">
+						<button type="submit" class="btn btn-red btn-mypage" onClick="javascript:if(confirm('确定保存信息吗?')) return true; else return false;">保存更改</button>
 					</p>
 				</div>
 				<div class="col-lg-4">
-					<p class="text-center">
-						<a href="secession.php" class="btn btn-gray btn-lg">退会</a>
+					<p class="text-center login-btn">
+						<a href="{{url('login/secession')}}" class="btn btn-mypage btn-gray">退会</a>
 					</p>
 				</div>
 			</div>

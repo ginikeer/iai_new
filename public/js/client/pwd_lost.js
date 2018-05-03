@@ -78,4 +78,5 @@ $(function(){
 			window.location.href = $('#send-new-link').val();
 		}
 	});
+	
 });

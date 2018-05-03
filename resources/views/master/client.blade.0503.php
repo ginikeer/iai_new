@@ -55,6 +55,18 @@
 					</li>
 					<li>
 						<a href="{{ url('/case') }}" class="cases_info @if($nav == 'case') active @endif">产品使用案例<i></i></a>
+						<div class="wrap sub_nav" id="cases_nav">
+							<div class="container">
+								<ul class="nav nav-primary nav_list">
+									<li><a href="/cases/index.html">汽车部件</a></li>
+									<li><a href="/cases/electronics.html">电子部件</a></li>
+									<li><a href="/cases/foodmedicine.html">食品·医药品</a></li>
+									<li><a href="/cases/materials.html">纸·布·薄膜·线材·建材</a></li>
+									<li><a href="/cases/inspection.html">检查·试验</a></li>
+									<li><a href="/cases/others.html">其他</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
 					<li>
 						<a href="{{ url('/service') }}" class="download_info @if($nav == 'service') active @endif">服务<i></i></a>
@@ -88,63 +100,46 @@
 	<div class="wrap" id="footer">
 		<div class="container">
 			<div class="row footer_nav_row">
-				<div class="col-lg-3">
-					<ul class="nav nav-primary footer_nav footer_nav_list">
-						<li><a href="{{ url('/') }}">首页</a></li>
-						<li><a href="{{ url('/case') }}">产品使用案例</a>
-							<ul class="list-text cases_list_text">
-								<li><a href="/cases/index.html"><small>汽车部件</small></a></li>
-								<li><a href="/cases/electronics.html"><small>电子部件</small></a></li>
-								<li><a href="/cases/foodmedicine.html"><small>食品·医药品</small></a></li>
-								<li><a href="/cases/materials.html"><small>纸·布·薄膜·线材·建材</small></a></li>
-								<li><a href="/cases/inspection.html"><small>检查·试验</small></a></li>
-								<li><a href="/cases/others.html"><small>其他</small></a></li>
-							</ul>
-						</li>
-						<li><a href="{{ url('/service') }}">服务</a>
-							<ul class="list-text">
-								<li><a href="{{ url('/service/catalog') }}"><small>综合产品目录</small></a></li>
-								<li><a href="{{ url('/service/manual') }}"><small>使用说明书</small></a></li>
-								<li><a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai"><small>CAD图纸</small></a></li>
-								<li><a href="{{ url('/service/faq') }}"><small>常见问题</small></a></li>
-								<li><a href="{{ url('/service/delivery') }}"><small>交货期查询</small></a></li>
-								<li><a href="{{ url('/service/settings') }}"><small>现场网络文件</small></a></li>
-								<li><a href="{{ url('/service/versionhistory') }}"><small>示教器履历</small></a></li>
-								<li><a href="{{ url('/service/others') }}"><small>其他公司相关</small></a></li>
-							</ul>
-						</li>
-						<li><a href="{{ url('/company') }}">公司介绍</a>
-							<ul class="list-text cases_list_text">
-								<li><a href="{{url('/company/profile')}}"><small>公司概要</small></a></li>
-								<li><a href="{{ url('/company/message') }}"><small>致辞</small></a></li>
-								<li><a href="{{ url('/company/history') }}"><small>沿革</small></a></li>
-							</ul>
-						</li>
-						<li><a href="{{ url('/contact/privacy') }}">个人信息保护方针</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3">
-					<ul class="nav nav-primary footer_nav footer_nav_list">
-						<li class="foot-nav-sp"><a href="{{ url('/product') }}">产品</a>
-							<ul class="list-text">
-								@foreach ($product_category as $c)
-								<li><a href="{{ url('/product?category=' . $c->alias) }}"><small>{{ $c->title }}</small></a></li>
-								@endforeach
-							</ul>
-						</li>
-						<li><a href="##">会员</a>
-							<ul class="list-text cases_list_text">
-								<li><a href="{{url('/login')}}"><small>会员登陆</small></a></li>
-								<li><a href="{{ url('/regist') }}"><small>会员注册</small></a></li>
-								<li><a href="{{ url('/login/mapage') }}"><small>我的页面</small></a></li>
-							</ul>
-						</li>
-						<li><a href="{{ url('/contact') }}">联系我们</a></li>
-						<li><a href="{{ url('/news') }}">最新信息</a></li>
-						<li><a href="{{ url('/faq') }}">常见问题</a></li>
-					</ul>
-				</div>
-				
+				<ul class="nav nav-primary footer_nav footer_nav_list">
+					<li><a href="{{ url('/') }}">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a><i></i></li>
+					<li class="foot-nav-sp">
+						<a href="{{ url('/product') }}">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品</a><i></i>
+						<ul class="list-text">
+							@foreach ($product_category as $c)
+							<li><a href="{{ url('/product?category=' . $c->alias) }}"><small>{{ $c->title }}</small></a></li>
+							@endforeach
+						</ul>
+					</li>
+					<li>
+						<a href="{{ url('/case') }}">产品使用案例</a><i></i>
+						<ul class="list-text cases_list_text">
+							<li><a href="/cases/index.html"><small>汽车部件</small></a></li>
+							<li><a href="/cases/electronics.html"><small>电子部件</small></a></li>
+							<li><a href="/cases/foodmedicine.html"><small>食品·医药品</small></a></li>
+							<li><a href="/cases/materials.html"><small>纸·布·薄膜·线材·建材</small></a></li>
+							<li><a href="/cases/inspection.html"><small>检查·试验</small></a></li>
+							<li><a href="/cases/others.html"><small>其他</small></a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="{{ url('/service') }}">服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务</a><i></i>
+						<ul class="list-text">
+							<li><a href="{{ url('/service/catalog') }}"><small>综合产品目录</small></a></li>
+							<li><a href="{{ url('/service/manual') }}"><small>使用说明书</small></a></li>
+							<li><a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai"><small>CAD图纸</small></a></li>
+							<li><a href="{{ url('/service/faq') }}"><small>常见问题</small></a></li>
+							<li><a href="{{ url('/service/delivery') }}"><small>交货期查询</small></a></li>
+							<li><a href="{{ url('/service/settings') }}"><small>现场网络文件</small></a></li>
+							<li><a href="{{ url('/service/versionhistory') }}"><small>示教器履历</small></a></li>
+							<li><a href="{{ url('/service/others') }}"><small>其他公司相关</small></a></li>
+						</ul>
+					</li>
+					<li><a href="{{ url('/news') }}">最新信息</a><i></i></li>
+					<li><a href="{{ url('/faq') }}">常见问题</a><i></i></li>
+					<li><a href="{{ url('/company') }}">公司介绍</a><i></i></li>
+					<li><a href="{{ url('/contact') }}">联系我们</a><i></i></li>
+					<li><a href="{{ url('/contact/privacy') }}">个人信息保护方针</a></li>
+				</ul>
 				<div class="footer_company">
 					<div class="footer_company_logo"></div>
 					<p class="footer_company_text pc_tel">上海总公司&nbsp;&nbsp;&nbsp;&nbsp;021-6448-4753</p>
