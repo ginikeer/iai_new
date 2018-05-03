@@ -26,13 +26,7 @@ class LoginController extends Controller {
 		$this->nav											= 'login';
 	}
 
-	public function getIndex(Request $request)
-	{
-		
-		return view('client/login', [
-			'nav'											=> $this->nav
-		]);
-	}
+	
 	
 	public function getDetail($id)
 	{
@@ -40,13 +34,7 @@ class LoginController extends Controller {
 		
 	}
 	
-	public function getForgetpassword(Request $request)
-	{
-		
-		return view('client/forget-password', [
-			'nav'											=> $this->nav
-		]);
-	}
+	
 	
 	public function getPwdlost(Request $request)
 	{

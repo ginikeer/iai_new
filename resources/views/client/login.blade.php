@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 产品使用案例 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 登陆  @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/login.css') }}"/>
@@ -21,21 +21,20 @@
 	</div>
 	<div class="login-content">
 		<h2>会员登陆</h2>
-		<form>
+		<form id="form-login" action="{{ url('auth/login') }}" method="post">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 			<div class="login-form">
 				<div class="form-item user-name">
 					<label></label>
-					<input type="email" name="email" required id="email" />
+					<input type="text" name="email" id="email" />
 				</div>
 				<div class="form-item password">
 					<label></label>
-					<input type="password" name="password" required id="password" />
+					<input type="password" name="password" id="password" />
 				</div>
-				<div class="form-item" id="error-text">
-					<p class="text-red">请输入正确的邮箱地址和密码</p>
-				</div>
+				<p class="text-red error">{{ $error or '' }}</p>
 				<div class="forget-password">
-					<a href="{{ url('/login/forgetpassword') }}">忘记登陆密码？</a>
+					<a href="{{ url('/auth/forget') }}">忘记登陆密码？</a>
 				</div>
 				<div class="login-btn">
 					<input type="submit" id="login-btn" value=" 登 陆 " />
