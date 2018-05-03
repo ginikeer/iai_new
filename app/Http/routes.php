@@ -28,6 +28,6 @@ Route::controller('/admin/case', 'Admin\CaseController');
 
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
+	'auth' => 'Auth\ClientAuthController',
 	'password' => 'Auth\PasswordController',
 ]);

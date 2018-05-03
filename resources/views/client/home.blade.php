@@ -59,124 +59,17 @@
 						</p>
 					</a>
 				</div>
+				@foreach ($category as $c)
 				<div class="col-lg-2 mian_product_list">
 					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=slider') }}">
+					<a href="{{ url('/product?category=' . $c->alias) }}">
 						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_1.jpg') }}" />
+							<img src="{{ asset('i/client/home/category_' . $c->alias . '.jpg') }}" />
 						</p>
-						<p class="case-description">滑块型</p>
+						<p class="case-description">{{ $c->title }}</p>
 					</a>
 				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=rod') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_2.jpg') }}" />
-						</p>
-						<p class="case-description">拉杆型</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=table') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_3.jpg') }}" />
-						</p>
-						<p class="case-description">平台型</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=linear') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_4.jpg') }}" />
-						</p>
-						<p class="case-description">线性伺服马达型</p>
-					</a>
-				</div>
-				
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=manipulator') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_5.jpg') }}" />
-						</p>
-						<p class="case-description">直交机械手</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=table_manipulator') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_6.jpg') }}" />
-						</p> 
-						<p class="case-description">桌上型机械手</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=multi_joint_manipulator') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_7.jpg') }}" />
-						</p>
-						<p class="case-description">水平多关节机械手</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=press') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_8.jpg') }}" />
-						</p>
-						<p class="case-description">伺服压力机</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=gripper_rotary') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_8.jpg') }}" />
-						</p>
-						<p class="case-description">夹爪型、旋转型</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=cleanroom') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_9.jpg') }}" />
-						</p>
-						<p class="case-description">无尘规格</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=waterproof') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_10.jpg') }}" />
-						</p>
-						<p class="case-description">防尘・防滴规格</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=controller') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_11.jpg') }}" />
-						</p>
-						<p class="case-description">控制器</p>
-					</a>
-				</div>
-				<div class="col-lg-2 mian_product_list">
-					<div class="hover-bg"></div>
-					<a href="{{ url('/product?category=other') }}">
-						<p class="case-cover">
-							<img src="{{ asset('i/client/home/product_category_12.jpg') }}" />
-						</p>
-						<p class="case-description">其他</p>
-					</a>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div><!-- #mian_product -->

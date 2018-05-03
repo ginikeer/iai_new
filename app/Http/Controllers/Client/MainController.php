@@ -4,6 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Http\Database\Product_Category;
+
 class MainController extends Controller {
 
 	public $nav;
@@ -27,8 +29,11 @@ class MainController extends Controller {
 	{
 		
 		
+		
+		
 		return view('client/home', [
-			'nav'										=> $this->nav
+			'nav'										=> $this->nav,
+			'category'									=> Product_Category::getAll()
 		]);
 	}
 
