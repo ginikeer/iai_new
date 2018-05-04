@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 致辞 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 沿革 @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/company.css') }}"/>
@@ -15,7 +15,7 @@
 				<li>
 					<a href="{{ url('/') }}">首页</a>
 				</li>
-				<li>联系我们</li>
+				<li>沿革</li>
 			</ul>
 		</div>
 	</div>

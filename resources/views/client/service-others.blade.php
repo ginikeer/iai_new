@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 产品使用案例 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 和其他公司产品连接•通信的相关信息 @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/service.css') }}"/>

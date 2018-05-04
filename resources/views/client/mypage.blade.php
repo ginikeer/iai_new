@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 致辞 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 我的页面 @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/login.css') }}"/>
