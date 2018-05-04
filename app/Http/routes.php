@@ -25,6 +25,7 @@ Route::get('/admin', 'Admin\ProductController@getIndex');
 Route::controller('/admin/product', 'Admin\ProductController');
 Route::controller('/admin/manual', 'Admin\ManualController');
 Route::controller('/admin/case', 'Admin\CaseController');
+Route::controller('/admin/user', 'Admin\UserController');
 
 
 Route::controllers([

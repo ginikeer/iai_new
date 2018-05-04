@@ -33,7 +33,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('/admin/home') }}">首页</a>
+				<a class="navbar-brand" href="{{ url('admin/home') }}">首页</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,10 +67,23 @@
 							</li>
 						</ul>
 					</li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+							会员管理 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="{{ url('admin/user/list') }}">会员列表</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/user/single') }}">会员新增</a>
+							</li>
+						</ul>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{{ url('/admin/auth/logout') }}">注销</a></li>
+					<li><a href="{{ url('admin/auth/logout') }}">注销</a></li>
 				</ul>
 			</div>
 		</div>

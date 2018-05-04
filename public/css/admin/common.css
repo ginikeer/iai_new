@@ -180,6 +180,15 @@ select[multiple].form-multiple-select{
 .tr-bg-refuse{
 	background: rgba(153,51,51,0.3);
 }
+.font-success{
+	color: #5cb85c;
+}
+.font-danger{
+	color: #c9302c;
+}
+.font-warning{
+	color: #d58512;
+}
 
 /* ajax-table */
 .ajax-table .confirm, .ajax-table .cancel, .ajax-table .table-input{

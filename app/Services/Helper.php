@@ -24,22 +24,43 @@ class Helper {
 		return $data->id;
 	}
 	
+	static public function removeFromAll($remove, $all)
+	{
+		foreach($remove as $r) {
+			unset($all[$r]);
+		}
+		
+		return $all;
+	}
+	
 	//将换行符转义为<br/>
 	static public function newlineEscape($str)
 	{
-		return str_replace("\n", "<br/>", $str);
+		if(stripos($str, "\n") !== false) {
+			return str_replace("\n", "<br/>", $str);
+		} else {
+			return $str;
+		}
 	}
 	
 	//将<br/>转义为换行符
 	static public function brEscape($str)
 	{
-		return str_replace("<br/>", "\n", $str);
+		if(stripos($str, "<br/>") !== false) {
+			return str_replace("<br/>", "\n", $str);
+		} else {
+			return $str;
+		}
 	}
 	
 	//删除换行
 	static public function removeNewline($str)
 	{
-		return str_replace("\x0d", "", $str);
+		if(stripos($str, "\x0d") !== false) {
+			return str_replace("\x0d", "", $str);
+		} else {
+			return $str;
+		}
 	}
 	
 	//将字符串根据<br/>分隔成数组

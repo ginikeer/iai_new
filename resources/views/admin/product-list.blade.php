@@ -7,7 +7,7 @@
 @extends('master/admin')
 
 @section('content')
-	<div class="">
+	<div class="main-container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">产品列表</div>
 		 	<div class="panel-body">

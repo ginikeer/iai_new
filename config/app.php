@@ -146,6 +146,8 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\ComposerServiceProvider',
 		
+		'Maatwebsite\Excel\ExcelServiceProvider',
+		
 	],
 
 	/*
@@ -195,6 +197,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		
 		'Helper'	=> 'App\Services\Helper',
+		
+		'Excel' 	=> 'Maatwebsite\Excel\Facades\Excel',
 
 	],
 

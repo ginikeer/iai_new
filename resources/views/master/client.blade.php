@@ -24,7 +24,7 @@
 				<a href="{{ url('/') }}"><img src="{{ asset('i/client/common/logo.png') }}" /></a>
 			</div>
 			<div class="col-lg-1 header_right">
-				<a href="{{ url('/login') }}" class="btn btn_login"><i class="icon login-icon"></i><span>登陆</span></a><a class="btn btn_login btn_weixin"><i class="icon weixin-icon"></i><span>微信</span><img class="weixin-img" src="{{ asset('i/client/common/QR-code.jpg') }}"></a>
+				<a href="{{ url('auth/login') }}" class="btn btn_login"><i class="icon login-icon"></i><span>登陆</span></a><a class="btn btn_login btn_weixin"><i class="icon weixin-icon"></i><span>微信</span><img class="weixin-img" src="{{ asset('i/client/common/QR-code.jpg') }}"></a>
 			</div>
 			<div class="col-lg-7 header_nav">
 				<ul class="nav nav-primary header_nav_list">
@@ -134,7 +134,7 @@
 						</li>
 						<li><a href="##">会员</a>
 							<ul class="list-text cases_list_text">
-								<li><a href="{{url('/login')}}"><small>会员登陆</small></a></li>
+								<li><a href="{{ url('/auth/login') }}"><small>会员登陆</small></a></li>
 								<li><a href="{{ url('/regist') }}"><small>会员注册</small></a></li>
 								<li><a href="{{ url('/login/mapage') }}"><small>我的页面</small></a></li>
 							</ul>
@@ -184,7 +184,7 @@
 	<div class="sp_menu">
 		<div class="row footer_nav_row">
 			<ul class="nav nav-primary footer_nav footer_nav_list">
-				<li><a href="{{ url('/login') }}">登录</a><i></i></li>
+				<li><a href="{{ url('auth/login') }}">登录</a><i></i></li>
 				<li><a href="{{ url('/') }}">首页</a><i></i></li>
 				<li>
 					<a href="{{ url('/product') }}">产品</a><i></i>
