@@ -36,7 +36,7 @@
 		<form>
 			<div class="login-form">
 				<div class="login-btn">
-					<a href="{{ url('/login') }}" class="complete-btn"> 登 陆 </a>
+					<a href="{{ url('/auth/login') }}" class="complete-btn"> 登 陆 </a>
 					<!--<input type="submit" class="regist-btn" value=" 登 陆 " />-->
 				</div>
 			</div>
@@ -50,5 +50,4 @@
 @endsection
 
 @section('script')
-<script type="text/javascript" src="{{ asset('js/client/member.js') }}"></script>
 @stop

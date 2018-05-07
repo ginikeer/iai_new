@@ -41,6 +41,7 @@ function checkNull() {
 	 	if( $(this).val() == "" ) {
 	 		$(this).parent("div").siblings("div").children(".error-null").show();
 	 		flag = false;
+	 		return false;
 	 	}
 	});
 	

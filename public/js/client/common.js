@@ -81,6 +81,63 @@ function sameHeightOnly(obj){
 	});
 }
 
+//判断所有必选项是否都填写
+function checkNullAll() {
+	$(".error-null").hide();
+	var flag = true;
+	
+	$(".required-item").each(function() {
+	 	if( $(this).val() == "" ) {
+	 		$(this).parents('.form-item').next('.error-null').show();
+	 		flag = false;
+	 	}
+	});
+	
+	return flag;
+}
+
+//判断手机格式是否正确
+function checkTelFormat(tel, _error) {
+	$(_error).hide();
+	
+	if(tel != "") {
+		var regPhone = /^(1\d{10})|\d{7,8}$/;
+		var regTel = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;
+		
+		if( !regPhone.test(tel) && !regTel.test(tel)) {
+			$(_error).show();
+			return false;
+        } else {
+       		return true;
+        }
+	} else {
+		return false;
+	}
+}
+
+//判断密码是否至少4位
+function checkPwdLength(pwd, _error) {
+	$(_error).hide();
+	
+	if(pwd.length < 4) {
+		$(_error).show();
+		return false;
+	} else {
+		return true;
+	}
+}
+
+//判断两次输入的密码是否一致
+function checkPwdSame(pwd, again, _error) {
+	$(_error).hide();
+	
+	if(pwd != again){
+		$(_error).show();
+		return false;
+	} else {
+		return true;
+	}
+}
 
 function brEscape(str) {
 	return str.replace(/<br\/>/g, "\n");

@@ -88,4 +88,15 @@ class User extends Model {
 		
 	}
 	
+	/**
+	 * 根据key和email获取id，主要是验证key和email是否一致
+	 *
+	 * @return int
+	 */
+	static public function getIdByKeyAndEmail($key, $email) {
+		
+		return self::where('reg_key', $key)->where('email', $email)->pluck('id');
+		
+	}
+	
 }

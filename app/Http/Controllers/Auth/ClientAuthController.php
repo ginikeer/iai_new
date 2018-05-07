@@ -41,7 +41,7 @@ class ClientAuthController extends Controller {
 			if( User::isVaild($user->id) ) {	//用户有效
 				Cookie::queue('iai_user_token', $user->id, 60 * 24 * 7);
 				
-				return Redirect::back();
+				return redirect('/product');
 			} else {	//用户已退会
 				return view('client/login', ['error' => '您的账号已退会，请注册新的账号！']);
 			}
@@ -62,20 +62,20 @@ class ClientAuthController extends Controller {
 		return view('client/forget-password');
 	}
 	
+	//注册邮箱填写
 	public function getRegister(Request $request)
 	{
-		return view('client/regist');
+		return view('client/register-email');
 	}
 	
+	//检查邮箱是否存在，生成临时用户，发送邮件
 	public function postCheckEmail(Request $request)
 	{
 		$email												= $request->input('email');
 		$key												= Helper::generateUnique();
 		
-		if( User::isExist($email) ) {
-			
+		if( User::isExist('email', $email) ) {
 			echo '该邮箱已经被使用，请换个邮箱！';
-			
 		} else {
 			//生成未认证的账户
 			if( ! User::genAccount($email, $key) ) {
@@ -87,7 +87,7 @@ class ClientAuthController extends Controller {
 				$url										= url('/auth/input?key=' . $key);
 				
 				//发送邮件
-				Mail::send('emails.register', ['email' => $email, 'url' => $url], function($message) {
+				Mail::send('emails.register', ['email' => $email, 'url' => $url], function($message) use ($email) {
 				    $message->to($email)->subject('艾卫艾商贸(上海)有限公司- 会员注册邮箱认证');
 				});
 				
@@ -98,69 +98,49 @@ class ClientAuthController extends Controller {
 		}
 	}
 	
+	//注册信息填写页面
 	public function getInput(Request $request)
 	{
 		$key												= $request->input('key');
 		$email												= User::getEmailByKey($key);
 		
-		return view('client/regist', ['email' => $email, 'key' => $key]);
+		if(empty($key) || empty($email)) {	//key或者邮箱为空说明不是从邮箱过来的，或者修改了key值
+			return redirect('/auth/register');
+		} else {
+			return view('client/register-input', [
+				'email' 									=> $email, 
+				'key' 										=> $key,
+				'prov'										=> Users::getProv()
+			]);
+		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	//处理注册逻辑，发送注册成功邮件
 	public function postRegister(Request $request)
 	{
-		$error = DB::transaction(function($request) use ($request) 
-		{
-			$error = "";
+		$key 												= $request->input('reg_key');
+		$email												= $request->input('email');
+		$id													= User::getIdByKeyAndEmail($key, $email);
 		
-			$name = $request->input('reg-name');
-			$sex = $request->input('reg-sex');
-			$email = $request->input('reg-email');
-			$phone = $request->input('reg-phone');
-			$vcode = $request->input('reg-verify');
-			$province = $request->input('reg-province');
-			$city = $request->input('reg-city');
-			$products = $request->input('products');
-			
-			if($vcode != Cookie::get('phonak_vcode')) {	//验证码符合
-				$error = "验证码错误或失效！";
-			}
-			
-			if( User::phoneIsExist( $phone ) ) {
-				$error = "该手机号已存在！";
-			}
-			
-			if(empty($error)) {
-				$uid = DB::table('users')->insertGetId([
-					'name' => $name,
-					'sex' => $sex,
-					'email' => $email,
-					'phone' => $phone,
-					'province' => $province,
-					'city' => $city,
-					'created_at' => date('Y-m-d H:i:s'),
-					'updated_at' => date('Y-m-d H:i:s')
-				]);
-				
-				User::addProducts($products, $uid);
-				
-				Cookie::queue('phonak_user_uid', $uid, 60 * 24 * 15);
-			}
-			
-			return $error;
+		if(empty($id))	return redirect('auth/register');
+		
+		$data 												= User::find($id);
+		$param												= Helper::removeFromAll(['_token', 'reg_key', 'email'], $request->all());
+		
+		Helper::tableSave($data, $param);
+		
+		//发送邮件
+		Mail::send('emails.register-success', $request->all(), function($message) use ($email) {
+		   	$message->to($email)->subject('艾卫艾商贸(上海)有限公司- 会员注册成功');
 		});
 		
-		if(empty($error)) {
-			return Redirect::to('myphonak/profile');
-		} else {
-			return Redirect::back()->withInput()->withErrors($error);
-		}
+		return redirect('/auth/complete');
+	}
+	
+	//完成注册页面
+	public function getComplete()
+	{
+		return view('client/register-complete');
 	}
 
 }

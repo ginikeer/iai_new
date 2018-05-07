@@ -156,7 +156,7 @@ class Helper {
 		
 		if(!isset($file)) {
 			$res["code"] 						= 0;
-			$res["message"] 					= "文件过大或者文件错误！!";
+			$res["message"] 					= "文件过大或者文件错误！！";
 			
 			return $res;
 		}

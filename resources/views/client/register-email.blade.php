@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<form>
-				<input type="hidden" id="url-check-email" value="{{ url('auth/check-email') }}" />
+				<input type="hidden" id="url-check-email" value="{{ url('/auth/check-email') }}" />
 				<div class="login-form">
 					<div class="form-item user-name">
 						<label></label>

@@ -33,7 +33,7 @@ $(function() {
 				}
 			} else {
 				alert(res.message);
-				location.href = location.href;
+//				location.href = location.href;
 			}
 		}).fail(function(res) {
 			console.log(res);
