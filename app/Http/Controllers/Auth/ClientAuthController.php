@@ -5,11 +5,12 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
+use App\Services\Helper;
 use App\Services\Users;
 
 use App\Http\Database\User;
 
-use Session, DB, Cookie, Redirect;
+use Session, DB, Cookie, Redirect, Mail;
 
 class ClientAuthController extends Controller {
 
@@ -61,12 +62,56 @@ class ClientAuthController extends Controller {
 		return view('client/forget-password');
 	}
 	
-	
-	
 	public function getRegister(Request $request)
 	{
 		return view('client/regist');
 	}
+	
+	public function postCheckEmail(Request $request)
+	{
+		$email												= $request->input('email');
+		$key												= Helper::generateUnique();
+		
+		if( User::isExist($email) ) {
+			
+			echo '该邮箱已经被使用，请换个邮箱！';
+			
+		} else {
+			//生成未认证的账户
+			if( ! User::genAccount($email, $key) ) {
+				echo '网络错误，请稍后重试！';
+				return;
+			}
+			
+			try {
+				$url										= url('/auth/input?key=' . $key);
+				
+				//发送邮件
+				Mail::send('emails.register', ['email' => $email, 'url' => $url], function($message) {
+				    $message->to($email)->subject('艾卫艾商贸(上海)有限公司- 会员注册邮箱认证');
+				});
+				
+				echo 'ok';
+			} catch (\Exception $e) {
+				print_r($e);
+			}
+		}
+	}
+	
+	public function getInput(Request $request)
+	{
+		$key												= $request->input('key');
+		$email												= User::getEmailByKey($key);
+		
+		return view('client/regist', ['email' => $email, 'key' => $key]);
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public function postRegister(Request $request)
 	{

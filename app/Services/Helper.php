@@ -63,6 +63,16 @@ class Helper {
 		}
 	}
 	
+	//删除等号
+	static public function removeEqual($str)
+	{
+		if(stripos($str, "=") !== false) {
+			return str_replace("=", "", $str);
+		} else {
+			return $str;
+		}
+	}
+	
 	//将字符串根据<br/>分隔成数组
 	static public function explodeByNewline($str)
 	{
@@ -90,7 +100,7 @@ class Helper {
 	{
 		$code = "";
 		
-		for($i = 0; $i < 6; $i++) {
+		for($i = 0; $i < 8; $i++) {
 			$code .= rand(0, 9);
 		}
 		
@@ -177,6 +187,10 @@ class Helper {
   		return $res;
 	}
 	
+	static public function generateUnique()
+	{
+		return sha1(time() . rand(0, 9) . rand(0, 99) . rand(0, 999) . rand(0, 9999) . rand(0, 99999));
+	}
 	
 }
 

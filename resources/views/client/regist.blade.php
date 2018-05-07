@@ -39,6 +39,7 @@
 				</div>
 			</div>
 			<form>
+				<input type="hidden" id="url-check-email" value="{{ url('auth/check-email') }}" />
 				<div class="login-form">
 					<div class="form-item user-name">
 						<label></label>
@@ -62,7 +63,7 @@
 			<div class="row regist-tips">
 				<div class="col-lg-10 col-lg-offset-1">
 					<p>
-						已将邮箱确认邮件发送至您的邮箱『XXXXXX@qq.com』，主题：会员注册邮箱认证<br><br>
+						已将邮箱确认邮件发送至您的邮箱『<span class="email-text"></span>』，主题：会员注册邮箱认证<br><br>
 						点击邮件正文中的专用注册链接，填写会员信息。<br>
 						(只需点击认证成功的链接即可填写会员信息)<br><br>
 						通常情况下，几秒钟后就会将认证邮件发送至您的邮箱，如果长时间后还没收到邮件的话，请确认您的邮箱地址是否输入错误。<br>

@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Services\Helper;
+
 use DB;
 
 class User extends Model {
@@ -10,7 +12,7 @@ class User extends Model {
 	protected $guarded  = ["id"];
 	
 	/**
-	 * 检查该账户是否存在
+	 * 获取某个账户的数据
 	 *
 	 * @return array
 	 */
@@ -35,6 +37,55 @@ class User extends Model {
 		
 	}
 	
-
+	/**
+	 * 检查某字段的值是否已存在
+	 *
+	 * @return int
+	 */
+	static public function isExist($key, $value) {
+		
+		return self::where($key, $value)->count();
+		
+	}
+	
+	/**
+	 * 生成未认证的账户
+	 *
+	 * @return void
+	 */
+	static public function genAccount($email, $key) {
+		
+		$pwd												= Helper::genCode();
+		
+		if( !self::isExist('email', $email) && !self::isExist('reg_key', $key) ) {
+			
+			self::insert([
+				'email'										=> $email,
+				'pwd'										=> $pwd,
+				'reg_key'									=> $key,
+				'status'									=> USER_INFO_NOT_COMPLETED,
+				'created_at'								=> date('Y-m-d H:i:s')
+			]);
+			
+			return true;
+			
+		} else {
+			
+			return false;
+			
+		}
+		
+	}
+	
+	/**
+	 * 根据key获取email
+	 *
+	 * @return string
+	 */
+	static public function getEmailByKey($key) {
+		
+		return self::where('reg_key', $key)->pluck('email');
+		
+	}
 	
 }

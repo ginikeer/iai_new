@@ -34,13 +34,13 @@
 				</div>
 				<p class="text-red error">{{ $error or '' }}</p>
 				<div class="forget-password">
-					<a href="{{ url('/auth/forget') }}">忘记登陆密码？</a>
+					<a href="{{ url('auth/forget') }}">忘记登陆密码？</a>
 				</div>
 				<div class="login-btn">
 					<input type="submit" id="login-btn" value=" 登 陆 " />
 				</div>
 				<div class="regist">
-					<a href="{{ url('/regist') }}">免费注册</a>
+					<a href="{{ url('auth/register') }}">免费注册</a>
 				</div>
 			</div>
 		</form>

@@ -46,12 +46,10 @@ class UserController extends Controller {
 	
 	public function getExcel(Request $request)
 	{
-		$this->user 										= $this->conditionUser($request, false);
-		
-//		return view('admin/user-excel', ['data' => $this->user]);
+		$this->user 										= $this->conditionUser($request, true);
 		
 		Excel::create("会员列表", function($excel) {
-		    $excel->sheet('会员列表', function($sheet) {
+		    $excel->sheet('data', function($sheet) {
 		    	$sheet->loadView('admin.user-excel', ['data' => $this->user]);
 			});
 		})->export('xls');
@@ -104,7 +102,7 @@ class UserController extends Controller {
 	}
 	
 	
-	private function conditionUser($request, $is_paginate = true)
+	private function conditionUser($request, $is_excel = false)
 	{
 		$email												= $request->input('email', '');
 		$name												= $request->input('name', '');
@@ -125,7 +123,7 @@ class UserController extends Controller {
 		
 		$count												= $user->count();
 		
-		if($is_paginate) {
+		if(!$is_excel) {
 			$user											= $user->orderBy('id', 'desc')->paginate(PER);
 			$user->condition_email 							= $email;
 			$user->condition_name 							= $name;
@@ -136,6 +134,13 @@ class UserController extends Controller {
 			@set_time_limit(0);
 			@ini_set('memory_limit', '512M');
 			$user											= $user->orderBy('id', 'desc')->get();
+			
+			for($i = 0; $i < count($user); $i++) {
+				$user[$i]->email 							= Helper::removeEqual($user[$i]->email);
+				$user[$i]->name 							= Helper::removeEqual($user[$i]->name);
+				$user[$i]->company 							= Helper::removeEqual($user[$i]->company);
+				$user[$i]->department 						= Helper::removeEqual($user[$i]->department);
+			}
 		}
 		
 		for($i = 0; $i < count($user); $i++) {
