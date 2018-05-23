@@ -156,7 +156,7 @@ a{
 	width: 181px;
 }
 .btn_login{
-	display: inline-block;
+	float: left;
     /*border: 1px solid #af1f39;
     background: #af1f39;
     color: #fff;*/
