@@ -13,7 +13,7 @@
 /*input{
 	outline: none;
 }*/
-#error-text,.error-text,.check-btn{
+#error-text, .error-text, .check-btn, .form-item.error{
 	display: none;
 }
 .error-text{

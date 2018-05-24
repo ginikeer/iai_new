@@ -7,8 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\Services\Helper;
 use App\Services\Users;
-
 use App\Http\Database\User;
+use App\Lib\AliyunSms;
 
 use Session, DB, Cookie, Redirect, Mail;
 
@@ -83,7 +83,7 @@ class ClientAuthController extends Controller {
 			echo '该邮箱已经被使用，请换个邮箱！';
 		} else {
 			//生成未认证的账户
-			if( ! User::genAccount($email, $key) ) {
+			if( ! User::genAccountByEmailReg($email, $key) ) {
 				echo '网络错误，请稍后重试！';
 				return;
 			}
@@ -103,17 +103,94 @@ class ClientAuthController extends Controller {
 		}
 	}
 	
+	//检查手机是否存在，生成验证码，发送短信
+	public function postSendVcode(Request $request)
+	{
+		$mobile												= $request->input('mobile');
+		
+		if( User::isExist('tel', $mobile) ) {
+			echo json_encode(array('Code' => 'error', 'Message' => '该手机号已存在，请换个手机号或者前往登陆！'));
+			die();
+		}
+		
+		$expired_at 										= date('Y-m-d H:i:s', strtotime("+15 minute"));
+		$code												= Helper::genCode(4);
+		$sms 												= new AliyunSms(ALIYUN_SMS_KEY, ALIYUN_SMS_SECRET);
+		
+		$response 											= $sms->sendSms(
+		    ALIYUN_SMS_SIGN, 			// 短信签名
+		    ALIYUN_SMS_TEMPLATE_CODE, 	// 短信模板编号
+		    $mobile, 					// 短信接收者
+		    Array("code" => $code),  	// 短信模板中字段的值
+		    ""							// 流水号
+		);
+		
+		if(1 || $response->Code == 'OK') {	//正确发送验证码
+			Session::put('reg_mobile', $mobile);
+			Session::put('reg_vcode', $code);
+			Session::put('reg_vcode_expired_at', $expired_at);
+		}
+		
+		$response->temp = $code;
+		
+		echo json_encode($response);
+	}
+	
+	//检查手机是否存在，验证码是否正确，生成临时用户
+	public function postCheckMobile(Request $request)
+	{
+		$mobile												= $request->input('mobile');
+		$vcode												= $request->input('vcode');
+		$current 											= date('Y-m-d H:i:s');
+		$key												= Helper::generateUnique();
+		
+		if( User::isExist('tel', $mobile) ) {
+			
+			echo json_encode(array('code' => -1, 'msg' => '该手机号已存在，请换个手机号或者前往登陆！'));
+			die();
+			
+		} else if( !(Session::get('reg_mobile') == $mobile && Session::get('reg_vcode') == $vcode && 
+						Session::get('reg_vcode_expired_at') >= $current) ) {
+			
+			echo json_encode(array('code' => -1, 'msg' => '验证码错误或已超时！'));
+			die();
+			
+		} else {
+			
+			//生成未认证的账户
+			if( ! User::genAccountByMobileReg($mobile, $key) ) {
+				echo json_encode(array('code' => -1, 'msg' => '网络错误，请稍后重试！'));
+				die();
+			}
+			
+			$url											= url('/auth/input?key=' . $key);
+			
+			echo json_encode(array('code' => 1, 'msg' => $url));
+		}
+	}
+	
 	//注册信息填写页面
 	public function getInput(Request $request)
 	{
 		$key												= $request->input('key');
-		$email												= User::getEmailByKey($key);
+		$reg_method											= User::getFieldByKey($key, 'reg_method');
+		$email												= '';
+		$mobile												= '';
 		
-		if(empty($key) || empty($email)) {	//key或者邮箱为空说明不是从邮箱过来的，或者修改了key值
+		if($reg_method == 'email') {
+			$email											= User::getFieldByKey($key, 'email');
+		} else if($reg_method == 'mobile') {
+			$mobile											= User::getFieldByKey($key, 'tel');
+		}
+		
+		if( empty($reg_method) || empty($key) || ($reg_method == 'email' && empty($email)) || 
+				($reg_method == 'mobile' && empty($mobile)) ) {	//key或者邮箱为空说明不是从邮箱过来的，或者修改了key值
 			return redirect('/auth/register');
 		} else {
 			return view('client/register-input', [
-				'email' 									=> $email, 
+				'email' 									=> $email,
+				'mobile'									=> $mobile,
+				'reg_method'								=> $reg_method,
 				'key' 										=> $key,
 				'prov'										=> Users::getProv()
 			]);
@@ -125,12 +202,12 @@ class ClientAuthController extends Controller {
 	{
 		$key 												= $request->input('reg_key');
 		$email												= $request->input('email');
-		$id													= User::getIdByKeyAndEmail($key, $email);
+		$id													= User::getIdByKey($key);
 		
 		if(empty($id))	return redirect('auth/register');
 		
 		$data 												= User::find($id);
-		$param												= Helper::removeFromAll(['_token', 'reg_key', 'email'], $request->all());
+		$param												= Helper::removeFromAll(['_token', 'reg_key'], $request->all());
 		
 		Helper::tableSave($data, $param);
 		
