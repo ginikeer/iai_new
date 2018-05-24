@@ -21,6 +21,11 @@
 	</div>
 	<div class="login-content">
 		<h2>会员注册</h2>
+		
+		<input type="radio" name="register-method" id="email" value="email" />
+		<input type="radio" name="register-method" id="mobile" value="mobile" />
+		
+		
 		<div class="row row-nav-tabs">
 			<ul class="col-lg-10 col-lg-offset-1 nav-tabs nav-justify">
 				<li class="active"><a href="javascript:">邮箱确认</a></li>

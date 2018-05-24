@@ -41,7 +41,12 @@ class ClientAuthController extends Controller {
 			if( User::isVaild($user->id) ) {	//用户有效
 				Cookie::queue('iai_user_token', $user->id, 60 * 24 * 7);
 				
-				return redirect('/product');
+				if( Session::has('page_before_login') ) {
+					return redirect(Session::get('page_before_login'));
+				} else {
+					return redirect('/product');
+				}
+				
 			} else {	//用户已退会
 				return view('client/login', ['error' => '您的账号已退会，请注册新的账号！']);
 			}
@@ -65,7 +70,7 @@ class ClientAuthController extends Controller {
 	//注册邮箱填写
 	public function getRegister(Request $request)
 	{
-		return view('client/register-email');
+		return view('client/register-method');
 	}
 	
 	//检查邮箱是否存在，生成临时用户，发送邮件
