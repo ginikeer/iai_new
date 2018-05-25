@@ -41,7 +41,7 @@
 					<div class="container">
 						<div class="row row-no-offset">
 							@foreach ($new as $n)
-							<div class="col-lg-3">
+							<!--<div class="col-lg-3">
 								<div class="new-product-item">
 									<img src="{{ PRODUCT_IMG_PATH . $n->cover_image_name }}" />
 									<div class="product-content">
@@ -50,7 +50,7 @@
 									</div>
 								</div>
 								<a href="@if(!empty($n->pdf_name)) {{ PRODUCT_PDF_PATH . $n->pdf_name }} @else javascript:void(0); @endif"><span>> 下载产品目录</span><i></i></a>
-							</div>
+							</div>-->
 							@endforeach
 						</div>
 					</div>

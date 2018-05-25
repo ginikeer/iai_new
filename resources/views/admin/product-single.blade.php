@@ -131,7 +131,7 @@
 							@endfor
 						</div>
 					</div>
-					<div class="form-group">
+					<!--<div class="form-group">
 						<label for="" class="col-sm-3 control-label">相关产品：</label>
 						<div class="col-sm-2">
 							<select class="form-control" id="product-category">
@@ -160,7 +160,7 @@
 							</div>
 							@endfor
 						</div>
-					</div>
+					</div>-->
 					<div class="col-sm-12 text-right">
 						<input type="submit" class="btn btn-primary submit" value="提交" />
 					</div>
