@@ -4,6 +4,7 @@ var mobilereg = /^(1\d{10})|\d{7,8}$/;
 $(function(){
 	$('.register-choose-wraper input[type="radio"]').on('change', function() {
 		var _m = $(this).val();
+		$(this).parents('label').addClass('active').siblings().removeClass('active');
 		$('.register-method').addClass('hide');
 		$('.' + _m).removeClass('hide');
 	});
@@ -15,6 +16,8 @@ $(function(){
 		
 		if( !checkMobile(_mobile) ) return false;
 		
+		settime($(this));
+		
 		$.ajax({
 			type: "post",
 			url: $("#url-send-vcode").val(),
@@ -23,7 +26,12 @@ $(function(){
 			dataType: "json",
 			success: function(result) {
 				if(result.Code != 'OK') {
-					alert(result.Message);
+					$('#send-error-text').show();
+					$('#send-error-text .text-red').text(result.Message);
+//					alert(result.Message);
+				}else{
+					$('#send-error-text').hide();
+					$('#send-error-text .text-red').text('');
 				}
 			}
 		});
@@ -49,8 +57,12 @@ $(function(){
 			success: function(result) {
 				if(result.code > 0) {
 					window.location.href = result.msg;
+					$('#send-error-text').hide();
+					$('#send-error-text .text-red').text('');
 				} else {
-					alert(result.msg);
+					$('#send-error-text').show();
+					$('#send-error-text .text-red').text(result.msg);
+//					alert(result.msg);
 				}
 			}
 		});
@@ -137,4 +149,24 @@ function checkMobile(_mobile) {
 	}
 	
 	return true;
+}
+
+
+var countdown=60; 
+function settime(obj) { //发送验证码倒计时
+    if (countdown == 0) { 
+        obj.attr('disabled',false); 
+        obj.text("发送验证码");
+        obj.removeClass("disable");
+        countdown = 60; 
+        return;
+    } else { 
+        obj.attr('disabled',true);
+        obj.text( countdown + "s");
+        obj.addClass("disable");
+        countdown--; 
+    } 
+	setTimeout(function() { 
+	    settime(obj) }
+	,1000) 
 }
