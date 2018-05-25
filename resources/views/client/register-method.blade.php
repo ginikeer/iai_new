@@ -22,7 +22,7 @@
 	<div class="login-content">
 		<h2>会员注册</h2>
 		<div class="register-choose-wraper">
-			<label for="email">
+			<label for="email" class="active">
 				<span>邮箱注册</span>
 				<input type="radio" name="register-method" id="email" value="email-register" checked="checked" />
 			</label>
@@ -120,6 +120,9 @@
 					</div>
 					<div class="form-item error" id="vcode-error-text">
 						<p class="text-red">请输入验证码</p>
+					</div>
+					<div class="form-item error" id="send-error-text">
+						<p class="text-red"></p>
 					</div>
 					<div class="login-btn">
 						<input type="button" class="regist-btn" id="reg-mobile-btn" value="手机认证" />
