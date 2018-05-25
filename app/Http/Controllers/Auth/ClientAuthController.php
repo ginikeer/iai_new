@@ -33,9 +33,9 @@ class ClientAuthController extends Controller {
 	
 	public function postLogin(Request $request)
 	{
-		$email 												= $request->input('email');
+		$account 											= $request->input('account');
 		$password 											= $request->input('password');
-		$user												= User::hasData($email, $password);
+		$user												= User::hasData($account, $password);
 		
 		if( count($user) ) {	//有该用户，信息存入cookie
 			if( User::isVaild($user->id) ) {	//用户有效

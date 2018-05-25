@@ -26,7 +26,7 @@
 			<div class="login-form">
 				<div class="form-item user-name">
 					<label></label>
-					<input type="text" name="email" id="email" />
+					<input type="text" name="account" id="account" />
 				</div>
 				<div class="form-item password">
 					<label></label>

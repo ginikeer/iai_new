@@ -16,11 +16,12 @@ class User extends Model {
 	 *
 	 * @return array
 	 */
-	static public function hasData($email, $password) {
+	static public function hasData($account, $password) {
 		
-		return self::where('email', $email)
-					->where('pwd', $password)
-					->first();
+		return self::where('pwd', $password)
+					->where(function($query) {
+		                $query->where('email', $account)->orWhere('tel', $account);
+		            })->first();
 		
 	}
 	

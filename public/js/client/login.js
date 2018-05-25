@@ -1,8 +1,10 @@
 var emailreg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+var mobilereg = /^(1\d{10})|\d{7,8}$/;
+
 $(function(){
-	$('#email').change(function(){
-		if(!emailreg.test($(this).val())){
-			$('.error').text('请输入正确的邮箱地址！');
+	$('#account').change(function(){
+		if(!emailreg.test($(this).val()) && !mobilereg.test($(this).val())){
+			$('.error').text('请输入正确的邮箱或手机号！');
 		}else{
 			$('.error').text('');
 		}
@@ -19,8 +21,8 @@ $(function(){
 $('#login-btn').click(function(){
 	$(".error").text("");
 	
-	if(!emailreg.test($('#email').val()) || $('#password').val()==''){
-		$('.error').text('请输入正确的邮箱地址和密码！');
+	if(!emailreg.test($('#account').val()) || $('#password').val()==''){
+		$('.error').text('请输入正确的邮箱或手机号和密码！');
 		return false;
 	}
 	
