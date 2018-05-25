@@ -93,5 +93,11 @@ class ProductController extends Controller {
 		]);
 	}
 	
+	public function getGrs(Request $request)
+	{
+		return view('client/product-grs', [
+			'nav'											=> $this->nav
+		]);
+	}
 
 }

@@ -77,6 +77,9 @@
 .password label{
 	background: #BABABA url(../../i/client/login/password.png) no-repeat center center;
 }
+.phone label{
+	background: #BABABA url(../../i/client/login/user.png) no-repeat center center;
+}
 .form-item label:hover{
 	opacity: 0.7;
 }

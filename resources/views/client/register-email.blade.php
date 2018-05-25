@@ -67,7 +67,7 @@
 						点击邮件正文中的专用注册链接，填写会员信息。<br>
 						(只需点击认证成功的链接即可填写会员信息)<br><br>
 						通常情况下，几秒钟后就会将认证邮件发送至您的邮箱，如果长时间后还没收到邮件的话，请确认您的邮箱地址是否输入错误。<br>
-						※如果您使用的是Hotmail或Yahoo邮箱，此邮件可能在垃圾邮件里，请在垃圾邮件中查收。
+						※如果您使用的是QQ邮箱、Hotmail或Yahoo邮箱，可能在垃圾邮件里，请在垃圾邮件中查收。无法收到邮件注册邮件的，请<a style="color: #AF1F39; text-decoration: underline;" target="_blank" href="{{ asset('pdf/client/regist/qq-regist.pdf') }}">点击这里</a>。</p>
 					</p>
 				</div>
 			</div>
