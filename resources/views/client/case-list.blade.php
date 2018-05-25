@@ -24,18 +24,18 @@
 			<div class="row case_row">
 				<div class="col-lg-9">
 					<div class="row">
-						@foreach ($data as $d)
+						@foreach ($case as $c)
 						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail/' . $d->id) }}">
-								<img src="{{ CASE_IMG_PATH . $d->cover_image_name }}">
+							<a class="case_img" href="{{ url('/case/detail/' . $c->id) }}">
+								<img src="{{ CASE_IMG_PATH . $c->cover_image_name }}">
 							</a>
 							<div class="case_text">
 								<p>
-									<a href="{{ url('/case/detail/' . $d->id) }}">{{ $d->title }}</a>
-									<span>{!! $d->description !!}</span>
+									<a href="{{ url('/case/detail/' . $c->id) }}">{{ $c->title }}</a>
+									<span>{!! $c->description !!}</span>
 								</p>
 								<div class="case-tag">
-									@foreach ($d->tags as $tag)
+									@foreach ($c->tags as $tag)
 									<span class="@if($tag->type == '行业') case-tag-1 @elseif($tag->type == '工程') case-tag-2 @endif ">{{ $tag->title }}</span>
 									@endforeach
 								</div>

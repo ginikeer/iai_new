@@ -33,4 +33,17 @@ class Case_icon extends Model {
 		
 	}
 	
+	/**
+	 * 根据id数组，获取对应的icon图片名
+	 *
+	 * @return array
+	 */
+	static public function getImageName($arr) {
+		
+		return self::whereIn('id', $arr)
+					->orderBy('id', 'asc')
+					->lists('image_name');
+		
+	}
+	
 }

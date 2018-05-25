@@ -25,36 +25,49 @@
 				<dl class="case_type">
 					<dt>行业</dt>
 					<dd>
-						<span class="case-tag-1">汽车部件</span>
+						@foreach ($tags as $t)
+							@if($t->type == '行业') 
+								<span class="case-tag-1">{{ $t->title }}</span>
+							@endif
+						@endforeach
 					</dd>
 					<dt>工程</dt>
 					<dd>
-						<span class="case-tag-2">定位</span>
+						@foreach ($tags as $t)
+							@if($t->type == '工程') 
+								<span class="case-tag-2">{{ $t->title }}</span>
+							@endif
+						@endforeach
 					</dd>
 				</dl>
 				<div class="case-text">
-					<img src="{{ asset('i/client/case/logo_01.png') }}">
+					<img src="{{ asset('i/client/case/' . $logo) }}">
 					<p class="fontBold">
-						使用电缸后省去了每个大约40万日元的力度传感器<br>
-						<strong style="font-size:160%;">降低了成本</strong>
+						{{ $sub_title[0] or '' }}<br>
+						<strong style="font-size:160%;">{{ $sub_title[1] or '' }}</strong>
 					</p>
 				</div>
+				@if(isset($case->video_name))
 				<div class="case-movie">
 					<div class="case-movie-inner">
-						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="240" height="180">
+						<video autoplay="autoplay" width="640" height="360" src="{{ CASE_VIDEO_PATH . $case->video_name }}" controls="controls"></video>
+						<!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="240" height="180">
 								<param name="movie" value="{{ asset('i/client/case/10.swf') }}">
 								<param name="quality" value="high">
 								<embed src="{{ asset('i/client/case/10.swf') }}" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="240" height="180">
-							</object>
+							</object>-->
 					</div>
 				</div>
+				@endif
 				<ul class="case-fe-list clear">
-					<li class="fe-list-item"><i class="icon-case icon-push">推压</i></li>
-					<li class="fe-list-item"><i class="icon-case icon-location">推压</i></li>
+					@foreach ($icons as $icon)
+					<li class="fe-list-item">
+						<img class="icon-case" src="{{ asset('i/client/case/' . $icon) }}" alt="" />
+					</li>
+					@endforeach
 				</ul>
 				<div class="case-article">
-					<p>将从射出型注塑机中出来的注塑部件排放至周转箱的装置中,使用上图中的直交机械臂与夹爪型机械手。<br> 此作业以前使用6轴垂直多关节机械手，但使用垂直多关节机械手时，周转箱中的隔板位置稍有偏差，便会造成停顿。采用直交机械机械臂后,对XY方向的微调整变得简单，停顿现象也减少，提高了生产效率。另外，装置的成本也得到了降低。
-					</p>
+					{!! $case->content !!}
 				</div>
 			</div>
 			<div class="col-lg-3">

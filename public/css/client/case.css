@@ -220,9 +220,7 @@
 .icon-case{
     width: 56px;
     height: 56px;
-    background: url(../../i/client/common/icon_features.jpg) no-repeat;
     display: block;
-    text-indent: -9999px;
 }
 .icon-push{
 	background-position:  -56px 0;

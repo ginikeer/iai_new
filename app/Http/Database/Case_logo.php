@@ -20,5 +20,14 @@ class Case_logo extends Model {
 		
 	}
 	
-	
+	/**
+	 * 根据id获取logo的图片名
+	 *
+	 * @return array
+	 */
+	static public function getImageName($id) {
+		
+		return self::where('id', $id)->pluck('image_name');
+		
+	}
 }

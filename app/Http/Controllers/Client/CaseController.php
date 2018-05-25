@@ -4,9 +4,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Services\Helper;
+
 use App\Http\Database\Cases;
 use App\Http\Database\Product_Category;
+use App\Http\Database\Case_logo;
 use App\Http\Database\Case_tag;
+use App\Http\Database\Case_icon;
 
 
 use Redirect, Input, Auth, Session, DB;
@@ -37,17 +41,23 @@ class CaseController extends Controller {
 		
 		return view('client/case-list', [
 			'nav'											=> $this->nav,
-			'data'											=> $data											
+			'case'											=> $data											
 		]);
 	}
 	
 	public function getDetail($id)
 	{
-		
+		$case												= Cases::where('id', $id)->first();
+		$tag_ids											= explode( ",", $case->tag_ids );
+		$icon_ids											= explode( ",", $case->icon_ids );
 		
 		return view('client/case-detail', [
 			'nav'											=> $this->nav,
-			''
+			'case'											=> $case,
+			'tags'											=> Case_tag::getTitleAndType($tag_ids),
+			'logo'											=> Case_logo::getImageName($case->logo),
+			'sub_title'										=> Helper::explodeBynewline($case->sub_title),
+			'icons'											=> Case_icon::getImageName($icon_ids)
 		]);
 		
 	}
