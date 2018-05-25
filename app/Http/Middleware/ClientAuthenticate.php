@@ -36,6 +36,7 @@ class ClientAuthenticate {
 	public function handle($request, Closure $next)
 	{				
 		if(! Cookie::has("iai_user_token")) {
+			Session::put('page_before_login', $request->path());
 			return Redirect::to('auth/login');
 		}
 		

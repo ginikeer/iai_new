@@ -95,12 +95,12 @@ class Helper {
 		return $arr[0];
 	}
 	
-	//随机生成6位数字
-	static public function genCode()
+	//随机生成n位数字验证码
+	static public function genCode($n = 6)
 	{
 		$code = "";
 		
-		for($i = 0; $i < 8; $i++) {
+		for($i = 0; $i < $n; $i++) {
 			$code .= rand(0, 9);
 		}
 		

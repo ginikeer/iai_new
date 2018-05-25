@@ -23,6 +23,7 @@ class ProductController extends Controller {
 	 */
 	public function __construct()
 	{
+		$this->middleware('client');
 		$this->nav											= 'product';
 	}
 

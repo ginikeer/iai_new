@@ -35,7 +35,7 @@
 			<div class="login-form regist-form">
 				<div class="form-item">
 					<label>会员ID(Email)</label>
-					<input type="email" name="email" value="{{ $email }}" readonly />
+					<input type="email" name="email" value="{{ $email }}" @if($reg_method == "email") readonly @endif />
 				</div>
 				<div class="form-item password">
 					<label>密码</label>
@@ -82,7 +82,7 @@
 				</div>
 				<div class="form-item">
 					<label>TEL</label>
-					<input class="info-read required-item" type="tel" id="tel" name="tel" maxlength="24" />
+					<input class="info-read required-item" value="{{ $mobile }}" type="tel" id="tel" name="tel" maxlength="24" @if($reg_method == "mobile") readonly @endif />
 				</div>
 				<p class="text-red error-text error-null">请输入电话</p>
 				<p class="text-red error-text error-tel-format">电话格式不正确</p>
@@ -104,5 +104,5 @@
 @endsection
 
 @section('script')
-<script type="text/javascript" src="{{ asset('js/client/regist.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/register.js') }}"></script>
 @stop

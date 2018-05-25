@@ -7,6 +7,8 @@ use App\Http\Database\Product_Category;
 
 use App\Services\Helper;
 
+use Cookie;
+
 
 class ComposerServiceProvider extends ServiceProvider {
 
@@ -24,10 +26,12 @@ class ComposerServiceProvider extends ServiceProvider {
         View::composer(['client.*'], function($view)
         {
         	$nav 													= isset($view->nav) ? $view->nav : "";
+        	$is_logined												= Cookie::has("iai_user_token");
         	
 			$view->with([
 				'nav'												=> $nav,
-				'product_category' 									=> Product_Category::getAll()
+				'product_category' 									=> Product_Category::getAll(),
+				'is_logined'										=> $is_logined
 			]);
         });
     }

@@ -24,7 +24,15 @@
 				<a href="{{ url('/') }}"><img src="{{ asset('i/client/common/logo.png') }}" /></a>
 			</div>
 			<div class="col-lg-1 header_right">
-				<a href="{{ url('auth/login') }}" class="btn btn_login"><i class="icon login-icon"></i><span>登陆</span></a><a class="btn btn_login btn_weixin"><i class="icon weixin-icon"></i><span>微信</span><img class="weixin-img" src="{{ asset('i/client/common/QR-code.jpg') }}"></a>
+				@if($is_logined)
+				<a href="{{ url('auth/logout') }}" class="btn btn_login"><i class="icon login-icon"></i><span>登出</span></a>
+				@else
+				<a href="{{ url('auth/login') }}" class="btn btn_login"><i class="icon login-icon"></i><span>登陆</span></a>
+				@endif
+				<a class="btn btn_login btn_weixin">
+					<i class="icon weixin-icon"></i><span>微信</span>
+					<img class="weixin-img" src="{{ asset('i/client/common/QR-code.jpg') }}">
+				</a>
 			</div>
 			<div class="col-lg-7 header_nav">
 				<ul class="nav nav-primary header_nav_list">

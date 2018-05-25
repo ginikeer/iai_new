@@ -49,11 +49,11 @@ class User extends Model {
 	}
 	
 	/**
-	 * 生成未认证的账户
+	 * 生成未认证的Email注册账户
 	 *
 	 * @return void
 	 */
-	static public function genAccount($email, $key) {
+	static public function genAccountByEmailReg($email, $key) {
 		
 		$pwd												= Helper::genCode();
 		
@@ -64,7 +64,8 @@ class User extends Model {
 				'pwd'										=> $pwd,
 				'reg_key'									=> $key,
 				'status'									=> USER_INFO_NOT_COMPLETED,
-				'created_at'								=> date('Y-m-d H:i:s')
+				'created_at'								=> date('Y-m-d H:i:s'),
+				'reg_method'								=> 'email'
 			]);
 			
 			return true;
@@ -78,24 +79,54 @@ class User extends Model {
 	}
 	
 	/**
-	 * 根据key获取email
+	 * 生成未认证的Mobile注册账户
 	 *
-	 * @return string
+	 * @return void
 	 */
-	static public function getEmailByKey($key) {
+	static public function genAccountByMobileReg($mobile, $key) {
 		
-		return self::where('reg_key', $key)->pluck('email');
+		$pwd												= Helper::genCode();
+		
+		if( !self::isExist('tel', $mobile) && !self::isExist('reg_key', $key) ) {
+			
+			self::insert([
+				'tel'										=> $mobile,
+				'pwd'										=> $pwd,
+				'reg_key'									=> $key,
+				'status'									=> USER_INFO_NOT_COMPLETED,
+				'created_at'								=> date('Y-m-d H:i:s'),
+				'reg_method'								=> 'mobile'
+			]);
+			
+			return true;
+			
+		} else {
+			
+			return false;
+			
+		}
 		
 	}
 	
 	/**
-	 * 根据key和email获取id，主要是验证key和email是否一致
+	 * 根据key获取字段
+	 *
+	 * @return string
+	 */
+	static public function getFieldByKey($key, $field) {
+		
+		return self::where('reg_key', $key)->pluck($field);
+		
+	}
+	
+	/**
+	 * 根据key获取id
 	 *
 	 * @return int
 	 */
-	static public function getIdByKeyAndEmail($key, $email) {
+	static public function getIdByKey($key) {
 		
-		return self::where('reg_key', $key)->where('email', $email)->pluck('id');
+		return self::where('reg_key', $key)->pluck('id');
 		
 	}
 	
