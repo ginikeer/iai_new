@@ -24,52 +24,24 @@
 			<div class="row case_row">
 				<div class="col-lg-9">
 					<div class="row">
+						@foreach ($data as $d)
 						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail') }}">
-								<img src="{{ asset('i/client/case/case_1.jpg') }}">
+							<a class="case_img" href="{{ url('/case/detail/' . $d->id) }}">
+								<img src="{{ CASE_IMG_PATH . $d->cover_image_name }}">
 							</a>
 							<div class="case_text">
 								<p>
-									<a href="{{ url('/case/detail') }}">垫片压入装置</a>
-									<span>用于在机械部件上压入垫片的装置中。</span>
+									<a href="{{ url('/case/detail/' . $d->id) }}">{{ $d->title }}</a>
+									<span>{!! $d->description !!}</span>
 								</p>
 								<div class="case-tag">
-									<span class="case-tag-1">汽车部件</span>
-									<span class="case-tag-2">定位</span>
+									@foreach ($d->tags as $tag)
+									<span class="@if($tag->type == '行业') case-tag-1 @elseif($tag->type == '工程') case-tag-2 @endif ">{{ $tag->title }}</span>
+									@endforeach
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail') }}">
-								<img src="{{ asset('i/client/case/case_1.jpg') }}">
-							</a>
-							<div class="case_text">
-								<p>
-									<a href="{{ url('/case/detail') }}">注塑部件的装箱装置</a>
-									<span>用于注塑部件的装箱装置上。</span>
-								</p>
-								<div class="case-tag">
-									<span class="case-tag-1">汽车部件</span>
-									<span class="case-tag-2">定位</span>
-								</div>
-							</div>
-							
-						</div>
-						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail') }}">
-								<img src="{{ asset('i/client/case/case_1.jpg') }}">
-							</a>
-							<div class="case_text">
-								<p>
-									<a href="{{ url('/case/detail') }}">汽车部件异物吸出装置</a>
-									<span>用于汽车部件中的异物吸出装置上</span>
-								</p>
-								<div class="case-tag">
-									<span class="case-tag-1">汽车部件</span>
-									<span class="case-tag-2">定位</span>
-								</div>
-							</div>
-						</div>
+						@endforeach
 					</div>
 				</div>
 				<div class="col-lg-3">

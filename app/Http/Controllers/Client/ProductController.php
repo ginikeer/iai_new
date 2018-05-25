@@ -44,8 +44,6 @@ class ProductController extends Controller {
 	
 	public function getDetail($id)
 	{
-		
-		
 		return view('client/product-detail', [
 			'nav'											=> $this->nav,
 			'product'										=> Product::where('id', $id)->first(),

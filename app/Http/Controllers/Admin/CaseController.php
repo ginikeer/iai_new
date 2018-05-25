@@ -41,10 +41,10 @@ class CaseController extends Controller {
 	 */
 	public function getList()
 	{
-		$data = Cases::orderBy('id', 'desc')->paginate(PER);
+		$data 												= Cases::orderBy('id', 'desc')->paginate(PER);
 		
 		for($i = 0; $i < count($data); $i++) {
-			$data[$i]['str_tags'] = implode( "，", Case_tag::getTitle( explode(',', $data[$i]['tag_ids']) ) );
+			$data[$i]['str_tags'] 							= implode( "，", Case_tag::getTitle( explode(',', $data[$i]['tag_ids']) ) );
 		}
 		
 		return view('admin/case-list', ['data' => $data]);
