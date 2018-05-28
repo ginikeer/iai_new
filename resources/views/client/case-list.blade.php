@@ -21,30 +21,129 @@
 	</div>
 	<div class="container">
 		<div class="pc-only">
+			<div class="row sortNav clear">
+				<div class="sortNavBtn" id="filter-landscape">
+					<p><span>新着</span></p>
+				</div>
+				<div class="sortNavBtn" id="filter-aa">
+					<p><span>自動車・機械部品</span></p>
+				</div>
+				<div class="sortNavBtn">
+					<p><span>電子部品</span></p>
+				</div>
+				<div class="sortNavBtn">
+					<p><span>電子機器・家電</span></p>
+				</div>
+				<div class="sortNavBtn">
+					<p><span>食品・医薬品</span></p>
+				</div>
+				<div class="sortNavBtn">
+					<p><span>紙・フィルム・線材・建材</span></p>
+				</div>
+				<div class="sortNavBtn">
+					<p><span>検査・試験</span></p>
+				</div>
+				<div class="sortNavBtn">
+					<p><span>その他</span></p>
+				</div>
+			</div>
 			<div class="row case_row">
-				<div class="col-lg-9">
-					<div class="row">
-						@foreach ($case as $c)
-						<div class="col-lg-4">
-							<a class="case_img" href="{{ url('/case/detail/' . $c->id) }}">
-								<img src="{{ CASE_IMG_PATH . $c->cover_image_name }}">
-							</a>
-							<div class="case_text">
-								<p>
-									<a href="{{ url('/case/detail/' . $c->id) }}">{{ $c->title }}</a>
-									<span>{!! $c->description !!}</span>
-								</p>
-								<div class="case-tag">
-									@foreach ($c->tags as $tag)
-									<span class="@if($tag->type == '行业') case-tag-1 @elseif($tag->type == '工程') case-tag-2 @endif ">{{ $tag->title }}</span>
-									@endforeach
-								</div>
+				<div class="row" id="gallery-content-center">
+					<div class="col-lg-3 all landscape">
+						<a class="case_img" href="{{ url('/case/detail') }}">
+							<img src="{{ asset('i/client/case/case_1.jpg') }}">
+						</a>
+						<div class="case_text">
+							<p>
+								<a href="{{ url('/case/detail') }}">垫片压入装置</a>
+								<span>用于在机械部件上压入垫片的装置中。</span>
+							</p>
+							<div class="case-tag">
+								<span class="case-tag-1">汽车部件</span>
+								<span class="case-tag-2">定位</span>
 							</div>
 						</div>
-						@endforeach
+					</div>
+					<div class="col-lg-3 all aa">
+						<a class="case_img" href="{{ url('/case/detail') }}">
+							<img src="{{ asset('i/client/case/case_1.jpg') }}">
+						</a>
+						<div class="case_text">
+							<p>
+								<a href="{{ url('/case/detail') }}">注塑部件的装箱装置</a>
+								<span>用于注塑部件的装箱装置上。</span>
+							</p>
+							<div class="case-tag">
+								<span class="case-tag-1">汽车部件</span>
+								<span class="case-tag-2">定位</span>
+							</div>
+						</div>
+						
+					</div>
+					<div class="col-lg-3 all aa">
+						<a class="case_img" href="{{ url('/case/detail') }}">
+							<img src="{{ asset('i/client/case/case_1.jpg') }}">
+						</a>
+						<div class="case_text">
+							<p>
+								<a href="{{ url('/case/detail') }}">汽车部件异物吸出装置</a>
+								<span>用于汽车部件中的异物吸出装置上</span>
+							</p>
+							<div class="case-tag">
+								<span class="case-tag-1">汽车部件</span>
+								<span class="case-tag-2">定位</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-3 all landscape">
+						<a class="case_img" href="{{ url('/case/detail') }}">
+							<img src="{{ asset('i/client/case/case_1.jpg') }}">
+						</a>
+						<div class="case_text">
+							<p>
+								<a href="{{ url('/case/detail') }}">垫片压入装置</a>
+								<span>用于在机械部件上压入垫片的装置中。</span>
+							</p>
+							<div class="case-tag">
+								<span class="case-tag-1">汽车部件</span>
+								<span class="case-tag-2">定位</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 all landscape">
+						<a class="case_img" href="{{ url('/case/detail') }}">
+							<img src="{{ asset('i/client/case/case_1.jpg') }}">
+						</a>
+						<div class="case_text">
+							<p>
+								<a href="{{ url('/case/detail') }}">注塑部件的装箱装置</a>
+								<span>用于注塑部件的装箱装置上。</span>
+							</p>
+							<div class="case-tag">
+								<span class="case-tag-1">汽车部件</span>
+								<span class="case-tag-2">定位</span>
+							</div>
+						</div>
+						
+					</div>
+					<div class="col-lg-3 all landscape">
+						<a class="case_img" href="{{ url('/case/detail') }}">
+							<img src="{{ asset('i/client/case/case_1.jpg') }}">
+						</a>
+						<div class="case_text">
+							<p>
+								<a href="{{ url('/case/detail') }}">汽车部件异物吸出装置</a>
+								<span>用于汽车部件中的异物吸出装置上</span>
+							</p>
+							<div class="case-tag">
+								<span class="case-tag-1">汽车部件</span>
+								<span class="case-tag-2">定位</span>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-3">
+				<!--<div class="col-lg-3">
 					<dl class="right_nav">
 						<dt>产品使用案例</dt>
 						<dd class="active">
@@ -87,7 +186,7 @@
 							<a href="##">其他</a>
 						</dd>
 					</dl>
-				</div>
+				</div>-->
 			</div>
 		</div>
 		<div class="sp-only">
@@ -249,4 +348,7 @@
 
 @section('script')
 <script type="text/javascript" src="{{ asset('js/client/case.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/jquery-ui-1.10.4.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/jquery.isotope.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/animated-masonry-gallery.js') }}"></script>
 @stop

@@ -10,36 +10,46 @@
 	<div class="wrap" id="bxslider">
 		<ul class="bxslider">
 			<li class="slider slider1">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider05.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider05.jpg') }}" alt="" />
+				<a href="{{ url('/product/new') }}">
+					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider05.jpg') }}" alt="" />
+					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider05.jpg') }}" alt="" />
+				</a>
 				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/RCON样本.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
 			<li class="slider slider2">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider01.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider01.jpg') }}" alt="" />
+				<a href="##">
+					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider01.jpg') }}" alt="" />
+					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider01.jpg') }}" alt="" />
+				</a>
 				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/e电缸_CC0250-3A.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
 			<li class="slider slider3">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider02.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider02.jpg') }}" alt="" />
+				<a href="##">
+					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider02.jpg') }}" alt="" />
+					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider02.jpg') }}" alt="" />
+				</a>
 				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/RCS4_CC0255-1A.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
 			<li class="slider slider4">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider03.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider03.jpg') }}" alt="" />
+				<a href="##">
+					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider03.jpg') }}" alt="" />
+					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider03.jpg') }}" alt="" />
+				</a>
 				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/TB-03(CC0254-1A-1).pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
 			<li class="slider slider5">
-				<img class="bg pc-only" src="{{ asset('i/client/home/top_slider04.jpg') }}" alt="" />
-				<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider04.jpg') }}" alt="" />
+				<a href="##">
+					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider04.jpg') }}" alt="" />
+					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider04.jpg') }}" alt="" />
+				</a>
 				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/IXA_CC0256-1A.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
@@ -53,7 +63,7 @@
 			<div class="row row-no-offset row-case">
 				<div class="col-lg-2 mian_product_list mian_product_img mian_product_new">
 					<div class="hover-bg"></div>
-					<a href="{{ url('/product/new') }}">
+					<a href="{{ url('/product?n=new') }}">
 						<p class="case-cover case-cover-img">
 							<img src="{{ asset('i/client/home/category_01.png') }}" />
 						</p>

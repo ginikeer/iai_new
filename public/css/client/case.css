@@ -220,7 +220,9 @@
 .icon-case{
     width: 56px;
     height: 56px;
+    background: url(../../i/client/common/icon_features.jpg) no-repeat;
     display: block;
+    text-indent: -9999px;
 }
 .icon-push{
 	background-position:  -56px 0;
@@ -263,15 +265,94 @@
 .case-detail-row {
     margin-bottom: 50px;
 }
+.sortNav{
+	border-left: 1px solid #d7d9db;
+}
+.sortNavBtn:nth-of-type(1), .sortNavBtn:nth-of-type(2), .sortNavBtn:nth-of-type(3), .sortNavBtn:nth-of-type(4){
+	border-top: 1px solid #d7d9db;
+}
+.sortNavBtn{
+		border-right: 1px solid #d7d9db;
+    border-bottom: 1px solid #d7d9db;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+   	float: left;
+   	width: 25%;
+}
+.sortNavBtn p{
+		display: block;
+		padding: 14px 20px;
+		color: #333;
+		text-decoration: none;
+		font-size: 14px;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding-left: 45px;
+    cursor: pointer;
+    position: relative;
+}
+.sortNavBtn p.select{
+	background: #edeff1;
+}
+.sortNavBtn p:hover{
+	background: #edeff1;
+}
+.sortNavBtn p:before {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    content: '';
+    width: 15px;
+    height: 15px;
+    margin-top: -8px;
+    border: 1px solid #d7d9db;
+    background: #edeff1;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.sortNavBtn p.select:before{
+	background: #fff;
+}
+.sortNavBtn p:after {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    content: '';
+    left: 22px;
+    margin-top: -9px;
+    width: 12px;
+    height: 12px;
+}
+.sortNavBtn p.select:after{
+	background: url(../../i/client/case/icn-check.png) left top no-repeat;
+}
+.sortNavBtn p span{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.isotope-item{
+	transform: translate3d(0px, 0px, 0px);
+	transition: all 0.5s;
+}
+@media screen and (max-width: 1400px){
+	.case_row .col-lg-3{
+		width: 24.8%;
+	}
+}
 @media screen and (max-width: 1100px){
 	.case_row .col-lg-3{
-		width: 33.333333%;
+		width: 33%;
 	}
 	.case_row>.col-lg-3{
 		width: 25%;
 	}
 	.case_row .row{
 		display: table;
+		width: 100%;
 	}
 	.case_row .col-lg-4{
 		width: 50%;
