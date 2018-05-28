@@ -17,4 +17,15 @@ class Manual extends Model {
 		return count($param) > 0 ? self::select($param)->orderBy('id', 'desc')->get() : self::orderBy('id', 'desc')->get();
 		
 	}
+	
+	/**
+	 * 根据分类获取数据
+	 *
+	 * @return array
+	 */
+	static public function getDataByCategory($category) {
+		
+		return self::where('category', $category)->get();
+		
+	}
 }

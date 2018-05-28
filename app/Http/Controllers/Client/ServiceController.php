@@ -8,7 +8,7 @@ use App\Http\Database\Product;
 use App\Http\Database\Product_Category;
 use App\Http\Database\Manual;
 use App\Http\Database\Product_Manual_Relationship;
-
+use App\Http\Database\Manual_Category;
 
 use Redirect, Input, Auth, Session, DB;
 
@@ -54,8 +54,17 @@ class ServiceController extends Controller {
 	}
 	
 	public function getManual(Request $request){
+		$category											= Manual_Category::getAll();
+		$manual												= array();
+		
+		foreach($category as $c) {
+			$manual[$c->id]									= Manual::getDataByCategory($c->id);
+		}
+		
 		return view('client/service-manual', [
-			'nav'											=> $this->nav
+			'nav'											=> $this->nav,
+			'category'										=> $category,
+			'manual'										=> $manual
 		]);
 	}
 	

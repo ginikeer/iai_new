@@ -6,7 +6,6 @@
 
 @extends('master/client')
 @section('content')
-	
 
 <div class="wrap service_warp" id="service_main">
 	<div class="row crumb">
@@ -25,14 +24,37 @@
 	<div class="container">
 		<h2>使用说明书</h2>
 		<hr>
-		<ul class="nav-blocks" id="nav-cases">
-        	<li class="active"><a href="javascript:void(0);">快速试机指南</a></li>
-        	<li><a href="javascript:void(0);">一体型</a></li>
-        	<li><a href="javascript:void(0);">驱动轴</a></li>
-        	<li><a href="javascript:void(0);">控制器</a></li>
-        	<li><a href="javascript:void(0);">软件用户手册&amp;其他</a></li>
-        	<li><a href="javascript:void(0);">初次操作指南</a></li>
+        <ul class="nav-blocks" id="nav-cases">
+        	@for($i = 0; $i < count($category); $i++)
+        	<li @if($i == 0) class="active" @endif><a href="javascript:void(0);">{{ $category[$i]->title }}</a></li>
+        	@endfor
         </ul>
+        @for($i = 0; $i < count($category); $i++)
+        <div class="manual-item @if($i == 0) show @endif">
+        	<h3 class="anchors">{{ $category[$i]->title }}</h3>
+        	@foreach ($manual[$category[$i]->id] as $m)
+        	<div class="service-list">
+				<div class="service-list-item">
+					<div class="row row-no-offset">
+						<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>{{ $m->title }}</big></div>
+						<div class="col-lg-4 text-right">
+							<a href="##" target="_blank" class="btn btn-red btn-xs">下载(CN)</a>
+							<a href="javascript:void(0);" class="btn btn-gray btn-xs">下载(EN)</a>
+							<a href="javascript:void(0);" class="btn btn-gray btn-xs">下载(JA)</a>
+						</div>
+						
+						<div class="col-lg-4 text-right">
+							@if(!empty($m->cn_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->cn_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(CN)</a> @else <div class="btn btn-gray btn-xs">下载(CN)</div> @endif
+							@if(!empty($m->en_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->en_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(EN)</a> @else <div class="btn btn-gray btn-xs">下载(EN)</div> @endif
+							@if(!empty($m->ja_pdf_name)) <a href="{{ MANUAL_PDF_PATH . $m->ja_pdf_name }}" target="_blank" class="btn btn-red btn-xs">下载(JA)</a> @else <div class="btn btn-gray btn-xs">下载(JA)</div> @endif
+						</div>
+					</div>
+				</div>
+			</div>
+			@endforeach
+        </div>
+        @endfor
+        
         <div class="manual-item show">
         	<h3 class="anchors" id="testmachine">快速试机指南</h3>
         	<div class="service-list">
