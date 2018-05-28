@@ -69,6 +69,19 @@
 					</li>
 					<li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+							消息管理 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="{{ url('admin/news/list') }}">新闻列表</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/news/single') }}">新闻新增</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
 							会员管理 <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
