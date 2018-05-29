@@ -19,6 +19,7 @@
 	
 	define("PRODUCT_IMG_PATH", '/storage/app/uploads/product/img/');
 	define("CASE_IMG_PATH", '/storage/app/uploads/case/img/');
+	define("NEWS_IMG_PATH", '/storage/app/uploads/news/img/');
 	
 	define("PRODUCT_PDF_PATH", '/storage/app/uploads/product/pdf/');
 	define("MANUAL_PDF_PATH", '/storage/app/uploads/manual/pdf/');

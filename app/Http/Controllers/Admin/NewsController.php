@@ -64,12 +64,21 @@ class NewsController extends Controller {
 		$id 												= $request->input('id', '');
 		$data 												= empty($id) ? new News : News::find($id);
 		$data->title										= $request->input('title');
+		$data->cover_image_name								= $request->input('cover_image_name');
 		$data->abstract										= $request->input('abstract');
 		$data->category										= $request->input('category');
 		$data->content										= $request->input('content');
 		$data->save();
 		
 		return Redirect::to(Helper::genUrl('admin/news/single', $id));
+	}
+	
+	public function postUpload(Request $request)
+	{
+		$res 												= Helper::uploadFile($request, 'news_img');
+		$res["img_full_path"]								= $res["code"] ? NEWS_IMG_PATH . $res["message"] : '';
+		
+		echo json_encode($res);
 	}
 	
 	public function postDel(Request $request)

@@ -28,4 +28,16 @@ class News_Category extends Model {
 		return self::where('id', $id)->pluck('title');
 		
 	}
+	
+	/**
+	 * 根据id获取分类背景色
+	 *
+	 * @return string
+	 */
+	static public function getBackgroundById($id) {
+		
+		return self::where('id', $id)->pluck('background');
+		
+	}
+	
 }

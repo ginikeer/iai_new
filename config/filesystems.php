@@ -84,6 +84,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/uploads/case/video'),
         ],
+        
+        'news_img' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/news/img'),
+        ],
 
 		'rackspace' => [
 			'driver'    => 'rackspace',

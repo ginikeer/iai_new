@@ -20,54 +20,25 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="card bg-gary">
-				<div class="news_list">
-					<a href="{{ url('/news/detail') }}">
-					<div class="news_left">
-						<h3 class="news_title">IAI 2017综合产品目录正式上线！</h3>
-						<div>
-							<span class="news_type news_type_company">公司动态</span>
-							<span class="news_date">2017-11-21</span>
-						</div>
-						<p class="news_abstract">具备丰富的产品阵容，能帮助您更迅速了解IAI各款电缸产品的性能及选型等相关操作指南。 欢迎下载选购 http://iai-robot.com/download/catalog.php </p>
-					</div>
-					<div class="news_right">
-						<img src="{{ asset('i/client/news/news-1.jpg') }}" />
-					</div>
-				</div>
-			</a>
-		</div>
+		@foreach ($news as $n)
 		<div class="card bg-gary">
 			<div class="news_list">
-				<a href="{{ url('/news/detail') }}">
+				<a href="{{ url('/news/detail/' . $n->id) }}">
 					<div class="news_left">
-						<h3 class="news_title">【重要】XSEL-J/JX停产通知</h3>
+						<h3 class="news_title">{{ $n->title }}</h3>
 						<div>
-							<span class="news_type news_type_product">产品发布</span>
-							<span class="news_date">2017-11-23</span>
+							<span class="news_type" style="background: {{ $n->category_background }}">{{ $n->category }}</span>
+							<span class="news_date">{{ $n->date }}</span>
 						</div>
-						<p class="news_abstract">万分抱歉，由于敝司工作上的纰漏，2017综合产品目录封底中刊载的深圳分公司的联系电话有误。 正确号码为0755-2393-2307，敬请注意。 </p>
+						<p class="news_abstract">{{ $n->abstract }}</p>
 					</div>
-					<div class="news_right"><img src="{{ asset('i/client/news/news-2.jpg') }}" /></div>
+					<div class="news_right">
+						<img src="{{ NEWS_IMG_PATH . $n->cover_image_name }}" />
+					</div>
 				</a>
 			</div>
 		</div>
-		<div class="card bg-gary">
-			<div class="news_list">
-				<a href="{{ url('/news/detail') }}">
-					<div class="news_left">
-						<h3 class="news_title">【重要】XSEL-J/JX停产通知</h3>
-						<div>
-							<span class="news_type news_type_product">产品发布</span>
-							<span class="news_date">2017-11-23</span>
-						</div>
-						<p class="news_abstract">万分抱歉，由于敝司工作上的纰漏，2017综合产品目录封底中刊载的深圳分公司的联系电话有误。 正确号码为0755-2393-2307，敬请注意。 </p>
-					</div>
-					<div class="news_right">
-					</div>
-				</div>
-			</div>
-		</div>
+		@endforeach
 	</div>
 </div>
 

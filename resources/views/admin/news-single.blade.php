@@ -12,11 +12,20 @@
 		 		@if(isset($error)) <div class="alert alert-danger" role="alert">{{ $error }}</div> @endif
 				<form class="form-horizontal" id="news-form" method="post" action="{{ url('admin/news/save') }}" role="form">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+					<input type="hidden" id="url_file_upload" value="{{ url('admin/news/upload') }}" />
 					<input type="hidden" name="id" value="{{ $news->id or '' }}" />
 					<div class="form-group">
 						<label for="title" class="col-sm-3 control-label">标题：</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="title" name="title" required maxlength="255" value="{{ $news->title or '' }}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="col-sm-3 control-label">列表页缩略图：</label>
+						<div class="col-sm-3 ">
+							<input type="file" class="upload-file" />
+							<input type="hidden" class="file-name" id="cover_image_name" name="cover_image_name" value="{{ $news->cover_image_name or '' }}" />
+							<img class="img-preview mt20" src="@if(isset($news->cover_image_name)) {{ NEWS_IMG_PATH . $news->cover_image_name }} @endif" alt="" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -53,6 +62,7 @@
 
 @section('script')
 <script type="text/javascript" src="{{ asset('js/admin/single.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/admin/upload.js') }}"></script>
 <script type="text/javascript" src="{{ asset('ueditor/ueditor.config.js') }}"></script>
 <script type="text/javascript" src="{{ asset('ueditor/ueditor.all.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/admin/news.js') }}"></script>

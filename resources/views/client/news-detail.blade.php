@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ IAI 2017综合产品目录正式上线！@stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜{{ $news->title }} @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/news.css') }}"/>
@@ -16,7 +16,7 @@
 					<a href="{{ url('/') }}">首页</a>
 				</li>
 				<li><a href="{{ url('/news') }}">最新消息</a></li>
-				<li>IAI 2017综合产品目录正式上线！</li>
+				<li>{{ $news->title }}</li>
 			</ul>
 		</div>
 	</div>
@@ -25,34 +25,19 @@
 			<div class="news_list">
 				<div class="news_left">
 					<h3 class="news_title news_detail_title">
-						<a href="javascript:;">IAI 2017综合产品目录正式上线！</a>
+						<a href="javascript:;">{{ $news->title }}</a>
 					</h3>
 					<div class="sub_title">
-						<span class="news_type news_type_company">公司动态</span>
-						<span class="news_date">2017-11-21</span>
+						<span class="news_type" style="background: {{ $news->category_background }}">{{ $news->category }}</span>
+						<span class="news_date">{{ $news->date }}</span>
 					</div>
-					<div class="article-content">
-						<p>
-							具备丰富的产品阵容，能帮助您更迅速了解IAI各款电缸产品的性能及选型等相关操作指南。具备丰富的产品阵容，能帮助您更迅速了解IAI各款电缸产品的性能及选型等相关操作指南。
-							<br />
-							欢迎下载选购 http://iai-robot.com/download/catalog.php 
-						</p>
-						<img src="{{ asset('i/client/news/news-1.jpg') }}" />
-						<p>
-							具备丰富的产品阵容，能帮助您更迅速了解IAI各款电缸产品的性能及选型等相关操作指南。具备丰富的产品阵容，能帮助您更迅速了解IAI各款电缸产品的性能及选型等相关操作指南。
-							<br />
-							欢迎下载选购 http://iai-robot.com/download/catalog.php 
-						</p>
-					</div>
+					<div class="article-content">{!! $news->content !!}</div>
 					
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
-
 @endsection
 
 @section('script')
