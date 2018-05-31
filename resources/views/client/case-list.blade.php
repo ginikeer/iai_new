@@ -22,34 +22,41 @@
 	<div class="container">
 		<div class="pc-only">
 			<div class="row sortNav clear">
-				<div class="sortNavBtn" id="filter-landscape">
-					<p><span>新着</span></p>
+				<div class="sortNavBtn filter-tag" data-id="0">
+					<p><span>最新</span></p>
 				</div>
-				<div class="sortNavBtn" id="filter-aa">
-					<p><span>自動車・機械部品</span></p>
+				@foreach ($tag as $t)
+				<div class="sortNavBtn filter-tag" data-id="{{ $t->id }}">
+					<p><span>{{ $t->title }}</span></p>
 				</div>
-				<div class="sortNavBtn">
-					<p><span>電子部品</span></p>
-				</div>
-				<div class="sortNavBtn">
-					<p><span>電子機器・家電</span></p>
-				</div>
-				<div class="sortNavBtn">
-					<p><span>食品・医薬品</span></p>
-				</div>
-				<div class="sortNavBtn">
-					<p><span>紙・フィルム・線材・建材</span></p>
-				</div>
-				<div class="sortNavBtn">
-					<p><span>検査・試験</span></p>
-				</div>
-				<div class="sortNavBtn">
-					<p><span>その他</span></p>
-				</div>
+				@endforeach
 			</div>
 			<div class="row case_row">
 				<div class="row" id="gallery-content-center">
-					<div class="col-lg-3 all landscape">
+					@foreach ($case as $c)
+					<div class="col-lg-3 all tag-{{ $c->primary_tag }}">
+						<a class="case_img" href="{{ url('/case/detail/' . $c->id) }}">
+							<img src="{{ CASE_IMG_PATH . $c->cover_image_name }}">
+						</a>
+						<div class="case_text">
+							<p>
+								<a href="{{ url('/case/detail/' . $c->id) }}">{{ $c->title }}</a>
+								<span>{!! $c->description !!}</span>
+							</p>
+							<div class="case-tag">
+								@foreach ($c->tags as $tag)
+									@if($tag->type == '行业')
+										<span class="case-tag-1">{{ $tag->title }}</span>
+									@elseif($tag->type == '工程')
+										<span class="case-tag-2">{{ $tag->title }}</span>
+									@endif
+								@endforeach
+							</div>
+						</div>
+					</div>
+					@endforeach
+					
+					<!--<div class="col-lg-3 all landscape">
 						<a class="case_img" href="{{ url('/case/detail') }}">
 							<img src="{{ asset('i/client/case/case_1.jpg') }}">
 						</a>
@@ -141,52 +148,8 @@
 								<span class="case-tag-2">定位</span>
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
-				<!--<div class="col-lg-3">
-					<dl class="right_nav">
-						<dt>产品使用案例</dt>
-						<dd class="active">
-							<a href="##">滑块型</a>
-						</dd>
-						<dd>
-							<a href="##">拉杆型</a>
-						</dd>
-						<dd>
-							<a href="##">平台型</a>
-						</dd>
-						<dd>
-							<a href="##">线性伺服马达型</a>
-						</dd>
-						<dd>
-							<a href="##">直交机械手</a>
-						</dd>
-						<dd>
-							<a href="##">桌上型机械手</a>
-						</dd>
-						<dd>
-							<a href="##">水平多关节机械手</a>
-						</dd>
-						<dd>
-							<a href="##">伺服压力机</a>
-						</dd>
-						<dd>
-							<a href="##">夹爪型、旋转型</a>
-						</dd>
-						<dd>
-							<a href="##">无尘规格</a>
-						</dd>
-						<dd>
-							<a href="##">防尘・防滴规格</a>
-						</dd>
-						<dd>
-							<a href="##">控制器</a>
-						</dd>
-						<dd>
-							<a href="##">其他</a>
-						</dd>
-					</dl>
-				</div>-->
 			</div>
 		</div>
 		<div class="sp-only">

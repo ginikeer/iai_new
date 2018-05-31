@@ -41,8 +41,35 @@ class Case_tag extends Model {
 	static public function getTitleAndType($arr) {
 		
 		return self::whereIn('id', $arr)
+					->orderBy('type', 'desc')
 					->orderBy('id', 'asc')
 					->select('title', 'type')
+					->get();
+		
+	}
+	
+	/**
+	 * 根据id数组，获取对应的tag的id
+	 *
+	 * @return string
+	 */
+	static public function getIdByType($arr, $type) {
+		
+		return self::whereIn('id', $arr)
+					->where('type', $type)
+					->pluck('id');
+		
+	}
+	
+	/**
+	 * 根据type获取数据
+	 *
+	 * @return array
+	 */
+	static public function getDataByType($type) {
+		
+		return self::where('type', $type)
+					->orderBy('id', 'asc')
 					->get();
 		
 	}

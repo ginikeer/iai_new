@@ -4,11 +4,8 @@ $(window).load(function () {
 	    
 	$container.isotope({itemSelector : '.all'});
 		
-	$("#filter-landscape").click(function() {
-		$container.isotope({ filter: '.landscape' });
+	$("#filter-tag").click(function() {
+		var _id = $(this).attr('data-id');
+		$container.isotope({ filter: '.tag-' + _id });
 	});
-	$("#filter-aa").click(function() {
-		$container.isotope({ filter: '.aa' });
-	});
-
 });
