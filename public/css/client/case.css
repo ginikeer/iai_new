@@ -370,6 +370,12 @@
 	#case_main{
 		padding-top: 0;
 	}
+	.sortNavBtn{
+		width: 50%;
+	}
+	.sortNavBtn:nth-of-type(3), .sortNavBtn:nth-of-type(4) {
+    border-top: none;
+	}
 }
 
 @media screen and (max-width: 750px) {
