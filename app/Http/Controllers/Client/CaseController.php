@@ -33,10 +33,6 @@ class CaseController extends Controller {
 	{
 		$data												= Cases::orderBy('id', 'desc')->get();
 		
-		DB::listen(function($sql, $bindings, $time) {  
-			echo 'SQL语句执行：'.$sql.'，参数：'.json_encode($bindings).',耗时：'.$time.'ms';  
-		}); 
-		
 		for($i = 0; $i < count($data); $i++) {
 			$selected_tag['arr_ids']						= explode( ",", $data[$i]->tag_ids );
 			$data[$i]->tags									= Case_tag::getTitleAndType( $selected_tag['arr_ids'] );

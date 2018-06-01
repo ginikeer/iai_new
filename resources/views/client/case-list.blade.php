@@ -33,8 +33,9 @@
 			</div>
 			<div class="row case_row">
 				<div class="row" id="gallery-content-center">
+					<?php $i = 0; ?>
 					@foreach ($case as $c)
-					<div class="col-lg-3 all tag-{{ $c->primary_tag }}">
+					<div class="col-lg-3 all tag-{{ $c->primary_tag }} @if($i < 40) tag-0 @endif ">
 						<a class="case_img" href="{{ url('/case/detail/' . $c->id) }}">
 							<img src="{{ CASE_IMG_PATH . $c->cover_image_name }}">
 						</a>
@@ -54,6 +55,7 @@
 							</div>
 						</div>
 					</div>
+					<?php $i++; ?>
 					@endforeach
 					
 					<!--<div class="col-lg-3 all landscape">
