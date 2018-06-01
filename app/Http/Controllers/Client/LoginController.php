@@ -27,15 +27,6 @@ class LoginController extends Controller {
 	}
 
 	
-	
-	public function getDetail($id)
-	{
-		
-		
-	}
-	
-	
-	
 	public function getPwdlost(Request $request)
 	{
 		
@@ -52,29 +43,8 @@ class LoginController extends Controller {
 		]);
 	}
 	
-	public function getMypage(Request $request)
-	{
-		
-		return view('client/mypage', [
-			'nav'											=> $this->nav
-		]);
-	}
 	
-	public function getPwdchange(Request $request)
-	{
-		
-		return view('client/pwd-change', [
-			'nav'											=> $this->nav
-		]);
-	}
 	
-	public function getSecession(Request $request)
-	{
-		
-		return view('client/secession', [
-			'nav'											=> $this->nav
-		]);
-	}
 	
 	public function getSecessioncomplete(Request $request)
 	{

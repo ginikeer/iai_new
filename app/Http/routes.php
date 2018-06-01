@@ -19,6 +19,7 @@ Route::controller('/news', 'Client\NewsController');
 Route::controller('/login', 'Client\LoginController');
 Route::controller('/contact', 'Client\ContactController');
 Route::controller('/company', 'Client\CompanyController');
+Route::controller('/member', 'Client\MemberController');
 
 Route::get('/admin', 'Admin\ProductController@getIndex');
 Route::controller('/admin/product', 'Admin\ProductController');

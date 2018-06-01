@@ -140,11 +140,11 @@
 								@endforeach
 							</ul>
 						</li>
-						<li><a href="##">会员</a>
+						<li><a href="{{ url('/member/info') }}">会员</a>
 							<ul class="list-text cases_list_text">
 								<li><a href="{{ url('/auth/login') }}"><small>会员登陆</small></a></li>
 								<li><a href="{{ url('/regist') }}"><small>会员注册</small></a></li>
-								<li><a href="{{ url('/login/mapage') }}"><small>我的页面</small></a></li>
+								<li><a href="{{ url('/member/info') }}"><small>我的页面</small></a></li>
 							</ul>
 						</li>
 						<li><a href="{{ url('/contact') }}">联系我们</a></li>

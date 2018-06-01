@@ -82,7 +82,7 @@ class Helper {
 	//将字符串根据冒号分隔成数组
 	static public function explodeByColon($str)
 	{
-		$arr = explode(":", $str);
+		$arr 									= explode(":", $str);
 		
 		return isset( $arr[1] ) ? $arr[1] : $arr[0];
 	}
@@ -90,7 +90,7 @@ class Helper {
 	//将字符串根据点号分隔成数组，返回点号前面的字符串
 	static public function explodeByDot($str)
 	{
-		$arr = explode(".", $str);
+		$arr 									= explode(".", $str);
 		
 		return $arr[0];
 	}
@@ -98,7 +98,7 @@ class Helper {
 	//随机生成n位数字验证码
 	static public function genCode($n = 6)
 	{
-		$code = "";
+		$code 									= "";
 		
 		for($i = 0; $i < $n; $i++) {
 			$code .= rand(0, 9);
@@ -119,7 +119,7 @@ class Helper {
 	//获取最大值
 	static public function getMaxIndex($param)
 	{
-		$max = 0;
+		$max 									= 0;
 		
 		if(count($param) > 0) {
 			foreach($param as $p) {
@@ -134,15 +134,27 @@ class Helper {
 	//判断传入的$content长度是否大于$length，若是则截断并加上...，否则输出原$content
 	static public function truncation($content, $length) 
 	{
-		$str = strip_tags($content);
+		$str 									= strip_tags($content);
 				
 		if(strlen($str) > $length) {
-			$str = mb_substr($str, 0, $length, 'utf-8') . "...";
+			$str 								= mb_substr($str, 0, $length, 'utf-8') . "...";
 		}
 
 		return $str;
 	}
 	
+	static public function mosaic($str, $length = 2)
+	{
+		$part1									= substr($str, 0, $length);
+		$len 									= strlen($str) - 2;
+		$mark									= '';
+		
+		for($i = 0; $i < $len; $i++) {
+			$mark								.= '*';
+		}
+		
+		return $part1 . $mark;
+	}
 	
 	
 	//将来源不同的文件上传至不同文件夹内

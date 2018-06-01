@@ -33,8 +33,9 @@ $(function(){
 		}else{
 			flag = true;
 		}
-		if(flag){
-			window.location.href = $('#send-change-link').val();
+		
+		if(flag) {
+			$('#password_form').submit();
 		}
 	});
 });

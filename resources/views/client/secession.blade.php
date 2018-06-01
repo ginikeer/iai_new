@@ -24,26 +24,27 @@
 		<div class="color-white">
 			<h1>退会</h1>
 			<hr>
-            <form name="inputForm" method="post" action="">
-			<div class="row mypage-row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<p>如果退会，您将不能登录本网站以获取更新资料。</p>
-					<div class="list-lined">
-						<div class="list-item">
-							<div class="list-item-header">退会理由</div>
-							<div class="list-item-body">
-								<textarea name="secession" id="secession"></textarea>
-							</div>
-						</div>	
+            <form id="secession_form" method="post" action="{{ url('member/secession') }}">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+				<div class="row mypage-row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<p>如果退会，您将不能登录本网站以获取更新资料。</p>
+						<div class="list-lined">
+							<div class="list-item">
+								<div class="list-item-header">退会理由</div>
+								<div class="list-item-body">
+									<textarea name="secession" id="secession"></textarea>
+								</div>
+							</div>	
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row mypage-btn-row">
-				<div class="login-btn">
-					<a href="{{ url('/login/secessioncomplete') }}" class="btn btn-mypage btn-red" >退会</a>
-					<a href="{{url('/login/mypage')}}" class="btn btn-mypage btn-gray">返回</a>
+				<div class="row mypage-btn-row">
+					<div class="login-btn">
+						<button type="submit" class="btn btn-red btn-mypage" onClick="javascript:if(confirm('您确定要退会吗?')) return true; else return false;">退会</button>
+						<a href="{{ url('/member/info') }}" class="btn btn-mypage btn-gray">返回</a>
+					</div>
 				</div>
-			</div>
             </form>
 		</div>
 	</div>

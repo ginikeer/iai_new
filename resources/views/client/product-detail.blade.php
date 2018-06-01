@@ -35,10 +35,10 @@
 							<a class="detail-btn" href="@if(!empty($product->pdf_name)) {{ PRODUCT_PDF_PATH . $product->pdf_name }} @else javascript:void(0); @endif">产品目录下载</a>
 						</div>
 						<div class="col-lg-4">
-							<a class="detail-btn" href="http://linkable.partcommunity.com">3D CAD图纸</a>
+							<a class="detail-btn" target="_blank" href="http://linkable.partcommunity.com">3D CAD图纸</a>
 						</div>
 						<div class="col-lg-4">
-							<a class="detail-btn" href="{{ asset('pdf/client/product/IAI 3D Download Process.pdf') }}">3D图纸流程</a>
+							<a class="detail-btn" target="_blank" href="{{ asset('pdf/client/product/IAI 3D Download Process.pdf') }}">3D图纸流程</a>
 						</div>
 						<div class="col-lg-4">
 							<a class="detail-btn" href="mailto:shanghai@iai-robot.com">联系我们</a>

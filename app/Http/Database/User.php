@@ -12,14 +12,14 @@ class User extends Model {
 	protected $guarded  = ["id"];
 	
 	/**
-	 * 获取某个账户的数据
+	 * 检查账户是否存在
 	 *
 	 * @return array
 	 */
 	static public function hasData($account, $password) {
 		
 		return self::where('pwd', $password)
-					->where(function($query) {
+					->where(function($query) use ($account) {
 		                $query->where('email', $account)->orWhere('tel', $account);
 		            })->first();
 		
@@ -117,6 +117,17 @@ class User extends Model {
 	static public function getFieldByKey($key, $field) {
 		
 		return self::where('reg_key', $key)->pluck($field);
+		
+	}
+	
+	/**
+	 * 根据id获取字段
+	 *
+	 * @return string
+	 */
+	static public function getFieldById($id, $field) {
+		
+		return self::where('id', $id)->pluck($field);
 		
 	}
 	

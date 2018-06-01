@@ -224,5 +224,5 @@ class ClientAuthController extends Controller {
 	{
 		return view('client/register-complete');
 	}
-
+	
 }

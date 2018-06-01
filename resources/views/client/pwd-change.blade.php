@@ -21,30 +21,31 @@
 	</div>
 	<div class="login-content">
 		<h2>变更密码</h2>
-		<form>
+		<form id="password_form" method="post" action="{{ url('/member/password') }}">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 			<div class="login-form regist-form">
 				<p>请变更您的密码</p>
 				<div class="form-item">
 					<label>会员ID(Email)</label>
-					<input type="email" name="email" value="xxx@xxx.com" readonly />
+					<input type="email" name="email" value="{{ $email }}" readonly />
 				</div>
 				<div class="form-item password">
 					<label>旧密码</label>
-					<input type="password" required name="old-password" id="old-password" />
+					<input type="password" required name="old_password" id="old-password" />
 				</div>
 				<p class="text-red error-text">请输入旧密码</p>
 				<div class="form-item password">
 					<label>新密码</label>
-					<input type="password" required name="password" id="new-password" />
+					<input type="password" required name="new_password" id="new-password" />
 				</div>
 				<p class="text-red error-text">请输入新密码</p>
 				<div class="form-item password">
 					<label>重复新密码</label>
-					<input type="password" required name="repeat-password" id="repeat-password" />
+					<input type="password" required name="repeat_password" id="repeat-password" />
 				</div>
 				<p class="text-red error-text"></p>
+				<p class="text-red">{{ $error or '' }}</p>
 				<div class="login-btn">
-					<input type="hidden" id="send-change-link" value="{{ url('/login/mypage') }}" />
 					<input type="button" id="send-change-btn" value=" 发送 " />
 				</div>
 			</div>
