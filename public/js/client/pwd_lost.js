@@ -9,12 +9,24 @@ $(function(){
 		}
 	});
 	
-	$('#send-btn').click(function(){
+	$('#email-send-btn').click(function(){
 		if(!emailreg.test($('#lost-email').val())){
 			$('#error-text').show();
-			return;
 		}else{
-			$('.send-hide').show();
+			$.ajax({
+				type: "post",
+				url: $("#url-email-password").val(),
+				headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+				data: {email: $("#lost-email").val()},
+				dataType: "text",
+				success: function(result) {
+					if(result == "ok") {
+						$('.send-hide').show();
+					} else {
+						$('.send-hide').text(result).show();
+					}
+				}
+			});
 		}
 	});
 	

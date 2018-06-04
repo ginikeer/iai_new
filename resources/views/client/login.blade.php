@@ -26,11 +26,11 @@
 			<div class="login-form">
 				<div class="form-item user-name">
 					<label></label>
-					<input type="text" name="account" id="account" />
+					<input type="text" name="account" id="account" placeholder="请输入手机或邮箱" />
 				</div>
 				<div class="form-item password">
 					<label></label>
-					<input type="password" name="password" id="password" />
+					<input type="password" name="password" id="password" placeholder="请输入密码" />
 				</div>
 				<p class="text-red error">{{ $error or '' }}</p>
 				<div class="forget-password">

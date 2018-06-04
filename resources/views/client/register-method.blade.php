@@ -57,7 +57,7 @@
 							<input type="email" name="email" required id="regist-email" />
 						</div>
 						<div class="form-item error" id="email-error-text">
-							<p class="text-red">请输入正确的邮箱地址</p>
+							<p class="text-red">请输入正确的邮箱地址！</p>
 						</div>
 						<div class="login-btn">
 							<input type="button" class="regist-btn" id="reg-email-btn" value="邮箱认证" />
@@ -116,10 +116,10 @@
 						<input type="text" id="regist-vcode" />
 					</div>
 					<div class="form-item error" id="mobile-error-text">
-						<p class="text-red">请输入正确的手机号</p>
+						<p class="text-red">请输入正确的手机号！</p>
 					</div>
 					<div class="form-item error" id="vcode-error-text">
-						<p class="text-red">请输入验证码</p>
+						<p class="text-red">请输入验证码！</p>
 					</div>
 					<div class="form-item error" id="send-error-text">
 						<p class="text-red"></p>

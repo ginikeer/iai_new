@@ -142,4 +142,9 @@ class User extends Model {
 		
 	}
 	
+	static public function updateKeyByField($fkey, $fvalue, $key) {
+		
+		self::where($fkey, $fvalue)->update(['reg_key' => $key]);
+		
+	}
 }

@@ -92,13 +92,13 @@ class MemberController extends Controller {
 		
 		Helper::tableSave(User::find($this->uid), $param);
 		
-		Cookie::queue('iai_user_token', null, -1);
-		
 		return redirect('/member/secession-over');
 	}
 	
 	public function getSecessionOver()
 	{
+		Cookie::queue('iai_user_token', null, -1);
+		
 		return view('client/secession-complete');
 	}
 

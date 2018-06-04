@@ -46,12 +46,6 @@ class LoginController extends Controller {
 	
 	
 	
-	public function getSecessioncomplete(Request $request)
-	{
-		
-		return view('client/secession-complete', [
-			'nav'											=> $this->nav
-		]);
-	}
+	
 
 }

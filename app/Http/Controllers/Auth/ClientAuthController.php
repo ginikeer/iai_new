@@ -67,6 +67,49 @@ class ClientAuthController extends Controller {
 		return view('client/forget-password');
 	}
 	
+	//邮件方式请求重置密码
+	public function postForgetEmail(Request $request)
+	{
+		$email												= $request->input('email');
+		$key												= Helper::generateUnique();
+		
+		if( User::isExist('email', $email) ) {
+			//修改key值
+			User::updateKeyByField('email', $email, $key);
+			
+			try {
+				$url										= url('/auth/reset?key=' . $key);
+				
+				//发送邮件
+				Mail::send('emails.forget', ['email' => $email, 'url' => $url], function($message) use ($email) {
+				    $message->to($email)->subject('艾卫艾商贸(上海)有限公司- 找回密码');
+				});
+				
+				echo 'ok';
+			} catch (\Exception $e) {
+				echo '邮件发送失败！';
+			}
+			
+		} else {
+			echo '该邮箱不存在！';
+		}
+	}
+	
+	//手机方式请求重置密码
+	public function postForgetMobile(Request $request)
+	{
+		$mobile												= $request->input('mobile');
+		$key												= Helper::generateUnique();
+		
+		if( User::isExist('mobile', $mobile) ) {
+			
+			
+			
+		} else {
+			echo '该手机号不存在！';
+		}
+	}
+	
 	//注册邮箱填写
 	public function getRegister(Request $request)
 	{
@@ -125,7 +168,7 @@ class ClientAuthController extends Controller {
 		    ""							// 流水号
 		);
 		
-		if(1 || $response->Code == 'OK') {	//正确发送验证码
+		if($response->Code == 'OK') {	//正确发送验证码
 			Session::put('reg_mobile', $mobile);
 			Session::put('reg_vcode', $code);
 			Session::put('reg_vcode_expired_at', $expired_at);
