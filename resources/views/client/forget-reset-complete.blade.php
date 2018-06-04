@@ -29,7 +29,7 @@
 		<form>
 			<div class="login-form">
 				<div class="login-btn">
-					<a href="{{ url('/login') }}" class="complete-btn"> 登 陆 </a>
+					<a href="{{ url('/auth/login') }}" class="complete-btn"> 登 陆 </a>
 				</div>
 			</div>
 		</form>

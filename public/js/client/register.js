@@ -13,6 +13,7 @@ $(function(){
 	//发送验证码
 	$('.send-vcode-btn').on('click', function() {
 		var _mobile = $('#regist-mobile').val();
+		var _scene = $('#scene').val();
 		
 		if( !checkMobile(_mobile) ) return false;
 		
@@ -22,13 +23,12 @@ $(function(){
 			type: "post",
 			url: $("#url-send-vcode").val(),
 			headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
-			data: {mobile: _mobile},
+			data: {mobile: _mobile, scene: _scene},
 			dataType: "json",
 			success: function(result) {
 				if(result.Code != 'OK') {
 					$('#send-error-text').show();
 					$('#send-error-text .text-red').text(result.Message);
-//					alert(result.Message);
 				}else{
 					$('#send-error-text').hide();
 					$('#send-error-text .text-red').text('');
@@ -62,7 +62,6 @@ $(function(){
 				} else {
 					$('#send-error-text').show();
 					$('#send-error-text .text-red').text(result.msg);
-//					alert(result.msg);
 				}
 			}
 		});

@@ -104,7 +104,7 @@
 			<form>
 				<input type="hidden" id="url-check-mobile" value="{{ url('/auth/check-mobile') }}" />
 				<input type="hidden" id="url-send-vcode" value="{{ url('/auth/send-vcode') }}" />
-				
+				<input type="hidden" id="scene" value="register" />
 				<div class="login-form">
 					<div class="form-item user-mobile">
 						<label></label>

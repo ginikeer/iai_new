@@ -142,9 +142,25 @@ class User extends Model {
 		
 	}
 	
+	/**
+	 * 根据字段修改key值
+	 *
+	 * @return void
+	 */
 	static public function updateKeyByField($fkey, $fvalue, $key) {
 		
 		self::where($fkey, $fvalue)->update(['reg_key' => $key]);
+		
+	}
+	
+	/**
+	 * 根据key修改密码
+	 *
+	 * @return void
+	 */
+	static public function updatePasswordByKey($password, $key) {
+		
+		self::where('reg_key', $key)->update(['pwd' => $password]);
 		
 	}
 }

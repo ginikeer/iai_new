@@ -62,7 +62,7 @@ $(function(){
 		}
 	});
 	
-	$('#send-new-btn').click(function(){
+	$('#reset-btn').click(function(){
 		if($('#new-password').val()==''){
 			$('#new-password').parents('.form-item').next('.error-text').show();
 			flag = false;
@@ -87,7 +87,7 @@ $(function(){
 			flag = true;
 		}
 		if(flag){
-			window.location.href = $('#send-new-link').val();
+			$('#reset_form').submit();
 		}
 	});
 	

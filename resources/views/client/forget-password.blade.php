@@ -63,7 +63,7 @@
 			</div>
 		</div>
 		
-		<div class="mobile-method mobile-register hide">
+		<div class="register-method mobile-register hide">
 			<div class="row">
 				<div class="col-lg-10 col-lg-offset-1">
 		            <p>
@@ -73,8 +73,9 @@
 				</div>
 			</div>
 			<form>
-				<input type="hidden" id="url-check-mobile" value="{{ url('/auth/check-mobile') }}" />
+				<input type="hidden" id="url-check-mobile" value="{{ url('/auth/forget-mobile') }}" />
 				<input type="hidden" id="url-send-vcode" value="{{ url('/auth/send-vcode') }}" />
+				<input type="hidden" id="scene" value="forget" />
 				
 				<div class="login-form">
 					<div class="form-item user-mobile">
@@ -96,7 +97,7 @@
 						<p class="text-red"></p>
 					</div>
 					<div class="login-btn">
-						<input type="button" class="regist-btn" id="reg-mobile-btn" value="手机认证" />
+						<input type="button" class="regist-btn" id="reg-mobile-btn" value=" 发 送 " />
 					</div>
 				</div>
 			</form>

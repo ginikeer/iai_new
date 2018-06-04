@@ -62,6 +62,7 @@ class ClientAuthController extends Controller {
 		return redirect('/');
 	}
 	
+	//忘记密码页面
 	public function getForget()
 	{
 		return view('client/forget-password');
@@ -99,15 +100,73 @@ class ClientAuthController extends Controller {
 	public function postForgetMobile(Request $request)
 	{
 		$mobile												= $request->input('mobile');
+		$vcode												= $request->input('vcode');
+		$current 											= date('Y-m-d H:i:s');
 		$key												= Helper::generateUnique();
 		
-		if( User::isExist('mobile', $mobile) ) {
+		if( !User::isExist('tel', $mobile) ) {
 			
+			echo json_encode(array('code' => -1, 'msg' => '该手机号不存在！'));
+			die();
 			
+		} else if( !(Session::get('reg_mobile') == $mobile && Session::get('reg_vcode') == $vcode && 
+						Session::get('reg_vcode_expired_at') >= $current) ) {
+			
+			echo json_encode(array('code' => -1, 'msg' => '验证码错误或已超时！'));
+			die();
 			
 		} else {
-			echo '该手机号不存在！';
+			
+			//修改key值
+			User::updateKeyByField('tel', $mobile, $key);
+			
+			$url											= url('/auth/reset?key=' . $key);
+			echo json_encode(array('code' => 1, 'msg' => $url));
+			
 		}
+	}
+	
+	//重置密码页面
+	public function getReset(Request $request)
+	{
+		$key												= $request->input('key');
+		$reg_method											= User::getFieldByKey($key, 'reg_method');
+		$email												= '';
+		$mobile												= '';
+		
+		if($reg_method == 'email') {
+			$email											= User::getFieldByKey($key, 'email');
+		} else if($reg_method == 'mobile') {
+			$mobile											= User::getFieldByKey($key, 'tel');
+		}
+		
+		if( empty($reg_method) || empty($key) || ($reg_method == 'email' && empty($email)) || 
+				($reg_method == 'mobile' && empty($mobile)) ) {	//key或者邮箱为空说明不是从邮箱过来的，或者修改了key值
+			return redirect('/auth/register');
+		} else {
+			return view('client/forget-reset', [
+				'email' 									=> $email,
+				'mobile'									=> $mobile,
+				'reg_method'								=> $reg_method,
+				'key' 										=> $key
+			]);
+		}
+	}
+	
+	//重置密码提交
+	public function postReset(Request $request)
+	{
+		$key												= $request->input('reg_key');
+		$password											= $request->input('password');
+		
+		User::updatePasswordByKey($password, $key);
+		
+		return redirect('/auth/reset-complete');
+	}
+	
+	public function getResetComplete()
+	{
+		return view('client/forget-reset-complete');
 	}
 	
 	//注册邮箱填写
@@ -146,14 +205,22 @@ class ClientAuthController extends Controller {
 		}
 	}
 	
-	//检查手机是否存在，生成验证码，发送短信
+	//检查手机号是否存在，生成验证码，发送短信
 	public function postSendVcode(Request $request)
 	{
 		$mobile												= $request->input('mobile');
+		$scene												= $request->input('scene');
 		
-		if( User::isExist('tel', $mobile) ) {
-			echo json_encode(array('Code' => 'error', 'Message' => '该手机号已存在，请换个手机号或者前往登陆！'));
-			die();
+		if($scene == 'register') {	//注册场景
+			if( User::isExist('tel', $mobile) ) {
+				echo json_encode(array('Code' => 'error', 'Message' => '该手机号已存在，请换个手机号或者前往登陆！'));
+				die();
+			}
+		} else if($scene == 'forget') {		//忘记密码场景
+			if( !User::isExist('tel', $mobile) ) {
+				echo json_encode(array('Code' => 'error', 'Message' => '手机号不存在！'));
+				die();
+			}
 		}
 		
 		$expired_at 										= date('Y-m-d H:i:s', strtotime("+15 minute"));
@@ -179,7 +246,7 @@ class ClientAuthController extends Controller {
 		echo json_encode($response);
 	}
 	
-	//检查手机是否存在，验证码是否正确，生成临时用户
+	//检查手机号是否存在，验证码是否正确，生成临时用户
 	public function postCheckMobile(Request $request)
 	{
 		$mobile												= $request->input('mobile');

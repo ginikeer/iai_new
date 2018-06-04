@@ -21,12 +21,18 @@
 	</div>
 	<div class="login-content">
 		<h2>重置密码</h2>
-		<form>
+		<form id="reset_form" method="post" action="{{ url('/auth/reset') }}">
+			<input type="hidden" name="reg_key" value="{{ $key }}" />
+			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 			<div class="login-form regist-form">
 				<p>请重置您的密码</p>
 				<div class="form-item">
-					<label>会员ID(Email)</label>
-					<input type="email" name="email" value="xxx@xxx.com" readonly />
+					<label>会员账号</label>
+					@if($reg_method == 'email')
+					<input type="text" value="{{ $email }}" readonly />
+					@else
+					<input type="text" value="{{ $mobile }}" readonly />
+					@endif
 				</div>
 				<div class="form-item password">
 					<label>新密码</label>
@@ -35,12 +41,11 @@
 				<p class="text-red error-text">请输入新密码</p>
 				<div class="form-item password">
 					<label>重复新密码</label>
-					<input type="password" required name="repeat-password" id="repeat-password" />
+					<input type="password" required id="repeat-password" />
 				</div>
 				<p class="text-red error-text"></p>
 				<div class="login-btn">
-					<input type="hidden" id="send-new-link" value="{{ url('/login/pwdlostpost') }}" />
-					<input type="button" id="send-new-btn" value=" 发送 " />
+					<input type="button" id="reset-btn" value=" 发送 " />
 				</div>
 			</div>
 		</form>

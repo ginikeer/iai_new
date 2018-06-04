@@ -50,7 +50,7 @@ class MemberController extends Controller {
 	
 	public function getPassword()
 	{
-		return view('client/pwd-change', [
+		return view('client/mypage-password', [
 			'email'											=> User::getFieldById($this->uid, 'email')
 		]);
 	}
@@ -69,7 +69,7 @@ class MemberController extends Controller {
 		} else {
 			$error 											= "旧密码错误 ！";
 			
-			return view('client/pwd-change', [
+			return view('client/mypage-password', [
 				'email'										=> $email,
 				'error'										=> $error
 			]);

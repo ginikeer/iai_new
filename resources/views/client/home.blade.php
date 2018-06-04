@@ -135,36 +135,16 @@
 
 	<div class="wrap" id="mian_news">
 		<h2 class="mian_title news_title"><span><!--NEWS--></span></h2>
-		<!--<p class="download_text">文字文字文字文字文字文字文字文字文字文字文字文字</p>-->
 		<div class="container">
+			@foreach ($news as $n)
 			<div class="row row-case news_row">
-				<div class="col-lg-2">2017-12-21</div>
-				<div class="col-lg-1 news_product"><span>产品发布</span></div>
+				<div class="col-lg-2">{{ $n->date }}</div>
+				<div class="col-lg-1" style="background: {{ $n->category_background }}"><span>{{ $n->category }}</span></div>
 				<div class="col-lg-7">
-					<a href="{{ url('/news/detail') }}">【重要】XSEL-J/JX停产通知</a>
+					<a href="{{ url('/news/detail/' . $n->id) }}">{{ $n->title }}</a>
 				</div>
 			</div>
-			<div class="row row-case news_row">
-				<div class="col-lg-2">2017-11-23</div>
-				<div class="col-lg-1"><span>公司动态</span></div>
-				<div class="col-lg-7">
-					<a href="{{ url('/news/detail') }}">【重要】2017综合产品目录勘误通知</a>
-				</div>
-			</div>
-			<div class="row row-case news_row">
-				<div class="col-lg-2">2017-11-21</div>
-				<div class="col-lg-1 news_product"><span>产品发布</span></div>
-				<div class="col-lg-7">
-					<a href="{{ url('/news/detail') }}">IAI 2017综合产品目录正式上线！</a>
-				</div>
-			</div>
-			<div class="row row-case news_row">
-				<div class="col-lg-2">2017-09-05</div>
-				<div class="col-lg-1"><span>公司动态</span></div>
-				<div class="col-lg-7">
-					<a href="{{ url('/news/detail') }}">2017年中国国际工业博览会参展通知</a>
-				</div>
-			</div>
+			@endforeach
 			<div class="row news_more_row">
 				<a href="{{ url('/news') }}" class="news_more">查看更多</a>
 			</div>
@@ -173,49 +153,20 @@
 
 	<div class="wrap" id="mian_case">
 		<h2 class="mian_title case_title"><span><!--CASE STUDIES--></span></h2>
-		<!--<p class="download_text">文字文字文字文字文字文字文字文字文字文字文字文字</p>-->
 		<div class="container">
 			<div class="row row-no-offset row-case case_row">
+				@foreach ($case as $c)
 				<div class="col-lg-3">
-					<a href="javascript:;">
-						<img src="{{ asset('i/client/home/case_1.jpg') }}" />
+					<a href="{{ url('/case/detail/' . $c->id) }}">
+						<img src="{{ CASE_IMG_PATH . $c->cover_image_name }}" />
 					</a>
 					<p class="case_text">
-						<a href="##">垫片压入装置</a>
-						<span>用于在机械部件上压入垫片的装置中。</span>
+						<a href="{{ url('/case/detail/' . $c->id) }}">{{ $c->title }}</a>
+						<span>{!! $c->description !!}</span>
 					</p>
 					<!--<span>検査・試験</span>-->
 				</div>
-				<div class="col-lg-3">
-					<a href="javascript:;">
-						<img src="{{ asset('i/client/home/case_2.jpg') }}" />
-					</a>
-					<p class="case_text">
-						<a href="##">注塑部件的装箱装置</a>
-						<span>用于注塑部件的装箱装置上。</span>
-					</p>
-					<!--<span>検査・試験</span>-->
-				</div>
-				<div class="col-lg-3">
-					<a href="javascript:;">
-						<img src="{{ asset('i/client/home/case_3.jpg') }}" />
-					</a>
-					<p class="case_text">
-						<a href="##">汽车部件异物吸出装置</a>
-						<span>用于汽车部件中的异物吸出装置上</span>
-					</p>
-					<!--<span>検査・試験</span>-->
-				</div>
-				<div class="col-lg-3">
-					<a href="javascript:;">
-						<img src="{{ asset('i/client/home/case_4.jpg') }}" />
-					</a>
-					<p class="case_text">
-						<a href="##">注塑部件毛边去除装置</a>
-						<span>用于汽车注塑部件毛边去除装置上</span>
-					</p>
-					<!--<span>検査・試験</span>-->
-				</div>
+				@endforeach
 			</div>
 			<div class="row news_more_row">
 				<a href="{{ url('/case') }}" class="news_more">产品案例一览</a>
