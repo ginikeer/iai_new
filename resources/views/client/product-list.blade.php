@@ -40,6 +40,24 @@
 				<div class="products-tab-item new-products @if(!empty($query_category)) hide @endif">
 					<div class="container">
 						<div class="row row-no-offset">
+							<div class="col-lg-3">
+								<div class="new-product-item">
+									<img src="{{ asset('i/client/product/grs.png') }}" />
+									<div class="product-content">
+										<p>小型、价廉、操作简单！<br />电磁夹爪崭新发售</p>
+									</div>
+								</div>
+								<a href="{{ url('product/grs') }}"><span>> 点击了解GRS</span><i></i></a>
+							</div>
+							<div class="col-lg-3">
+								<div class="new-product-item">
+									<img src="{{ asset('i/client/product/rcon.png') }}" />
+									<div class="product-content">
+										<p>简单且功能强大的网络专用综合型控制器</p>
+									</div>
+								</div>
+								<a href="{{ url('product/new') }}"><span>> 点击了解GRS</span><i></i></a>
+							</div>
 							@foreach ($new as $n)
 							<!--<div class="col-lg-3">
 								<div class="new-product-item">
