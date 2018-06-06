@@ -262,6 +262,10 @@
 	transform: translateY(-50%);
 	transition: all 0.5s;
 }
+.products-tab-item .col-lg-3:hover .product-content{
+	background: rgba(0,0,0,0.9);
+	color: #FFFFFF;
+}
 .new-products .col-lg-3 a{
 	color: #af1f39;
 	font-size: 14px;
