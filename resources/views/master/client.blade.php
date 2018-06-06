@@ -164,12 +164,12 @@
 						<div class="col-lg-7">
 							<p class="pc_tel">深圳分公司<br/>0755-2393-2307</p>
 							<p class="sp_tel">深圳分公司<br/><a href="tel:0755-2393-2307">0755-2393-2307</a></p>
-							<p><a href="mailto:shanghai@iai-robot.com">shanghai@iai-robot.com</a></p>
+							<p><a href="mailto:shenzhen@iai-robot.com">shenzhen@iai-robot.com</a></p>
 						</div>
 						<div class="col-lg-5">
 							<p class="pc_tel">北京分公司<br/>010-6500-1707</p>
 							<p class="sp_tel">北京分公司<br/><a href="tel:010-6500-1707">010-6500-1707</a></p>
-							<p><a href="mailto:shanghai@iai-robot.com">shanghai@iai-robot.com</a></p>
+							<p><a href="mailto:beijing@iai-robot.com">beijing@iai-robot.com</a></p>
 						</div>
 					</div>
 					

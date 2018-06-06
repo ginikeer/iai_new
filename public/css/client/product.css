@@ -203,7 +203,7 @@
 	top: 0;
 	left: 0;
 	transition: all 0.5s;
-	background: rgba(0,0,0,0.3);
+	/*background: rgba(0,0,0,0.3);*/
 	height: 100%;
 	color: #FFFFFF;
 	width: 100%;
@@ -258,7 +258,8 @@
 }
 .products-tab-item .col-lg-3:hover .new-product-item p{
 	opacity: 1;
-	top: 100px;
+	top: 50%;
+	transform: translateY(-50%);
 	transition: all 0.5s;
 }
 .new-products .col-lg-3 a{
