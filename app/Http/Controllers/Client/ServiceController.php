@@ -74,6 +74,10 @@ class ServiceController extends Controller {
 		]);
 	}
 	
+	public function getCatalogDownload(Request $request) {
+		
+	}
+	
 	public function getSettings(Request $request){
 		return view('client/service-settings', [
 			'nav'											=> $this->nav

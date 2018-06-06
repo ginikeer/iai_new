@@ -5,7 +5,6 @@
 	define("ALIYUN_SMS_SIGN", "艾卫艾");								//短信签名
 	define("ALIYUN_SMS_TEMPLATE_CODE", "SMS_105045035");			//短信模板编号
 
-	
 	define("USER_INFO_NOT_COMPLETED", 0);
 	define("USER_INFO_HAS_COMPLETED", 1);
 	define("USER_IS_DELETED", 2);
@@ -13,6 +12,10 @@
 	define("USER_INFO_HAS_COMPLETED_STRING", "已认证");
 	define("USER_IS_DELETED_STRING", "退会");
 	
+	define("USER_APPLY_SENT", 1);
+	define("USER_APPLY_NOT_SENT", 0);
+	define("USER_APPLY_SENT_STRING", "已发送");
+	define("USER_APPLY_NOT_SENT_STRING", "未发送");
 	
 	
 	define("PER", 20);

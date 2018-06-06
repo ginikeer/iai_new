@@ -91,6 +91,12 @@
 							<li>
 								<a href="{{ url('admin/user/single') }}">会员新增</a>
 							</li>
+							<li>
+								<a href="{{ url('admin/user/apply') }}">会员目录申请</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/user/download') }}">会员下载记录</a>
+							</li>
 						</ul>
 					</li>
 				</ul>

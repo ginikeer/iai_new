@@ -62,7 +62,8 @@
 				    	<td><span class="form-span">{{ $d->company }}</span></td>
 				    	<td><span class="form-span">{{ $d->department }}</span></td>
 				    	<td><span class="form-span">{{ $d->tel }}</span></td>
-				    	<td><span class="form-span @if($d->status === USER_INFO_NOT_COMPLETED) font-danger @elseif($d->status === USER_INFO_HAS_COMPLETED) font-success @elseif($d->status === USER_IS_DELETED) font-warning @endif ">{{ $d->status_string }}</span>
+				    	<td>
+				    		<span class="form-span @if($d->status === USER_INFO_NOT_COMPLETED) font-danger @elseif($d->status === USER_INFO_HAS_COMPLETED) font-success @elseif($d->status === USER_IS_DELETED) font-warning @endif ">{{ $d->status_string }}</span>
 				    	</td>
 				    	<td>
 				    		<a class="btn btn-info edit" href="{{ url('admin/user/single?id=' . $d->id) }}">编辑</a>

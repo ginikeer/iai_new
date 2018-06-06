@@ -16,7 +16,6 @@ Route::controller('/product', 'Client\ProductController');
 Route::controller('/case', 'Client\CaseController');
 Route::controller('/service', 'Client\ServiceController');
 Route::controller('/news', 'Client\NewsController');
-Route::controller('/login', 'Client\LoginController');
 Route::controller('/contact', 'Client\ContactController');
 Route::controller('/company', 'Client\CompanyController');
 Route::controller('/member', 'Client\MemberController');
