@@ -10,6 +10,15 @@
 	<div class="wrap" id="bxslider">
 		<ul class="bxslider">
 			<li class="slider slider1">
+				<a href="{{ url('/product/grs') }}">
+					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider06.jpg') }}" alt="" />
+					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider06.jpg') }}" alt="" />
+				</a>
+				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/GRS(CC0258-1A)_web.pdf') }}">
+					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
+				</a>
+			</li>
+			<li class="slider slider1">
 				<a href="{{ url('/product/new') }}">
 					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider05.jpg') }}" alt="" />
 					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider05.jpg') }}" alt="" />

@@ -138,6 +138,7 @@ ul{
 .advantage-table{
 	display: table;
 	margin-bottom: 30px;
+	width: 100%;
 }
 .table-left{
 	display: table-cell;
@@ -159,6 +160,9 @@ ul{
 }
 .bass-feature-heading-A01{
 	margin-top: 0;
+}
+.grs-desc {
+    font-size: 14px;
 }
 @media screen and (max-width: 1008px) {
 	.bass-frame{
