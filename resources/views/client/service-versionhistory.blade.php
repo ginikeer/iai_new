@@ -31,7 +31,7 @@
 				<div class="row row-no-offset">
 					<div class="col-lg-8"><big>示教器版本履历</big></div>
 					<div class="col-lg-4 text-right">
-						<a href="##" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+						<a href="{{ url('service/history-download?l=CN&t=history&n=teaching') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 					</div>
 				</div>
 			</div>

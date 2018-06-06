@@ -29,5 +29,5 @@
 	
 	define("CASE_VIDEO_PATH", '/storage/app/uploads/case/video/');
 	
-	
+	define("CATALOG_PDF_PATH", '/storage/app/uploads/catalog/pdf/');
 ?>

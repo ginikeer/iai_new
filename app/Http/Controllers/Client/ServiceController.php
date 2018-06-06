@@ -4,11 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Database\Product;
-use App\Http\Database\Product_Category;
 use App\Http\Database\Manual;
-use App\Http\Database\Product_Manual_Relationship;
 use App\Http\Database\Manual_Category;
+
+use App\Services\Helper;
 
 use Redirect, Input, Auth, Session, DB;
 
@@ -33,12 +32,6 @@ class ServiceController extends Controller {
 		return view('client/service-list', [
 			'nav'											=> $this->nav
 		]);
-	}
-	
-	public function getDetail($id)
-	{
-		
-		
 	}
 	
 	public function getTestmachine(Request $request){
@@ -68,6 +61,11 @@ class ServiceController extends Controller {
 		]);
 	}
 	
+	public function getManualDownload(Request $request) {
+		//记录下载历史并返回PDF文件
+		return Helper::downloadFile('app/uploads/manual/pdf', $request);
+	}
+	
 	public function getCatalog(Request $request){
 		return view('client/service-catalog', [
 			'nav'											=> $this->nav
@@ -75,7 +73,8 @@ class ServiceController extends Controller {
 	}
 	
 	public function getCatalogDownload(Request $request) {
-		
+		//记录下载历史并返回PDF文件
+		return Helper::downloadFile('app/uploads/catalog/' . $request->input('t'), $request);
 	}
 	
 	public function getSettings(Request $request){
@@ -88,6 +87,11 @@ class ServiceController extends Controller {
 		return view('client/service-versionhistory', [
 			'nav'											=> $this->nav
 		]);
+	}
+	
+	public function getHistoryDownload(Request $request) {
+		//记录下载历史并返回PDF文件
+		return Helper::downloadFile('app/uploads/history/pdf', $request);
 	}
 	
 	public function getOthers(Request $request){

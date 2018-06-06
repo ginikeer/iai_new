@@ -1,6 +1,8 @@
 <?php namespace App\Services;
+	
+use App\Http\Database\User_Request;
 
-use Cookie, Storage;
+use Cookie, Storage, File;
 
 //工具类
 class Helper {
@@ -202,6 +204,48 @@ class Helper {
 	static public function generateUnique()
 	{
 		return sha1(time() . rand(0, 9) . rand(0, 99) . rand(0, 999) . rand(0, 9999) . rand(0, 99999));
+	}
+	
+	//记录下载历史并返回PDF文件
+	static public function downloadFile($storage, $request)
+	{
+		$type_arr								= [
+			'2017' 								=> '【产品目录2017】',
+			'2013' 								=> '【产品目录2013】',
+			'micro' 							=> '【产品目录micro】',
+			'2008'								=> '【产品目录2008】',
+			'manual'							=> '【使用说明书】',
+			'history'							=> '【软件版本履历】'
+		];
+		
+		
+		if(! Cookie::has("iai_user_token")) {
+			return Redirect::to('auth/login');
+		} else {
+			$uid								= Cookie::get("iai_user_token");
+		}
+		
+		$name									= $request->input('n');
+		$lang									= $request->input('l');
+		$type									= $request->input('t');
+		$filename								= $name . '.pdf';
+		$fullpath								= storage_path($storage) . '/' . $filename;
+		
+		if( File::exists($fullpath) ) {
+			$content							= $type_arr[$type] . $name . '(' . $lang . ')';
+			
+			User_Request::insert([
+				'uid'							=> $uid,
+				'type'							=> 1,
+				'content'						=> $content,
+				'state'							=> 1,
+				'created_at'					=> date('Y-m-d H:i:s')
+			]);
+			
+			return response()->download($fullpath, $filename);
+		} else {
+			abort(404);
+		}
 	}
 	
 }
