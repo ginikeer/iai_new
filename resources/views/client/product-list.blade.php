@@ -56,7 +56,7 @@
 										<p>简单且功能强大的网络专用综合型控制器</p>
 									</div>
 								</div>
-								<a href="{{ url('product/new') }}"><span>> 点击了解GRS</span><i></i></a>
+								<a href="{{ url('product/new') }}"><span>> 点击了解RCON</span><i></i></a>
 							</div>
 							@foreach ($new as $n)
 							<!--<div class="col-lg-3">

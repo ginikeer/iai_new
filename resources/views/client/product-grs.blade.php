@@ -15,9 +15,6 @@
 				<li>
 					<a href="{{ url('/') }}">首页</a>
 				</li>
-				<li>
-					<a href="{{ url('/product') }}">产品</a>
-				</li>
 				<li>最新产品</li>
 			</ul>
 		</div>
