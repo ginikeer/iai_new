@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Database\Manual;
 use App\Http\Database\Manual_Category;
+use App\Http\Database\User;
+use App\Http\Database\Catalog_Apply;
 
 use App\Services\Helper;
 
-use Redirect, Input, Auth, Session, DB;
+use Redirect, Input, Auth, Session, DB, Cookie, Mail;
 
 class ServiceController extends Controller {
 
 	public $nav;
+	public $uid;
 
 	/**
 	 * Create a new controller instance.
@@ -24,6 +27,7 @@ class ServiceController extends Controller {
 	{
 		$this->middleware('client');
 		$this->nav											= 'service';
+		$this->uid											= Cookie::get("iai_user_token");
 	}
 
 	public function getIndex(Request $request)
@@ -34,19 +38,22 @@ class ServiceController extends Controller {
 		]);
 	}
 	
-	public function getTestmachine(Request $request){
+	public function getTestmachine(Request $request) 
+	{
 		return view('client/service-testmachine', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getGuide(Request $request){
+	public function getGuide(Request $request) 
+	{
 		return view('client/service-guide', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getManual(Request $request){
+	public function getManual(Request $request) 
+	{
 		$category											= Manual_Category::getAll();
 		$manual												= array();
 		
@@ -61,60 +68,98 @@ class ServiceController extends Controller {
 		]);
 	}
 	
-	public function getManualDownload(Request $request) {
+	public function getManualDownload(Request $request) 
+	{
 		//记录下载历史并返回PDF文件
 		return Helper::downloadFile('app/uploads/manual/pdf', $request);
 	}
 	
-	public function getCatalog(Request $request){
+	public function getCatalog(Request $request)
+	{
 		return view('client/service-catalog', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getCatalogDownload(Request $request) {
+	public function getCatalogDownload(Request $request) 
+	{
 		//记录下载历史并返回PDF文件
 		return Helper::downloadFile('app/uploads/catalog/' . $request->input('t'), $request);
 	}
 	
-	public function getSettings(Request $request){
+	public function getSettings(Request $request) 
+	{
 		return view('client/service-settings', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getVersionhistory(Request $request){
+	public function getVersionhistory(Request $request) 
+	{
 		return view('client/service-versionhistory', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getHistoryDownload(Request $request) {
+	public function getHistoryDownload(Request $request) 
+	{
 		//记录下载历史并返回PDF文件
 		return Helper::downloadFile('app/uploads/history/pdf', $request);
 	}
 	
-	public function getOthers(Request $request){
+	public function getOthers(Request $request) 
+	{
 		return view('client/service-others', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getDelivery(Request $request){
-		return view('client/delivery', [
+	public function getDelivery(Request $request) 
+	{
+		return view('client/service-delivery', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getFaq(Request $request){
-		return view('client/faq', [
+	public function getFaq(Request $request) 
+	{
+		return view('client/service-faq', [
 			'nav'											=> $this->nav
 		]);
 	}
 	
-	public function getApply(Request $request){
-		return view('client/apply', [
-			'nav'											=> $this->nav
+	public function getApply(Request $request) 
+	{
+		return view('client/service-apply', [
+			'nav'											=> $this->nav,
+			'data'											=> User::where('id', $this->uid)->first()
 		]);
+	}
+	
+	public function postApply(Request $request) 
+	{
+		$param												= array(
+			'company' 										=> $request->input('company'), 
+			'department'									=> $request->input('department'),
+			'name'											=> $request->input('name'),
+			'address'										=> $request->input('address'),
+			'tel'											=> $request->input('tel'),
+			'catalog'										=> "2017"
+		);
+		
+		//发送邮件给shanghai@iai-robot.com
+		Mail::send('emails.apply', $param, function($message) {
+		    $message->to('lixin@eigyo.com.cn')->subject('艾卫艾商贸(上海)有限公司- 2017综合产品目录的申请');
+		});
+		
+		//存入数据库中
+		Catalog_Apply::insertData($param);
+		
+		return Redirect::to('service/apply-complete');
+	}
+	
+	public function getApplyComplete()
+	{
+		return view('client/service-apply-complete');
 	}
 }

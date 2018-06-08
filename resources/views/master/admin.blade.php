@@ -69,7 +69,7 @@
 					</li>
 					<li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">
-							消息管理 <span class="caret"></span>
+							新闻管理 <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
@@ -96,6 +96,9 @@
 							</li>
 							<li>
 								<a href="{{ url('admin/user/download') }}">会员下载记录</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/user/paper-apply') }}">纸质目录申请</a>
 							</li>
 						</ul>
 					</li>

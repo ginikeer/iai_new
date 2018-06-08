@@ -26,8 +26,10 @@
 	
 	define("PRODUCT_PDF_PATH", '/storage/app/uploads/product/pdf/');
 	define("MANUAL_PDF_PATH", '/storage/app/uploads/manual/pdf/');
+	define("CATALOG_PDF_PATH", '/storage/app/uploads/catalog/pdf/');
+	define("NEWS_PDF_PATH", '/storage/app/uploads/news/pdf/');
 	
 	define("CASE_VIDEO_PATH", '/storage/app/uploads/case/video/');
 	
-	define("CATALOG_PDF_PATH", '/storage/app/uploads/catalog/pdf/');
+	
 ?>

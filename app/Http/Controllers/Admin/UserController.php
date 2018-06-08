@@ -145,6 +145,24 @@ class UserController extends Controller {
 		})->export('xls');
 	}
 	
+	public function getPaperApply(Request $request)
+	{
+		$data 												= $this->conditionPaperApply($request);
+		
+		return view('admin/user-paper-apply', ['data' => $data]);
+	}
+	
+	public function getPaperApplyExcel(Request $request)
+	{
+		$this->user 										= $this->conditionPaperApply($request, true);
+		
+		Excel::create("纸质目录申请", function($excel) {
+		    $excel->sheet('data', function($sheet) {
+		    	$sheet->loadView('admin.user-paper-apply-excel', ['data' => $this->user]);
+			});
+		})->export('xls');
+	}
+	
 	
 	private function conditionUser($request, $is_excel = false)
 	{
@@ -251,5 +269,35 @@ class UserController extends Controller {
 		return $data;
 	}
 	
-	
+	private function conditionPaperApply($request, $is_excel = false)
+	{
+		$catalog											= $request->input('catalog', '');
+		
+		$data												= DB::table('catalog_apply');
+		
+		if( !empty($catalog) ) 
+			$data->where('catalog', $catalog);
+			
+		$count												= $data->count();
+		
+		if(!$is_excel) {
+			$data											= $data->orderBy('id', 'desc')->paginate(PER);
+			$data->condition_catalog 						= $catalog;
+			$data->count									= $count;
+		} else {
+			@set_time_limit(0);
+			@ini_set('memory_limit', '512M');
+			$data											= $data->orderBy('id', 'desc')->get();
+			
+			for($i = 0; $i < count($data); $i++) {
+				$data[$i]->company 							= Helper::removeEqual($data[$i]->company);
+				$data[$i]->department 						= Helper::removeEqual($data[$i]->department);
+				$data[$i]->name 							= Helper::removeEqual($data[$i]->name);
+				$data[$i]->address 							= Helper::removeEqual($data[$i]->address);
+				$data[$i]->tel 								= Helper::removeEqual($data[$i]->tel);
+			}
+		}
+		
+		return $data;
+	}
 }

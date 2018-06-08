@@ -27,26 +27,39 @@
 				为了能将目录顺利送到您的手中，请核对以下信息。如有错误，修改后点击提交。<br>
 				*万分抱歉，由于敝司工作上的纰漏，目前发出的2017综合产品目录封底中刊载的深圳分公司的联系电话有误，正确的号码为0755-2393-2307，敬请注意。
 			</h5>
-            <form id="form" method="post" action="">
+            <form id="apply_form" method="post" action="{{ url('service/apply') }}">
+            	<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 				<div class="row mypage-row">
 					<div class="col-lg-10 col-lg-offset-1">
 						<div class="list-lined">
 							<div class="list-item">
+								<div class="list-item-header">公司：</div>
+								<div class="list-item-body">
+									<input type="text" class="required" name="company" value="{{ $data->company }}" required>
+								</div>
+							</div>
+							<div class="list-item">
+								<div class="list-item-header">部门：</div>
+								<div class="list-item-body">
+									<input type="text" class="required" name="department" value="{{ $data->department }}" required>
+								</div>
+							</div>
+							<div class="list-item">
 								<div class="list-item-header">姓名：</div>
 								<div class="list-item-body">
-										<input type="text" name="name" value="" required>
+									<input type="text" class="required" name="name" value="{{ $data->name }}" required>
 								</div>
 							</div>
 							<div class="list-item">
 								<div class="list-item-header">邮寄地址：</div>
 								<div class="list-item-body">
-										<input type="text" name="address" value="" required>
+									<input type="text" class="required" name="address" value="{{ $data->prov . $data->city . $data->addr }}" required>
 								</div>
 							</div>
 							<div class="list-item">
 								<div class="list-item-header">联系电话：</div>
 								<div class="list-item-body">
-										<input type="text" name="tel" value="" maxlength="11" required>
+									<input type="text" class="required" name="tel" value="{{ $data->tel }}" required>
 								</div>
 							</div>
 						</div>
@@ -67,6 +80,5 @@
 @endsection
 
 @section('script')
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=25ed4b581d617c933999a7ea31860244"></script>
-<script type="text/javascript" src="{{ asset('js/client/bmap-embedded.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/apply.js') }}"></script>
 @stop

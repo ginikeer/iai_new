@@ -45,6 +45,14 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<label for="" class="col-sm-3 control-label">PDF：</label>
+						<div class="col-sm-3 ">
+							<input type="file" class="upload-file" data-action="{{ url('admin/news/pdf-upload') }}" />
+							<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
+							<input type="hidden" class="file-name" id="pdf_name" name="pdf_name" value="{{ $news->pdf_name or '' }}" />
+						</div>
+					</div>
+					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">内容：</label>
 						<div class="col-sm-9">
 							 <script id="editor" name="content" type="text/plain">{!! $news->content or '' !!}</script>

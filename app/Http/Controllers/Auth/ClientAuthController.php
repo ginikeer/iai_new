@@ -44,7 +44,7 @@ class ClientAuthController extends Controller {
 				if( Session::has('page_before_login') ) {
 					return redirect(Session::get('page_before_login'));
 				} else {
-					return redirect('/product');
+					return redirect('/member/info');
 				}
 				
 			} else {	//用户已退会

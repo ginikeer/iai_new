@@ -67,6 +67,7 @@ class NewsController extends Controller {
 		$data->cover_image_name								= $request->input('cover_image_name');
 		$data->abstract										= $request->input('abstract');
 		$data->category										= $request->input('category');
+		$data->pdf_name										= $request->input('pdf_name');
 		$data->content										= $request->input('content');
 		$data->save();
 		
@@ -77,6 +78,13 @@ class NewsController extends Controller {
 	{
 		$res 												= Helper::uploadFile($request, 'news_img');
 		$res["img_full_path"]								= $res["code"] ? NEWS_IMG_PATH . $res["message"] : '';
+		
+		echo json_encode($res);
+	}
+	
+	public function postPdfUpload(Request $request)
+	{
+		$res 												= Helper::uploadFile($request, 'news_pdf');
 		
 		echo json_encode($res);
 	}
