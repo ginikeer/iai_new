@@ -23,7 +23,7 @@
 		@foreach ($news as $n)
 		<div class="card bg-gary">
 			<div class="news_list">
-				<a href="{{ url('/news/detail/' . $n->id) }}">
+				<a href="@if(empty($n->pdf_name)) {{ url('/news/detail/' . $n->id) }} @else {{ NEWS_PDF_PATH . $n->pdf_name }} @endif">
 					<div class="news_left">
 						<h3 class="news_title">{{ $n->title }}</h3>
 						<div>

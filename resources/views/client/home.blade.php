@@ -150,7 +150,7 @@
 				<div class="col-lg-2">{{ $n->date }}</div>
 				<div class="col-lg-1" style="background: {{ $n->category_background }}"><span>{{ $n->category }}</span></div>
 				<div class="col-lg-7">
-					<a href="{{ url('/news/detail/' . $n->id) }}">{{ $n->title }}</a>
+					<a href="@if(empty($n->pdf_name)) {{ url('/news/detail/' . $n->id) }} @else {{ NEWS_PDF_PATH . $n->pdf_name }} @endif">{{ $n->title }}</a>
 				</div>
 			</div>
 			@endforeach
