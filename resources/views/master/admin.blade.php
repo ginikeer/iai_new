@@ -82,6 +82,25 @@
 					</li>
 					<li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+							FAQ管理 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="{{ url('admin/faq/category') }}">FAQ分类列表</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/faq/category-single') }}">FAQ分类新增</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/faq/list') }}">FAQ列表</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/faq/single') }}">FAQ新增</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
 							会员管理 <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
