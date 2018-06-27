@@ -17,6 +17,10 @@
 	define("USER_APPLY_SENT_STRING", "已发送");
 	define("USER_APPLY_NOT_SENT_STRING", "未发送");
 	
+	define("IS_PUBLISH", 1);
+	define("IS_NOT_PUBLISH", 0);
+	define("IS_PUBLISH_STRING", "已公开");
+	define("IS_NOT_PUBLISH_STRING", "未公开");
 	
 	define("PER", 20);
 	

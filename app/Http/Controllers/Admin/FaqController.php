@@ -83,100 +83,106 @@ class FaqController extends Controller {
 		$nameCtgry											= $request->input('nameCtgry');
 		$data 												= empty($id) ? new Faq_Category : Faq_Category::find($id);
 		
-		//分类1没有选择，即当前分类为分类1
-		if(empty($third_level)) {
+		//分类1没有选择，即当前分类为分类1;分类2没有选择，即当前分类为分类2
+		if(empty($third_level) || empty($second_level)) {
 			$data->name										= $name;
-			$data->parent									= 0;
-			$data->save();
-			
-			return Redirect::to(Helper::genUrl('admin/faq/category-single', $id));
+			$data->parent									= empty($third_level) ? 0 : $third_level;
+		} else {	//分类3
+			$data->name										= $name;
+			$data->nameCtgry								= $nameCtgry;
+			$data->parent									= $second_level;
 		}
 		
-		//分类2没有选择，即当前分类为分类2
-		if(empty($second_level)) {
-			
-		}
-		
-		
-		
-		
+		$data->save();
+		return Redirect::to(Helper::genUrl('admin/faq/category-single', $id));
 	}
-
 	
-	public function getList()
+	public function getList(Request $request)
 	{
-		$data 												= Cases::orderBy('id', 'desc')->paginate(PER);
+		$data 												= $this->conditionFaq($request);
 		
-		for($i = 0; $i < count($data); $i++) {
-			$data[$i]['str_tags'] 							= implode( "，", Case_tag::getTitle( explode(',', $data[$i]['tag_ids']) ) );
-		}
-		
-		return view('admin/case-list', ['data' => $data]);
+		return view('admin/faq-list', ['data' => $data]);
 	}
 	
 	public function getSingle(Request $request)
 	{
 		$id 												= $request->input('id', '');
-		$case 												= array();
-		$selected_tag										= array();
-		$selected_icon										= array();
-		
 		
 		if(empty($id)) {	//新增
-			$selected_tag['arr_ids']						= array();
-			$selected_tag['str_titles']						= "";
-			$selected_icon['arr_ids']						= array();
-			$selected_icon['str_titles']					= "";
+			$data 											= array();
 		} else {	//编辑
-			$case											= Cases::where('id', $id)->first();
-			$selected_tag['arr_ids']						= explode( ",", $case->tag_ids );
-			$selected_tag['str_titles']						= implode( "，", Case_tag::getTitle( $selected_tag['arr_ids'] ) );
-			$selected_icon['arr_ids']						= explode( ",", $case->icon_ids );
-			$selected_icon['str_titles']					= implode( "，", Case_icon::getTitle( $selected_icon['arr_ids'] ) );
+			$data											= Faq::where('id', $id)->first();
 		}
 		
-		
-		
-		return view('admin/case-single', [
-			'case'											=> $case,
-			'category' 										=> $this->category,
-			'logo'											=> $this->logo,
-			'tag'											=> $this->tag,
-			'icon'											=> $this->icon,
-			'selected_tag'									=> $selected_tag,
-			'selected_icon'									=> $selected_icon
+		return view('admin/faq-single', [
+			'data'											=> $data
 		]);
 	}
 	
 	public function postSave(Request $request)
 	{
 		$id 												= $request->input('id', '');
-		$data 												= empty($id) ? new Cases : Cases::find($id);
-		$data->title										= $request->input('title');
-		$data->category										= $request->input('category');
-		$data->tag_ids										= $request->input('tag_ids');
-		$data->cover_image_name								= $request->input('cover_image_name');
-		$data->description									= Helper::newlineEscape($request->input('description'));
-		$data->logo											= $request->input('logo');
-		$data->sub_title									= Helper::newlineEscape($request->input('sub_title'));
-		$data->video_name									= $request->input('video_name');
-		$data->icon_ids										= $request->input('icon_ids');
+		$data 												= empty($id) ? new Faq : Faq::find($id);
+		$data->mid											= $request->input('mid');
+		$data->c1											= $request->input('c1');
+		$data->c2											= $request->input('c2');
+		$data->c3											= $request->input('c3');
+		$data->stage										= $request->input('stage');
 		$data->content										= $request->input('content');
+		$data->errcode										= $request->input('errcode');
+		$data->question										= $request->input('question');
+		$data->answer										= $request->input('answer');
+		$data->memo											= $request->input('memo');
+		$data->state										= $request->input('state');
 		$data->save();
 		
-		return Redirect::to(Helper::genUrl('admin/case/single', $id));
+		return Redirect::to(Helper::genUrl('admin/faq/single', $id));
 	}
 	
-	public function postDel(Request $request)
+	
+	
+	private function conditionFaq($request)
 	{
-		try {
-			Cases::where('id', $request->input('id'))->delete();
-			
-			echo "ok";
-		} catch (\Exception $e) {
-			print_r($e); 
-		}
+		$stage												= $request->input('stage', '');
+		$c1													= $request->input('c1', '');
+		$c2													= $request->input('c2', '');
+		$c3													= $request->input('c3', '');
+		$content											= $request->input('content', '');
+		$mid												= $request->input('mid', '');
+		$keyword											= $request->input('keyword', '');
+		$errcode											= $request->input('errcode', '');
+		
+		$data												= DB::table('faq');
+		
+		if( !empty($stage) ) 
+			$data->where('stage', 'like', '%' . $stage . '%');
+		if( !empty($c1) ) 
+			$data->where('c1', 'like', '%' . $c1 . '%');
+		if( !empty($c2) ) 
+			$data->where('c2', 'like', '%' . $c2 . '%');
+		if( !empty($c3) ) 
+			$data->where('c3', 'like', '%' . $c3 . '%');
+		if( !empty($content) ) 
+			$data->where('content', 'like', '%' . $content . '%');
+		if( !empty($mid) ) 
+			$data->where('mid', $mid);
+		if( !empty($keyword) ) 
+			$data->where('question', 'like', '%' . $keyword . '%');
+		if( !empty($errcode) ) 
+			$data->where('errcode', $errcode);
+		
+		$count												= $data->count();
+		$data												= $data->orderBy('id', 'desc')->paginate(PER);
+		$data->condition_stage 								= $stage;
+		$data->condition_c1 								= $c1;
+		$data->condition_c2 								= $c2;
+		$data->condition_c3 								= $c3;
+		$data->condition_content 							= $content;
+		$data->condition_mid 								= $mid;
+		$data->condition_keyword							= $keyword;
+		$data->condition_errcode 							= $errcode;
+		$data->count										= $count;
+		
+		return $data;
 	}
-	
-	
 }

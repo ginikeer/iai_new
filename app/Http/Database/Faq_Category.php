@@ -67,4 +67,16 @@ class Faq_Category extends Model {
 		
 	}
 	
+	/**
+	 * 根据id获取父分类
+	 *
+	 * @return array
+	 */
+	static public function getParentById($id) {
+		
+		$parent = self::where('id', $id)->pluck('parent');
+		return self::where('id', $parent)->get();
+		
+	}
+	
 }
