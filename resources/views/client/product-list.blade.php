@@ -17,11 +17,11 @@
 				</ul>
 			</div>
 		</div>
-		<div class="container">
+		<!--<div class="container">
 			<div class="explanatory-text">
 				<p>说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明</p>
 			</div>
-		</div>
+		</div>-->
 		<div class="products-list">
 			<div class="container products-tab">
 				<div class="row row-no-offset tab-list">
@@ -96,8 +96,10 @@
 										<div class="items-content">
 											<a href="{{ url('product/detail/' . $d->id) }}">
 												<img src="{{ PRODUCT_IMG_PATH . $d->cover_image_name }}" />
-												<h4>{{ $d->title }}</h4>
-												<p>{!! $d->description !!}</p>
+												<div class="items-content-text">
+													<h4>{{ $d->title }}</h4>
+													<p>{!! $d->description !!}</p>
+												</div>
 											</a>
 										</div>
 									</div>
@@ -150,9 +152,11 @@
 		<div class="items-content">
 			<a href="{{ url('product/detail') }}/${id}">
 				<img src="{{ PRODUCT_IMG_PATH }}${cover_image_name}" />
-				<h4>${title}</h4>
-				<!--<p class="pre">${brEscape(description)}</p>-->
-				<p>${brEscape(description)}</p>
+				<div class="items-content-text">
+					<h4>${title}</h4>
+					<!--<p class="pre">${brEscape(description)}</p>-->
+					<p>${brEscape(description)}</p>
+				</div>
 			</a>
 		</div>
 	</div>
@@ -174,9 +178,11 @@
 		<div class="items-content">
 			<a href="{{ url('product/detail') }}/${id}">
 				<img src="{{ PRODUCT_IMG_PATH }}${cover_image_name}" />
-				<h4>${title}</h4>
-				<!--<p class="pre">${brEscape(description)}</p>-->
-				<p>${brEscape(description)}</p>
+				<div class="items-content-text">
+					<h4>${title}</h4>
+					<!--<p class="pre">${brEscape(description)}</p>-->
+					<p>${brEscape(description)}</p>
+				</div>
 			</a>
 		</div>
 	</div>

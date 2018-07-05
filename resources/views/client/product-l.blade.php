@@ -39,6 +39,7 @@
 								</LI>
 								<LI class="download-cad2">
 									<A href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai" target="_blank">3D CAD图纸</A>
+									<!--<A href="{{ asset('pdf/client/Linkable_PARTcommunity2.0使用者手册.pdf') }}" target="_blank">3D CAD图纸</A>-->
 								</LI>
 								<!-- /download-list -->
 							</UL>

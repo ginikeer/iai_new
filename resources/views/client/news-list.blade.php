@@ -32,9 +32,11 @@
 						</div>
 						<p class="news_abstract">{{ $n->abstract }}</p>
 					</div>
+					@if(!empty($n->cover_image_name))
 					<div class="news_right">
 						<img src="{{ NEWS_IMG_PATH . $n->cover_image_name }}" />
 					</div>
+					@endif
 				</a>
 			</div>
 		</div>

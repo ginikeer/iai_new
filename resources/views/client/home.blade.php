@@ -17,7 +17,7 @@
 				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/e电缸_CC0250-3A.pdf') }}">
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
-				<a class="slider-btn slider-btn-2" target="_blank" href="javascript:;">
+				<a class="slider-btn slider-btn-2" target="_blank" href="http://ec-sentei.iai-robot.com/">
 					<img src="{{ asset('i/client/home/slider_ecbutton.png') }}" alt="" />
 				</a>
 			</li>
@@ -73,6 +73,14 @@
 		<h2 class="mian_title product_title"><span><!--PRODUCT--></span></h2>
 		<div class="container">
 			<div class="row row-no-offset row-case">
+				<div class="col-lg-2 mian_product_list mian_product_img mian_product_new">
+					<div class="hover-bg"></div>
+					<a href="http://ec-sentei.iai-robot.com/" target="_blank">
+						<p class="case-cover case-cover-img">
+							<img src="{{ asset('i/client/home/category_17.png') }}" />
+						</p>
+					</a>
+				</div>
 				<div class="col-lg-2 mian_product_list mian_product_img mian_product_new">
 					<div class="hover-bg"></div>
 					<a href="{{ url('/product?n=new') }}">

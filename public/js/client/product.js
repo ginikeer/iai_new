@@ -1,5 +1,5 @@
 var flag = 0; //记录tab标签搜索前的位置，默认在第一个标签
-$(function(){
+$(document).ready(function(){
 	
 	//pc端切换产品列表信息
 	$('.products-lists-tab').find('dd').each(function(n){
@@ -10,9 +10,7 @@ $(function(){
 	});
 	
 	$(window).resize(function(){
-		$('.right').find('.products-items').each(function(){
-			sameHeight($(this).find('.row').find('.items-content'));
-		});
+		sameHeight($('.products-items').find('.row').find('.items-content .items-content-text'));
 		
 		if($(window).width()>750){
 			$('.tab-list-item').eq(0).css({'margin-left':'0'});
@@ -51,7 +49,7 @@ $(function(){
 			$('.tab-list-item').eq(0).css({'margin-left':'0'});
 			$(this).addClass('active').siblings().removeClass('active');
 			$(this).parents('.products-tab').siblings('.products-contents').find('.products-tab-item').eq(n).show().siblings('.products-tab-item').hide();
-			sameHeight($('.products-items').eq(0).find('.items-content'));
+			sameHeight($('.products-items').eq(0).find('.items-content .items-content-text'));
 //			$('.products-items').eq(0).find('.row').masonry({
 //			    itemSelector : '.col-lg-3',
 //			    columnWidth : 0
@@ -134,7 +132,7 @@ function getProductByCategory(alias) {
 	
 	dataFromAjaxJson($('#url-products-by-category').val(), {category: alias}, function(data) {
 		$('#tmpl-product-list').tmpl(data).appendTo('.product-list .row');
-		sameHeight($('.product-list .row .items-content'));
+		sameHeight($('.product-list .row .items-content .items-content-text'));
 		$('.product-list .loading').hide();
 	});
 }
@@ -166,7 +164,7 @@ function getProductBySearch(keyword) {
 			$('<p>暂无数据</p>').appendTo($target);
 		} else {
 			$('#tmpl-product-search').tmpl(data).appendTo($target);
-			sameHeight($target.find('.items-content'));
+			sameHeight($target.find('.items-content .items-content-text'));
 		}
 		$('.search-products .loading').hide();
 	});

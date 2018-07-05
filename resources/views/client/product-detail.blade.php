@@ -27,7 +27,7 @@
 					<p class="detail-text">
 						{!! $product->content !!}
 					</p>
-					<div class="row row-no-offset product-detail-btn-list">
+					<div class="row row-no-offset product-detail-btn-list" style="margin-bottom: 0;">
 						<div class="col-lg-4">
 							<a class="detail-btn" href="##">纸质产品目录申请</a>
 						</div>
