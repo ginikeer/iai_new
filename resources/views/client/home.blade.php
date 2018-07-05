@@ -10,6 +10,18 @@
 	<div class="wrap" id="bxslider">
 		<ul class="bxslider">
 			<li class="slider slider1">
+				<a href="##">
+					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider01.jpg') }}" alt="" />
+					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider01.jpg') }}" alt="" />
+				</a>
+				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/e电缸_CC0250-3A.pdf') }}">
+					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
+				</a>
+				<a class="slider-btn slider-btn-2" target="_blank" href="javascript:;">
+					<img src="{{ asset('i/client/home/slider_ecbutton.png') }}" alt="" />
+				</a>
+			</li>
+			<li class="slider slider2">
 				<a href="{{ url('/product/grs') }}">
 					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider06.jpg') }}" alt="" />
 					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider06.jpg') }}" alt="" />
@@ -18,7 +30,7 @@
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
-			<li class="slider slider1">
+			<li class="slider slider3">
 				<a href="{{ url('/product/new') }}">
 					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider05.jpg') }}" alt="" />
 					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider05.jpg') }}" alt="" />
@@ -27,16 +39,7 @@
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
-			<li class="slider slider2">
-				<a href="##">
-					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider01.jpg') }}" alt="" />
-					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider01.jpg') }}" alt="" />
-				</a>
-				<a class="slider-btn" target="_blank" href="{{ asset('pdf/client/product/e电缸_CC0250-3A.pdf') }}">
-					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
-				</a>
-			</li>
-			<li class="slider slider3">
+			<li class="slider slider4">
 				<a href="##">
 					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider02.jpg') }}" alt="" />
 					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider02.jpg') }}" alt="" />
@@ -45,7 +48,7 @@
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
-			<li class="slider slider4">
+			<li class="slider slider5">
 				<a href="##">
 					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider03.jpg') }}" alt="" />
 					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider03.jpg') }}" alt="" />
@@ -54,7 +57,7 @@
 					<img src="{{ asset('i/client/home/slider_button.png') }}" alt="" />
 				</a>
 			</li>
-			<li class="slider slider5">
+			<li class="slider slider6">
 				<a href="##">
 					<img class="bg pc-only" src="{{ asset('i/client/home/top_slider04.jpg') }}" alt="" />
 					<img class="bg sp-only" src="{{ asset('i/client/home/sp_top_slider04.jpg') }}" alt="" />

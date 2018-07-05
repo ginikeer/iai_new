@@ -15,6 +15,9 @@
 	bottom: 2.86%;
 	width: 18.23%;
 }
+.bx-wrapper .slider-btn-2 {
+	left: 37%;
+}
 .bx-wrapper .bx-pager.bx-default-pager a {
 	background: #ddd;
 }
@@ -386,8 +389,11 @@
 	}
 	.bx-wrapper .slider-btn {
 		left: 4.70%;
-    	bottom: 8.86%;
+    	bottom: 3.86%;
     	width: 34.23%;
+	}
+	.bx-wrapper .slider-btn-2{
+		left: 40%;
 	}
 	#bxslider .bx-viewport{
 		margin-bottom: 0;

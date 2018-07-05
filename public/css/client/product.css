@@ -545,6 +545,9 @@
 	padding: 10px 10px 10px 5%;
 	transition: all 0.5s linear;
 }
+.detail-btn-contact{
+	background: #AF1F39 url(../../i/client/home/icon2.png) no-repeat 95% center;
+}
 .detail-container .detail-btn:hover{
 	opacity: 0.5;
 }
