@@ -145,6 +145,10 @@ a{
 .header_nav_list>li:first-child{
 	border: none;
 }
+.row .right-content{
+	float: right;
+	width: 260px;
+}
 .row .header_right{
 	float: right;
 	padding: 0;
@@ -153,7 +157,7 @@ a{
 	border-right: 1px solid rgba(0, 0, 0, 0.08);
 	border-left: 1px solid rgba(0, 0, 0, 0.08);
 	/*height: 88px;*/
-	width: 181px;
+	width: 140px;
 }
 .btn_login{
 	float: left;
@@ -167,8 +171,17 @@ a{
     letter-spacing: 4px;*/
    margin: 0;
    text-align: center;
-   width: 89px;
+   width: 69px;
    height: 100%;
+}
+.apply-btn{
+	display: inline-block;
+	margin-top: 19px; 
+	width: 80px;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	background: #af1f39;
 }
 .btn_login:nth-child(1){
 	border-right: 1px solid rgba(0, 0, 0, 0.08);
@@ -621,6 +634,10 @@ a{
 	}
 	#frame{
 		width: 100% !important;
+	}
+	.row .right-content{
+		width: 90px;
+		margin-right: 10px;
 	}
 }
 
