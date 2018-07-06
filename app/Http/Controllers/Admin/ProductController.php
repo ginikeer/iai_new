@@ -168,10 +168,14 @@ class ProductController extends Controller {
 	{
 		$res												= "";
 		
-		foreach($arr as $a) {
-			if(empty($a)) continue;
-			
-			$res .= $a . ',';
+		if(is_array($arr)) {
+			foreach($arr as $a) {
+				if(empty($a)) continue;
+				
+				$res .= $a . ',';
+			}
+		} else {
+			$res = $arr . ',';
 		}
 		
 		return substr($res, 0, strlen($res) - 1);
