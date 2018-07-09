@@ -29,7 +29,7 @@
 					</p>
 					<div class="row row-no-offset product-detail-btn-list" style="margin-bottom: 0;">
 						<div class="col-lg-4">
-							<a class="detail-btn" href="##">纸质产品目录申请</a>
+							<a class="detail-btn" href="{{url('/application')}}">纸质产品目录申请</a>
 						</div>
 						<div class="col-lg-4">
 							<a class="detail-btn" href="@if(!empty($product->pdf_name)) {{ PRODUCT_PDF_PATH . $product->pdf_name }} @else javascript:void(0); @endif">产品目录下载</a>

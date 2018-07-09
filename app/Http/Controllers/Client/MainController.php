@@ -29,7 +29,7 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
 		$news												= News::orderBy('id', 'desc')->take(5)->get();
 		for($i = 0; $i < count($news); $i++) {

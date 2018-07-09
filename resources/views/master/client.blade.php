@@ -76,7 +76,7 @@
 			</div>
 			<div class="header_menu"></div>
 			<div class="right-content">
-				<a class="apply-btn btn_login" href="{{url('/service/apply')}}">目录申请</a>
+				<a class="apply-btn btn_login" href="{{url('/application')}}">目录申请</a>
 				<div class="col-lg-1 header_right">
 					@if($is_logined)
 					<a href="{{ url('auth/logout') }}" class="btn btn_login"><i class="icon login-icon"></i><span>登出</span></a>
