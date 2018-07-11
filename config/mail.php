@@ -54,8 +54,8 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'system@iai-robot.com', 'name' => '艾卫艾商贸(上海)有限公司'],
-	// 'from' => ['address' => '1500@qq.com', 'name' => '艾卫艾商贸(上海)有限公司'],
+	// 'from' => ['address' => 'system@iai-robot.com', 'name' => '艾卫艾商贸(上海)有限公司'],
+	'from' => ['address' => '727935022@qq.com', 'name' => '艾卫艾商贸(上海)有限公司'],
 	/*
 	|--------------------------------------------------------------------------
 	| E-Mail Encryption Protocol
@@ -68,7 +68,8 @@ return [
 	*/
 
 //	'encryption' => 'tls',
-	'encryption' => null,
+	// 'encryption' => null,
+	'encryption' => 'ssl',
 	
 
 	/*

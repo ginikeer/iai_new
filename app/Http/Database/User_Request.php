@@ -14,7 +14,8 @@ class User_Request extends Model {
 		'uid',
 		'content',
 		'state',
-		'c_type'
+		'c_type',
+		'answers_str'
 	];
 	
 	/**
@@ -56,7 +57,17 @@ class User_Request extends Model {
 
 		$realData['state']                                  = USER_APPLY_NOT_SENT;
 		$realData['uid']                                    = Cookie::get('iai_user_token');
+
+		$realData['answers_str']                            = self::getAnswersData($data);        
+
 		return self::create($realData);
+	}
+
+	static public function getAnswersData($data){
+		unset($data['catalog1']);unset($data['catalog2']);unset($data['catalog']);
+		$data['q3']                                         = implode(',', $data['q3']);
+		$data['q7']                                         = implode(',', $data['q7']);
+		return json_encode($data);
 	}
 	
 	

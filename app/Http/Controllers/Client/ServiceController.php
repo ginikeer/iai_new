@@ -9,6 +9,7 @@ use App\Http\Database\Manual_Category;
 use App\Http\Database\User;
 use App\Http\Database\Catalog_Apply;
 use App\Http\Database\User_Request;
+use App\Http\Database\Faq_Category;
 
 use App\Services\Helper;
 
@@ -78,6 +79,9 @@ class ServiceController extends Controller {
 	//目录申请展示
 	public function getCatalog(Request $request)
 	{	
+		// Mail::raw('测试', function ($message) {
+  //           	$message->to('1500814268@qq.com')->subject('艾卫艾商贸(上海)有限公司- 产品目录的申请');
+  //      	});
 		return view('client/application', [
 			'nav'											=> $this->nav,
 			'user'											=> Helper::getUserByIAIToken()
@@ -95,10 +99,13 @@ class ServiceController extends Controller {
 			$param                                          = array(
 				'company'                                   => $user->company,
 				'name'                                      => $user->name,
-				'catagory'                                  => $catagory
+				'catagory'                                  => $catagory,
+				'address'                                   => $user->addr,
+				'tel'                                       => $user->tel,
+				'department'                                => $user->department
 			);
 			Mail::send('emails.catagory', $param, function ($message) {
-            	$message->to('727935022@qq.com')->subject('	艾卫艾商贸(上海)有限公司- 2017综合产品目录的申请');
+            	$message->to('1500814268@qq.com')->subject('艾卫艾商贸(上海)有限公司- 产品目录的申请');
         	});
 			$message 									    = ['msg'=>'提交成功','code'=>1,'url'=>url('/service/catalog')];
 		} else {
@@ -160,9 +167,85 @@ class ServiceController extends Controller {
 	
 	public function getFaq(Request $request) 
 	{
+		$first_catagory                                     = Faq_Category::getDataByParent(0);
+
 		return view('client/service-faq', [
-			'nav'											=> $this->nav
+			'nav'											=> $this->nav,
+			'first_catagory'                                => $first_catagory
 		]);
+	}
+
+	public function getFaqData(Request $request){
+		$catagory                                            = Faq_Category::getDataByParent($request->id);
+		$str_html = '';
+		foreach ($catagory as $key => $value) {
+			$str_html                                       .= '<option value="' . $value->id . '">' . $value->name . '</option>';
+		}
+		$box['data']                                         = htmlspecialchars($str_html);
+		$box['limit']                                        = 0;
+		$box['total']                                        = 0;
+		$box['error']                            			 = false;
+		$box['p']                                            = 0;
+		return json_encode($box);	
+	}
+
+	public function getFaqSearch(Request $request){
+		$p                                                  = $request->input('p',0);
+		$limit                                              = $request->input('limit',30);//页码
+		$stage                                              = $request->input('stage');
+		$cat1                                               = $request->input('cat1');
+		$cat2                                               = $request->input('cat2');
+		$cat3                                               = $request->input('cat3');
+		$content                                            = $request->input('content');
+		$keywords                                           = $request->input('keywords');
+
+		$offset                                             = $limit*$p;
+
+
+		$sql                                                = "select * from faq ";
+		$bool                                               = false;
+		$where                                              = '';
+		if(!empty($stage)){
+			$bool                                           = true;
+			$where                                         .= 'where stage LIKE "' . $stage . '"';
+		}
+
+		if(!empty($cat1)){
+			$where                                         .= $bool ? ' and c1 like "'.Faq_Category::getFieldById($cat1).'"' : ' where c1 like "'.Faq_Category::getFieldById($cat1).'"';
+			$bool or $bool                                  = true;
+		}
+
+		if(!empty($cat2)){
+			$where                                         .= $bool ? ' and c2 like "'.Faq_Category::getFieldById($cat2).'"' : ' where c2 like "'.Faq_Category::getFieldById($cat2).'"';
+			$bool or $bool                                  = true;
+		}
+
+		if(!empty($cat3)){
+			$where                                         .= $bool ? ' and c3 like "'.Faq_Category::getFieldById($cat3).'"' : ' where c2 like "'.Faq_Category::getFieldById($cat3).'"';
+			$bool or $bool                                  = true;
+		}
+
+		if(!empty($content)){
+			$where                                         .= $bool ? ' and content like "'.$content.'"' : ' where content like "'.$content.'"';
+			$bool or $bool                                  = true;
+		}
+
+		if(!empty($keywords)){
+			$where                                         .= $bool ? ' and content like "%'.$keywords.'%" or question like "%'.$keywords.'%" or answer like "%'.$keywords.'%"'  : ' where content like "%'.$keywords.'%" or question like "%'.$keywords.'%" or answer like "%'.$keywords.'%"';
+			$bool or $bool                                  = true;
+		}
+
+		$sql                                               .= $where;
+		// return json_encode($sql);exit;
+		$countArr                                           = DB::select('select count(*) as c from faq ' . $where);
+		$sql                                               .= " limit ".$offset.",".$limit;
+		$json['data']                                       = DB::select($sql);
+		$json['total']                                      = $countArr[0]->c;
+		$json['limit']                                      = $limit;
+		$json['p']                                          = $p;
+		$json['error']                                      = false;
+
+		return $json;
 	}
 	
 	public function getApply(Request $request) 

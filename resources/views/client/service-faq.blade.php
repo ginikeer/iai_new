@@ -24,6 +24,7 @@
 		<div class="color-white">
 			<h1>常见问题</h1>
 			<hr>
+
 			<table width="100%" class="faq-search">
 				<tr>
 					<th>阶段</th>
@@ -36,16 +37,16 @@
 					</td>
 					<td rowspan="4" class="search-btn"><a href="javascript:void(0);" id="search-btn"><img src="{{ asset('i/client/faq/btn_search.jpg') }}"></a></td>
 				</tr>
+				<input type="hidden" name="faqData" value="{{url('service/faq-data')}}"/>
+				<input type="hidden" name="fagSearch" value="{{url('service/faq-search')}}" />
 				<tr>
 					<th>产品</th>
 					<td class="next-td">
 						<select name="cat1" id="cat1">
 							<option value="">---</option>
-							<option value="1">控制器</option>
-							<option value="2">驱动轴</option>
-							<option value="3">工具</option>
-							<option value="4">零部件</option>
-							<option value="5">其他</option>
+							@foreach($first_catagory as $vo)
+							<option value="{{$vo->id}}">{{$vo->name}}</option>
+							@endForeach
 						</select>
 						<span class="next-icon">⇒</span>
 						<select name="cat2" id="cat2">
@@ -85,6 +86,24 @@
 			</table>
 			<hr>
 			<h3>搜索结果一览</h3>
+			<p id="hkensu" class="text-right">搜索结果 ： <span id="total_result_count"></span> 个</p>
+			<table width="100%" class="faq-results">
+				<tr>
+					<th width="140">分类1</th><th width="140">分类2</th><th>问题</th>
+				</tr>
+				<tbody id="tbl-result">
+				</tbody>
+				<tr>
+					<td colspan="3" id="status" class="text-center"></td>
+				</tr>
+			</table>
+			
+			<ul class="pagination" id="pctrl">
+	
+			</ul>
+
+			<!-- <hr>
+			<h3>搜索结果一览</h3>
 			<p class="text-right">共41个结果中的1~20个</p>
 			<table width="100%" class="faq-results">
 				<tr>
@@ -93,7 +112,7 @@
 				<tr>
 					<td>控制器</td><td>位置点指定型</td><td><a href="#1" target="_blank">希望购入「ERC2」，除了本体以外还有什么需要的吗？</a></td>
 				</tr>
-			</table>
+			</table> -->
 		</div><!-- #main -->
 		<!-- InstanceEndEditable -->
 	</div>
@@ -105,4 +124,5 @@
 
 @section('script')
 <script type="text/javascript" src="{{ asset('js/client/service.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/service_faq.js') }}"></script>
 @stop

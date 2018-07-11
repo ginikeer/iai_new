@@ -119,6 +119,8 @@ class UserController extends Controller {
 	public function getApplyExcel(Request $request)
 	{
 		$this->user 										= $this->conditionApply($request, 2, true);
+		// dd($this->user);
+		
 		
 		Excel::create("会员目录申请", function($excel) {
 		    $excel->sheet('data', function($sheet) {
@@ -231,7 +233,7 @@ class UserController extends Controller {
 		$data												= DB::table('user_request as ur')
 																->leftJoin('users as u', 'u.id', '=', 'ur.uid')
 																->where('type', $type)
-																->select('ur.id', 'ur.created_at', 'u.email', 'u.name', 'u.id as uid', 'ur.content', 'ur.state');
+																->select('ur.id', 'ur.created_at', 'u.email', 'u.name', 'u.id as uid', 'ur.content', 'ur.state','ur.answers_str');
 		
 		if( !empty($state) ) 
 			$data->where('state', $state);
@@ -250,11 +252,22 @@ class UserController extends Controller {
 			@set_time_limit(0);
 			@ini_set('memory_limit', '1024M');
 			$data											= $data->orderBy('ur.id', 'desc')->get();
+			// return $data;
 			
 			for($i = 0; $i < count($data); $i++) {
 				$data[$i]->email 							= Helper::removeEqual($data[$i]->email);
 				$data[$i]->name 							= Helper::removeEqual($data[$i]->name);
 				$data[$i]->content 							= Helper::removeEqual($data[$i]->content);
+				if($type == 2 && $data[$i]->answers_str){
+					$ansArr                                 = json_decode(Helper::removeEqual($data[$i]->answers_str),true);
+					$data[$i]->q1                           = $ansArr['q1'];
+					$data[$i]->q2                           = $ansArr['q2'];
+					$data[$i]->q3                           = $ansArr['q3'];
+					$data[$i]->q4                           = $ansArr['q4'];
+					$data[$i]->q5                           = $ansArr['q5'];
+					$data[$i]->q6                           = $ansArr['q6'];
+					$data[$i]->q7                           = $ansArr['q7'];
+				}
 			}
 		}
 		

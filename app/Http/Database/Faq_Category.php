@@ -78,5 +78,13 @@ class Faq_Category extends Model {
 		return self::where('id', $parent)->get();
 		
 	}
+
+	/**
+	 *
+	 */
+	static public function getFieldById($id, $field = 'name'){
+		return self::where('id', $id)->pluck($field);
+	}
+
 	
 }
