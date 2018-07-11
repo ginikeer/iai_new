@@ -36,11 +36,9 @@ class ClientAuthController extends Controller {
 		$account 											= $request->input('account');
 		$password 											= $request->input('password');
 		$user												= User::hasData($account, $password);
-		
 		if( count($user) ) {	//有该用户，信息存入cookie
 			if( User::isVaild($user->id) ) {	//用户有效
 				Cookie::queue('iai_user_token', $user->id, 60 * 24 * 7);
-				
 				if( Session::has('page_before_login') ) {
 					return redirect(Session::get('page_before_login'));
 				} else {

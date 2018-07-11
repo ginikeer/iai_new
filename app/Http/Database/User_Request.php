@@ -2,10 +2,20 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+use Cookie;
+
 class User_Request extends Model {
 	protected $table = 'user_request';
 	
 	protected $guarded  = ["id"];
+
+	protected $fillable = [
+		'type',
+		'uid',
+		'content',
+		'state',
+		'c_type'
+	];
 	
 	/**
 	 * 反置状态（如果当前为1则改为0，如果当前为0则改为1）
@@ -18,8 +28,36 @@ class User_Request extends Model {
 		$old												= self::where('id', $id)->pluck('state');
 		$new												= ($old == USER_APPLY_SENT) ? USER_APPLY_NOT_SENT : USER_APPLY_SENT;
 		
-		self::where('id', $id)->update(['state' => $new]);
-		
+		self::where('id', $id)->update(['state' => $new]);	
 	}
+
+	/**
+	 *提交数据
+	 *
+	 *@return bool
+	 */
+	static public function createData($data){
+		$realData                                           = [];
+		if(empty($data['catalog1']) && empty($data['catalog2'])){
+			$realData['content']                            = $data['catalog'];
+		}
+
+		if(!empty($data['catalog1'])){
+			$realData['content']                            = implode(',', $data['catalog1']);
+			$realData['c_type']                             = 1;
+		}
+
+		if(!empty($data['catalog2'])){
+			$realData['content']                            = implode(',', $data['catalog2']);
+			$realData['c_type']                             = 2;
+		}
+
+		$realData['type']                                   = 2;
+
+		$realData['state']                                  = USER_APPLY_NOT_SENT;
+		$realData['uid']                                    = Cookie::get('iai_user_token');
+		return self::create($realData);
+	}
+	
 	
 }

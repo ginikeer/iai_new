@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Client\MainController@index');
+Route::get('/', 'Client\MainController@getIndex');
 Route::controller('/product', 'Client\ProductController');
 Route::controller('/case', 'Client\CaseController');
 Route::controller('/service', 'Client\ServiceController');
@@ -28,6 +28,8 @@ Route::controller('/admin/case', 'Admin\CaseController');
 Route::controller('/admin/user', 'Admin\UserController');
 Route::controller('/admin/news', 'Admin\NewsController');
 Route::controller('/admin/faq', 'Admin\FaqController');
+
+Route::controller('/login','Client\LoginController');
 
 
 Route::controllers([

@@ -8,6 +8,7 @@ use App\Http\Database\Manual;
 use App\Http\Database\Manual_Category;
 use App\Http\Database\User;
 use App\Http\Database\Catalog_Apply;
+use App\Http\Database\User_Request;
 
 use App\Services\Helper;
 
@@ -74,12 +75,48 @@ class ServiceController extends Controller {
 		return Helper::downloadFile('app/uploads/manual/pdf', $request);
 	}
 	
+	//目录申请展示
+	public function getCatalog(Request $request)
+	{	
+		return view('client/application', [
+			'nav'											=> $this->nav,
+			'user'											=> Helper::getUserByIAIToken()
+		]);
+	}
+
+	//提交 目录申请
+	public function postCatalog(Request $request){
+		$data                                               = Helper::removeFromAll(['_token'],$request->input());
+		if(User_Request::createData($data)) {
+			$user                                           = Helper::getUserByIAIToken();
+			$catagory                                       = !empty($request->input('catalog1')) ? implode(',', $request->input('catalog1')) 
+															: (!empty($request->input('catalog2')) ? implode(',', $request->input('catalog2'))
+															: '');
+			$param                                          = array(
+				'company'                                   => $user->company,
+				'name'                                      => $user->name,
+				'catagory'                                  => $catagory
+			);
+			Mail::send('emails.catagory', $param, function ($message) {
+            	$message->to('727935022@qq.com')->subject('	艾卫艾商贸(上海)有限公司- 2017综合产品目录的申请');
+        	});
+			$message 									    = ['msg'=>'提交成功','code'=>1,'url'=>url('/service/catalog')];
+		} else {
+			$message 										= ['msg'=>'提交失败','code'=>0,'url'=>''];
+		}
+		return $message;      
+	}
+
+
+
+	//备用
+	/*
 	public function getCatalog(Request $request)
 	{
 		return view('client/service-catalog', [
 			'nav'											=> $this->nav
 		]);
-	}
+	}*/
 	
 	public function getCatalogDownload(Request $request) 
 	{

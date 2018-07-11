@@ -1,8 +1,9 @@
 <?php namespace App\Services;
 	
 use App\Http\Database\User_Request;
+use App\Http\Database\User;
 
-use Cookie, Storage, File;
+use Cookie, Storage, File, Session;
 
 //工具类
 class Helper {
@@ -247,7 +248,26 @@ class Helper {
 			abort(404);
 		}
 	}
-	
+
+	//设置session
+	static public function setSession($userInfo){
+		Session::put('admin_id',                $userInfo->id);
+		Session::put('admin_name',              $userInfo->username);
+	}
+
+	//清除session
+	static public function clearSession(){
+		Session::forget('admin_id');
+		Session::forget('admin_name');
+	}
+
+	static public function getUserByIAIToken(){
+		$user                                               = null;
+		if(Cookie::has('iai_user_token')){
+			$user                                           = User::getLineValueById(Cookie::get('iai_user_token'));
+		}
+		return $user;
+	}
 }
 
 ?>

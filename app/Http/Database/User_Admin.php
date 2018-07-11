@@ -6,8 +6,8 @@ use App\Services\Helper;
 
 use DB;
 
-class User extends Model {
-	protected $table = 'users';
+class User_Admin extends Model {
+	protected $table = 'user_admin';
 	
 	protected $guarded  = ["id"];
 	
@@ -16,11 +16,11 @@ class User extends Model {
 	 *
 	 * @return array
 	 */
-	static public function hasData($account, $password) {
+	static public function hasData($username, $password) {
 		
-		return self::where('pwd', $password)
-					->where(function($query) use ($account) {
-		                $query->where('email', $account)->orWhere('tel', $account);
+		return self::where('password', md5($password))
+					->where(function($query) use ($username) {
+		                $query->where('username', $username);
 		            })->first();
 		
 	}
@@ -162,14 +162,5 @@ class User extends Model {
 		
 		self::where('reg_key', $key)->update(['pwd' => $password]);
 		
-	}
-
-	/**
-	 *根据id获取记录
-	 *
-	 *@return obj
-	 */
-	static public function getLineValueById($id){
-		return self::where('id',$id)->first();
 	}
 }
