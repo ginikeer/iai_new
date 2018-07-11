@@ -24,7 +24,7 @@ class UserController extends Controller {
 	 */
 	public function __construct()
 	{
-//		$this->middleware('admin');
+		$this->middleware('admin');
 		$this->user											= array();
 	}
 
@@ -226,6 +226,7 @@ class UserController extends Controller {
 	private function conditionApply($request, $type, $is_excel = false)
 	{
 		$state												= $request->input('state', '');
+		$c_type                                             = $request->input('c_type','');
 		
 		$data												= DB::table('user_request as ur')
 																->leftJoin('users as u', 'u.id', '=', 'ur.uid')
@@ -234,6 +235,10 @@ class UserController extends Controller {
 		
 		if( !empty($state) ) 
 			$data->where('state', $state);
+
+		if( !empty($c_type) )
+			$data->where('c_type', $c_type);
+
 		
 		$count												= $data->count();
 		

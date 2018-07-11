@@ -26,6 +26,7 @@ class FaqController extends Controller {
 	public function __construct()
 	{
 //		$this->middleware('auth');
+		$this->middleware('admin');
 		$this->category 									= Faq_Category::getAll();
 	}
 
