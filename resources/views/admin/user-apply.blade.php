@@ -23,6 +23,13 @@
 		 						<option @if($data->condition_state === USER_APPLY_NOT_SENT) selected @endif value="{{ USER_APPLY_NOT_SENT }}">{{ USER_APPLY_NOT_SENT_STRING }}</option>
 		 					</select>
 		 				</div>
+		 				<div class="col-sm-2">
+		 					<select name="c_type" class="form-control">
+		 						<option value="">目录大类</option>
+		 						<option value="1" @if(Request::get('c_type') == 1) selected @endIf>单品目录</option>
+		 						<option value="2" @if(Request::get('c_type') == 2) selected @endIf>综合目录及其他</option>
+		 					</select>
+		 				</div>
 		 				<div class="col-sm-2 text-left">
 		 					<div class="btn btn-primary search">查询</div>
 		 				</div>

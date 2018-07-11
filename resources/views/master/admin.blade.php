@@ -124,7 +124,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{{ url('admin/auth/logout') }}">注销</a></li>
+					<li><a href="{{ url('/login/logout') }}">注销</a></li>
 				</ul>
 			</div>
 		</div>

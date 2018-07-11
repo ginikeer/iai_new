@@ -221,6 +221,7 @@
 	<script src="{{ asset('js/client/jquery-1.11.2.min.js') }}"></script>
 	<script src="{{ asset('js/client/jquery.tmpl.min.js') }}"></script>
 	<script src="{{ asset('js/client/common.js') }}"></script>
+	<script src="{{ asset('js/common/layer/layer.js') }}"></script>
 	@section('script')
     @show
     

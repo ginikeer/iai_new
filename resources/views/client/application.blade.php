@@ -23,7 +23,7 @@
 		<!-- InstanceBeginEditable name="main" -->
 		<div class="card color-white">
 			<h1>目录申请</h1>
-			<form name="catalogForm" method="post" action="check.php">
+			<form name="catalogForm" method="post" action="{{url('service/catalog')}}">
 				<div class="row row-no-offset">
 					<div class="col-lg-12">
 						<div class="list-lined">
@@ -42,37 +42,38 @@
 							<div class="list-item">
 								<div class="list-item-header">公司名</div>
 								<div class="list-item-body">
-									wqew
+									{{$user ? $user->company : ''}}
 								</div>
 							</div>
 							<div class="list-item">
 								<div class="list-item-header">部门</div>
 								<div class="list-item-body">
-									qwe
+									{{$user ? $user->department : ''}}
 								</div>
 							</div>
 							<div class="list-item">
 								<div class="list-item-header">姓名</div>
 								<div class="list-item-body">
-									qwe
+									{{$user ? $user->name : ''}}
 								</div>
 							</div>
 							<div class="list-item">
 								<div class="list-item-header">地址</div>
 								<div class="list-item-body">
-									上海市 wqew
+									{{$user ? $user->addr : ''}}
 								</div>
-							</div>
+							</div>	
 	
 							<div class="list-item">
 								<div class="list-item-header">TEL</div>
 								<div class="list-item-body">
-									15035648790
+									{{$user ? $user->company : ''}}
 								</div>
 							</div>
 	
 							<!--application form-->
-	
+
+							<!-- start -->
 							<div class="list-item">
 								<div class="row row-no-offset">
 									目录申请
@@ -96,10 +97,10 @@
 							<div class="list-item hide-item catalog-item">
 								<div class="row row-no-offset">
 									<div class="col-lg-3 col-lg-offset-1">
-										<label><input name="catalog[]" type="checkbox" value="2017综合产品目录">2017综合产品目录</label>
+										<label><input name="catalog1[]" type="checkbox" value="2017综合产品目录">2017综合产品目录</label>
 									</div>
 									<div class="col-lg-3">
-										<label><input name="catalog[]" type="checkbox" value="资料光盘">资料光盘</label>
+										<label><input name="catalog1[]" type="checkbox" value="资料光盘">资料光盘</label>
 									</div>
 								</div>
 							</div>
@@ -124,6 +125,8 @@
 									</div>
 								</div>
 							</div>
+							<!-- end -->
+
 							<div class="list-item">
 								<div class="row row-no-offset">
 									<div class="col-lg-1">
@@ -260,11 +263,13 @@
 						</div>
 					</div>
 				</div>
+				<input type="hidden" name="_token" value="{{csrf_token()}}" />
 				<div class="row row-no-offset">
 					<div class="col-lg-12">
 						<div class="btn-group text-center appli-btn">
-							<input type="hidden" id="check-link" value="{{url('/application/check')}}" />
+							<!-- <input type="hidden" id="check-link" value="{{url('/application/check')}}" /> -->
 							<!--<button type="submit" class="btn btn-red" id="application-btn">确认</button>-->
+							<!-- <button type="button" class="btn btn-red" id="application-btn">确认</button> -->
 							<button type="button" class="btn btn-red" id="application-btn">确认</button>
 							<button type="reset" class="btn btn-red">重置</button>
 						</div>
@@ -282,4 +287,13 @@
 
 @section('script')
 <script type="text/javascript" src="{{ asset('js/client/application.js') }}"></script>
+<script type="text/javascript">
+@if(!empty($message))
+	@if($message['code'] == 1)
+		layer.msg("{{$message['msg']}}",{icon:1});
+	@else
+		layer.msg("{{$message['msg']}}",{icon:3,anim:6});
+	@endif
+@endif
+</script>
 @stop
