@@ -1,4 +1,4 @@
-@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 电脑联机软件版本履历/示教器履历下载 @stop
+@section('title') IAI－艾卫艾商贸(上海)有限公司－ ｜ 小工具下载 @stop
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/client/service.css') }}"/>
@@ -18,20 +18,88 @@
 				<li>
 					<a href="{{ url('/service') }}">服务</a>
 				</li>
-				<li>电脑联机软件版本履历/示教器履历下载</li>
+				<li>小工具下载</li>
 			</ul>
 		</div>
 	</div>
 	<div class="container">
-		<h2>电脑联机软件版本履历/示教器履历下载</h2>
+		<h2>小工具下载</h2>
 		<hr>
 		<h3>示教器版本履历</h3>
-		<div class="service-list">
+		<div class="service-list" style="margin-bottom: 30px;">
 			<div class="service-list-item">
 				<div class="row row-no-offset">
 					<div class="col-lg-8"><big>示教器版本履历</big></div>
 					<div class="col-lg-4 text-right">
 						<a href="{{ url('service/history-download?l=CN&t=history&n=teaching') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<h3>节拍计算工具</h3>
+		<div class="service-list">
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>01_TANJIKU_RC-1(Normal-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/01_TANJIKU_RC-1(Normal-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/01_TANJIKU_RC-1(Normal-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>02_TANJIKU_RC-2(High-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/02_TANJIKU_RC-2(High-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/02_TANJIKU_RC-2(High-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>03_TANJIKU_RC-2(Normal-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/03_TANJIKU_RC-2(Normal-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/03_TANJIKU_RC-2(Normal-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>04_RC-24VSERVO(High-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/04_RC-24VSERVO(High-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/04_RC-24VSERVO(High-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>05_RC-24VSERVO(Normal-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/05_RC-24VSERVO(Normal-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/05_RC-24VSERVO(Normal-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>06_RC-PULSE-1(Normal-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/06_RC-PULSE-1(Normal-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/06_RC-PULSE-1(Normal-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>07_RC-PULSE-2(High-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/07_RC-PULSE-2(High-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/07_RC-PULSE-2(High-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+					</div>
+				</div>
+			</div>
+			<div class="service-list-item">
+				<div class="row row-no-offset">
+					<div class="col-lg-8"><big>08_RC-PULSE-2(Normal-Spec)</big></div>
+					<div class="col-lg-4 text-right">
+						<a href="{{ asset('pdf/client/versionhistory/08_RC-PULSE-2(Normal-Spec).xls') }}" download="{{ asset('pdf/client/versionhistory/08_RC-PULSE-2(Normal-Spec).xls') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 					</div>
 				</div>
 			</div>

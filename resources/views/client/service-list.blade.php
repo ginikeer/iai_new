@@ -74,7 +74,7 @@
 					<div class="service-img">
 						<img src="{{ asset('i/client/service/service-6.png') }}" />
 					</div>
-					<h4>电脑联机软件版本履历/示教器履历下载</h4>
+					<h4>小工具下载</h4>
 				</a>
 			</div>
 			<div class="col-lg-2-5">
