@@ -19,12 +19,12 @@
 			</ul>
 		</div>
 	</div>
-	<div class="container service-list-container">
+	<div class="container">
 		<div class="row service-row">
 			<div class="col-lg-2-5">
 				<a href="{{ url('/service/catalog') }}">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_01.png') }}" />
+						<img src="{{ asset('i/client/service/service-4.png') }}" />
 					</div>
 					<h4>综合产品目录</h4>
 				</a>
@@ -32,7 +32,7 @@
 			<div class="col-lg-2-5">
 				<a href="{{ url('/service/manual') }}">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_02.png') }}" />
+						<img src="{{ asset('i/client/service/service-3.png') }}" />
 					</div>
 					<h4>使用说明书</h4>
 				</a>
@@ -40,7 +40,7 @@
 			<div class="col-lg-2-5">
 				<a target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai/?info=iai">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_03.png') }}" />
+						<img src="{{ asset('i/client/service/service-1.png') }}" />
 					</div>
 					<h4>CAD图纸</h4>
 				</a>
@@ -48,7 +48,7 @@
 			<div class="col-lg-2-5">
 				<a href="{{ url('/service/faq') }}">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_04.png') }}" />
+						<img src="{{ asset('i/client/service/service-2.png') }}" />
 					</div>
 					<h4>常见问题</h4>
 				</a>
@@ -56,7 +56,7 @@
 			<div class="col-lg-2-5">
 				<a href="{{ url('/service/delivery') }}">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_05.png') }}" />
+						<img src="{{ asset('i/client/service/service-2.png') }}" />
 					</div>
 					<h4>交货期查询</h4>
 				</a>
@@ -64,7 +64,7 @@
 			<div class="col-lg-2-5">
 				<a href="{{ url('/service/settings') }}">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_06.png') }}" />
+						<img src="{{ asset('i/client/service/service-5.png') }}" />
 					</div>
 					<h4>现场网络设置用数据</h4>
 				</a>
@@ -72,7 +72,7 @@
 			<div class="col-lg-2-5">
 				<a href="{{ url('/service/versionhistory') }}">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_07.png') }}" />
+						<img src="{{ asset('i/client/service/service-6.png') }}" />
 					</div>
 					<h4>小工具下载</h4>
 				</a>
@@ -80,7 +80,7 @@
 			<div class="col-lg-2-5">
 				<a href="{{ url('/service/others') }}">
 					<div class="service-img">
-						<img src="{{ asset('/i/client/home/download_08.png') }}" />
+						<img src="{{ asset('i/client/service/service-7.png') }}" />
 					</div>
 					<h4>和其他公司产品连接•通信的相关信息</h4>
 				</a>
