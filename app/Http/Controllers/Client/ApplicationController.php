@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Database\User;
 
+use App\Services\Helper;
 
 use Redirect, Input, Auth, Session, DB, Cookie;
 
 class ApplicationController extends Controller {
 
+	public $nav;
 	public $uid;
 
 	/**
@@ -20,12 +22,18 @@ class ApplicationController extends Controller {
 	 */
 	public function __construct()
 	{
+		$this->middleware('client');
+		$this->nav											= 'service';
+		$this->uid											= Cookie::get("iai_user_token");
 	}
+
 
 	public function getIndex(Request $request)
 	{
-		
+	
 		return view('client/application', [
+			'nav'											=> $this->nav,
+			'user'											=> Helper::getUserByIAIToken()
 		]);
 	}
 	

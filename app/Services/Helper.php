@@ -229,7 +229,8 @@ class Helper {
 		$name									= $request->input('n');
 		$lang									= $request->input('l');
 		$type									= $request->input('t');
-		$filename								= $name . '.pdf';
+		$ext                                    = $request->input('e');
+		$filename								= $name . '.' . $ext;
 		$fullpath								= storage_path($storage) . '/' . $filename;
 		
 		if( File::exists($fullpath) ) {

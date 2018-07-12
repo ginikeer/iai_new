@@ -10,6 +10,7 @@ use App\Http\Database\User;
 use App\Http\Database\Catalog_Apply;
 use App\Http\Database\User_Request;
 use App\Http\Database\Faq_Category;
+use App\Http\Database\Faq;
 
 use App\Services\Helper;
 
@@ -75,18 +76,16 @@ class ServiceController extends Controller {
 		//记录下载历史并返回PDF文件
 		return Helper::downloadFile('app/uploads/manual/pdf', $request);
 	}
+
+	//备用
 	
-	//目录申请展示
 	public function getCatalog(Request $request)
-	{	
-		// Mail::raw('测试', function ($message) {
-  //           	$message->to('1500814268@qq.com')->subject('艾卫艾商贸(上海)有限公司- 产品目录的申请');
-  //      	});
-		return view('client/application', [
-			'nav'											=> $this->nav,
-			'user'											=> Helper::getUserByIAIToken()
+	{
+		return view('client/service-catalog', [
+			'nav'											=> $this->nav
 		]);
 	}
+	
 
 	//提交 目录申请
 	public function postCatalog(Request $request){
@@ -107,7 +106,7 @@ class ServiceController extends Controller {
 			Mail::send('emails.catagory', $param, function ($message) {
             	$message->to('1500814268@qq.com')->subject('艾卫艾商贸(上海)有限公司- 产品目录的申请');
         	});
-			$message 									    = ['msg'=>'提交成功','code'=>1,'url'=>url('/service/catalog')];
+			$message 									    = ['msg'=>'提交成功','code'=>1,'url'=>url('/application')];
 		} else {
 			$message 										= ['msg'=>'提交失败','code'=>0,'url'=>''];
 		}
@@ -116,14 +115,7 @@ class ServiceController extends Controller {
 
 
 
-	//备用
-	/*
-	public function getCatalog(Request $request)
-	{
-		return view('client/service-catalog', [
-			'nav'											=> $this->nav
-		]);
-	}*/
+	
 	
 	public function getCatalogDownload(Request $request) 
 	{
@@ -175,6 +167,16 @@ class ServiceController extends Controller {
 		]);
 	}
 
+	//712
+	public function getFaqDetail(Request $request){
+		
+
+		return view('client/service-faq-detail',[
+			'nav'											=> $this->nav,
+			'faqInfo'                                       => Faq::getFaqById($request->id)
+		]);
+	}
+
 	public function getFaqData(Request $request){
 		$catagory                                            = Faq_Category::getDataByParent($request->id);
 		$str_html = '';
@@ -189,6 +191,7 @@ class ServiceController extends Controller {
 		return json_encode($box);	
 	}
 
+	//712
 	public function getFaqSearch(Request $request){
 		$p                                                  = $request->input('p',0);
 		$limit                                              = $request->input('limit',30);//页码
@@ -207,33 +210,35 @@ class ServiceController extends Controller {
 		$where                                              = '';
 		if(!empty($stage)){
 			$bool                                           = true;
-			$where                                         .= 'where stage LIKE "' . $stage . '"';
+			$where                                         .= 'where stage LIKE "%' . $stage . '%"';
 		}
 
 		if(!empty($cat1)){
-			$where                                         .= $bool ? ' and c1 like "'.Faq_Category::getFieldById($cat1).'"' : ' where c1 like "'.Faq_Category::getFieldById($cat1).'"';
+			$where                                         .= $bool ? ' and c1 like "%'.Faq_Category::getFieldById($cat1).'%"' : ' where c1 like "%'.Faq_Category::getFieldById($cat1).'%"';
 			$bool or $bool                                  = true;
 		}
 
 		if(!empty($cat2)){
-			$where                                         .= $bool ? ' and c2 like "'.Faq_Category::getFieldById($cat2).'"' : ' where c2 like "'.Faq_Category::getFieldById($cat2).'"';
+			$where                                         .= $bool ? ' and c2 like "%'.Faq_Category::getFieldById($cat2).'%"' : ' where c2 like "%'.Faq_Category::getFieldById($cat2).'%"';
 			$bool or $bool                                  = true;
 		}
 
 		if(!empty($cat3)){
-			$where                                         .= $bool ? ' and c3 like "'.Faq_Category::getFieldById($cat3).'"' : ' where c2 like "'.Faq_Category::getFieldById($cat3).'"';
+			$where                                         .= $bool ? ' and c3 like "%'.Faq_Category::getFieldById($cat3).'%"' : ' where c2 like "%'.Faq_Category::getFieldById($cat3).'%"';
 			$bool or $bool                                  = true;
 		}
 
 		if(!empty($content)){
-			$where                                         .= $bool ? ' and content like "'.$content.'"' : ' where content like "'.$content.'"';
+			$where                                         .= $bool ? ' and content like "%'.$content.'%"' : ' where content like "%'.$content.'%"';
 			$bool or $bool                                  = true;
 		}
 
 		if(!empty($keywords)){
-			$where                                         .= $bool ? ' and content like "%'.$keywords.'%" or question like "%'.$keywords.'%" or answer like "%'.$keywords.'%"'  : ' where content like "%'.$keywords.'%" or question like "%'.$keywords.'%" or answer like "%'.$keywords.'%"';
+
+			$where                                         .= $bool ? ' and (question like "%'.$keywords.'%" or answer like "%'.$keywords.'%")'  : ' where question like "%'.$keywords.'%" or answer like "%'.$keywords.'%"';
 			$bool or $bool                                  = true;
 		}
+
 
 		$sql                                               .= $where;
 		// return json_encode($sql);exit;
