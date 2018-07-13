@@ -104,7 +104,7 @@ class ServiceController extends Controller {
 				'department'                                => $user->department
 			);
 			Mail::send('emails.catagory', $param, function ($message) {
-            	$message->to('1500814268@qq.com')->subject('艾卫艾商贸(上海)有限公司- 产品目录的申请');
+            	$message->to('727935022@qq.com')->subject('艾卫艾商贸(上海)有限公司- 产品目录的申请');
         	});
 			$message 									    = ['msg'=>'提交成功','code'=>1,'url'=>url('/application')];
 		} else {
