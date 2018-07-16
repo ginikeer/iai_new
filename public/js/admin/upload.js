@@ -7,9 +7,10 @@ $(function() {
 		var $img_preview = $(this).siblings(".img-preview");
 		var $img_success = $(this).siblings(".file-upload-success");
 		var _is_img = $img_preview.length;
-		
+		var $upload_success_url = $("#upload_success_url").val();
 		var formData = new FormData();
 		
+		$img_success.show();
 		formData.append('file', $(this)[0].files[0]);
 		formData.append('is_img', _is_img);
 		
@@ -29,7 +30,7 @@ $(function() {
 				if(_is_img) {
 					$img_preview.attr("src", res.img_full_path);
 				} else {
-					$img_success.show();
+					$img_success.attr("src",$upload_success_url);
 				}
 			} else {
 				alert(res.message);

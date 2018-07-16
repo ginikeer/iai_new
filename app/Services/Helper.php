@@ -243,7 +243,6 @@ class Helper {
 				'state'							=> 1,
 				'created_at'					=> date('Y-m-d H:i:s')
 			]);
-			
 			return response()->download($fullpath, $filename);
 		} else {
 			abort(404);

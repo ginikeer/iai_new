@@ -2,8 +2,7 @@ $(document).ready(function() {
 	//编辑按钮
 	$(".ajax-table .edit").on("click", function() {
 		$(this).parent("td").siblings("td").children(".table-span").hide();
-		$(this).parent("td").siblings("td").children(".table-input").show();
-				
+		$(this).parent("td").siblings("td").children(".table-input").show();	
 		if($(".table-select").length > 0)
 			$(this).parent("td").siblings("td").children(".table-select").removeAttr("disabled");
 		

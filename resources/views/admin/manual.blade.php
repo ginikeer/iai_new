@@ -13,6 +13,7 @@
 		 		<form action="{{ url('admin/manual/save') }}" method="post" class="form-horizontal">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 		 			<input type="hidden" id="url_file_upload" value="{{ url('admin/manual/upload') }}" />
+		 			<input type="hidden" id="upload_success_url" value="{{ asset('i/admin/success.png') }}" />
 		 			<div class="form-group ">
 						<div class="col-sm-6">
 							<label for="" class="col-sm-3 control-label">标题：</label>
@@ -36,28 +37,32 @@
 							<label for="cn" class="col-sm-3 control-label">CN文档：</label>
 							<div class="col-sm-9">
 								<input type="file" id="cn" class="upload-file" />
-								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
-								<input type="hidden" class="file-name " name="cn_pdf_name" value="" />
+								<img class="file-upload-success" src="{{ asset('i/admin/uploading.gif') }}" alt="" />
+								<input type="hidden" class="file-name" name="cn_pdf_name" value="" />
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<label for="en" class="col-sm-3 control-label">EN文档：</label>
 							<div class="col-sm-9">
 								<input type="file" id="en" class="upload-file" />
-								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
+								<img class="file-upload-success" src="{{ asset('i/admin/uploading.gif') }}" alt="" />
 								<input type="hidden" class="file-name" name="en_pdf_name" value="" />
+
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<label for="ja" class="col-sm-3 control-label">JA文档：</label>
 							<div class="col-sm-9">
 								<input type="file" id="ja" class="upload-file" />
-								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
+								<img class="file-upload-success" src="{{ asset('i/admin/uploading.gif') }}" alt="" />
 								<input type="hidden" class="file-name" name="ja_pdf_name" value="" />
 							</div>
 						</div>
+						<div class="col-sm-4 pull-left mt30" style="color:red;">
+							注意：请务必等待文件上传成功（即显示<img src="{{ asset('i/admin/success.png') }}" alt="" />），方可进行提交！
+						</div>
 						<div class="col-sm-2 pull-right mt30">
-							<input type="submit" class="btn btn-success btn-block" value="添加" />
+							<input type="submit" class="btn btn-success btn-block" value="提交" />
 						</div>
 					</div>
 		 		</form>
@@ -66,7 +71,7 @@
 		
 		
 		<div class="panel panel-primary">
-			<div class="panel-heading">产品使用说明列表</div>
+			<div class="panel-heading">产品使用说明列表 <span style="color:red;">【注意：在编辑信息时，请务必等待文件上传成功（即显示<img src="{{ asset('i/admin/success.png') }}" alt="" />），方可确认提交！】</span></div>
 		 	<div class="panel-body">
 		 		<input type="hidden" id="url_edit" value="{{ url('admin/manual/ajax-save') }}" />
 		 		<input type="hidden" id="url_del" value="{{ url('admin/manual/del') }}" />
@@ -96,19 +101,19 @@
 					    	</td>
 					    	<td>
 					    		<input type="file" class="table-input upload-file" />
-								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
+								<img class="file-upload-success" src="{{ asset('i/admin/uploading.gif') }}" alt="" />
 								<input type="hidden" class="file-name" name="cn_pdf_name" value="{{ $d->cn_pdf_name }}" />
 					    		<span class="table-span">{{ $d->cn_pdf_name }}</span>
 					    	</td>
 					    	<td>
 					    		<input type="file" class="table-input upload-file" />
-								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
+								<img class="file-upload-success" src="{{ asset('i/admin/uploading.gif') }}" alt="" />
 								<input type="hidden" class="file-name" name="en_pdf_name" value="{{ $d->en_pdf_name }}" />
 					    		<span class="table-span">{{ $d->en_pdf_name }}</span>
 					    	</td>
 					    	<td>
 					    		<input type="file" class="table-input upload-file" />
-								<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
+								<img class="file-upload-success" src="{{ asset('i/admin/uploading.gif') }}" alt="" />
 								<input type="hidden" class="file-name" name="ja_pdf_name" value="{{ $d->ja_pdf_name }}" />
 					    		<span class="table-span">{{ $d->ja_pdf_name }}</span>
 					    	</td>
