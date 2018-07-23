@@ -28,4 +28,14 @@ class Manual extends Model {
 		return self::where('category', $category)->get();
 		
 	}
+
+
+	/**
+	 *根据关键字获取使用说明
+	 *
+	 *@return array
+	 */
+	static public function getManuListByKeys($keywords = ''){
+		return self::where('title','like','%' . $keywords . '%')->select(array('id','title'))->get();
+	}
 }

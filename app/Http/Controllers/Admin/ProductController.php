@@ -100,6 +100,10 @@ class ProductController extends Controller {
 			'related_case'									=> $related_case
 		]);
 	}
+
+	public function postManualListByAjax(Request $request){
+		return Manual::getManuListByKeys($request->keywords);
+	}
 	
 	public function postSave(Request $request)
 	{

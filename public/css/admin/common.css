@@ -259,6 +259,19 @@ select[multiple].form-multiple-select{
     top: 7px;
     left: 0;
 }
+.multiple-select .select-list li.first{
+	width:100%;
+	height: 40px;
+
+}
+
+.multiple-select .select-list li.first input {
+	width:100%;
+	height: 30px;
+	margin-bottom:15px;
+}
+
+
 .multiple-select .select-list li span {
 	display: inline-block;
 	line-height: 31px;

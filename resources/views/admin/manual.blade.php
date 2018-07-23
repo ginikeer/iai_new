@@ -58,11 +58,12 @@
 								<input type="hidden" class="file-name" name="ja_pdf_name" value="" />
 							</div>
 						</div>
-						<div class="col-sm-4 pull-left mt30" style="color:red;">
-							注意：请务必等待文件上传成功（即显示<img src="{{ asset('i/admin/success.png') }}" alt="" />），方可进行提交！
-						</div>
+						
 						<div class="col-sm-2 pull-right mt30">
 							<input type="submit" class="btn btn-success btn-block" value="提交" />
+						</div>
+						<div class="col-sm-4 pull-right mt30" style="color:red;">
+							注意：请务必等待文件上传成功（即显示<img src="{{ asset('i/admin/success.png') }}" alt="" />），方可进行提交！
 						</div>
 					</div>
 		 		</form>

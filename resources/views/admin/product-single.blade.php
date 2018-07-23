@@ -14,6 +14,7 @@
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 					<input type="hidden" id="url_file_upload" value="{{ url('admin/product/upload') }}" />
 					<input type="hidden" name="id" value="{{ $p->id or '' }}" />
+					<input type="hidden" name="manual_search" value="{{ url('admin/product/manual-list-by-ajax') }}" />
 					<div class="form-group">
 						<label for="lname" class="col-sm-3 control-label">标题：</label>
 						<div class="col-sm-6">
@@ -87,13 +88,14 @@
 							<div class="multiple-select">
 		                        <div class="select-input">{{ $selected_manual['titles'] }}</div>
 		                        <ul class="select-list">
+		                        	<li class="first"><input type="text" class="manual_search" placeholder="请输入搜索关键字"/></li>
 		                        	@foreach ( $manual as $m )
 	                        		<li>
                         				<input name="manual_select" @if(in_array($m->id, $selected_manual['ids'])) checked @endif data-str="{{ $m->title }}" type="checkbox" value="{{ $m->id }}">
                         				<span>{{ $m->title }}</span>
 	                        		</li>
 	                        		@endforeach
-	                        		<li>
+	                        		<li class="last">
 	                        			<div data-input-name="manual_select" class="btn btn-success">确定</div>
 	                        			<input type="hidden" name="manual_ids" value="{{ implode(',', $selected_manual['ids']) }}" />
 	                        		</li>
