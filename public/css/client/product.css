@@ -715,6 +715,18 @@
 .product-detail-btn-list .col-lg-4{
 	margin-bottom: 10px;
 }
+.product-detail-row big{
+	word-break: break-all;
+}
+#products_main .product-detail-row .col-lg-8{
+	padding-left: 25px;
+	position: relative;
+}
+#products_main .product-detail-row .col-lg-8 .icon-20-file{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
 @media screen and (max-width: 1100px){
 	#products_main .products-items .col-lg-3{
 		width: 33.333333%;
@@ -838,10 +850,11 @@
 	.product-detail-row .col-lg-8{
 		width: 100%;
 	}
-	.product-detail-row .col-lg-4{
+	#products_main .product-detail-row .col-lg-4{
 		width: 100%;
 		text-align: left;
-		margin-top: 5px;
+		margin-top: 20px;
+		padding: 0;
 	}
 	.product-detail-row .text-right>.btn{
 		width: 30%;
