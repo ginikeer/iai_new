@@ -639,6 +639,20 @@ a{
 		width: 90px;
 		margin-right: 10px;
 	}
+	
+	.search-btn-pc{
+		display: none;
+	}
+	.faq-search{
+		margin-bottom: 0;
+	}
+	.sp-search{
+		margin-bottom: 40px;
+		text-align: center;
+	    background: #DADADA;
+	    padding: 20px 0;
+	}
+	
 }
 
 @media screen and (max-width: 750px) {

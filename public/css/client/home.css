@@ -12,7 +12,7 @@
 .bx-wrapper .slider-btn {
 	position: absolute;
 	left: 17.71%;
-	bottom: 2.86%;
+	bottom: 5.86%;
 	width: 18.23%;
 }
 .bx-wrapper .slider-btn-2 {
@@ -450,9 +450,6 @@
 		line-height: 20px;
 		padding-top: 70%;
 	}
-	#mian_download .col-lg-3:nth-child(4) p{
-		padding-top: 56%;
-	}
 	#mian_download .col-lg-3:nth-child(1){
 		background: #ffffff url(../../i/client/home/download_01.png) no-repeat center 30%;
 		background-size: 40% 40.7%;
@@ -466,7 +463,7 @@
 		background-size: 40% 40.7%;
 	}
 	#mian_download .col-lg-3:nth-child(4){
-		background: #ffffff url(../../i/client/home/download_04.png) no-repeat center 20%;
+		background: #ffffff url(../../i/client/home/download_04.png) no-repeat center 30%;
 		background-size: 40% 40.7%;
 	}
 	#mian_download .col-lg-3:nth-child(5){
@@ -498,7 +495,7 @@
 		background-size: 40% 40.7%;
 	}
 	#mian_download .col-lg-3:nth-child(4):hover{
-		background: #af1f39 url(../../i/client/home/download_04_1.png) no-repeat center 20%;
+		background: #af1f39 url(../../i/client/home/download_04_1.png) no-repeat center 30%;
 		background-size: 40% 40.7%;
 	}
 	#mian_download .col-lg-3:nth-child(5):hover{

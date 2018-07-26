@@ -35,7 +35,7 @@
 						<span class="span_ur"><input type="radio" name="faq_stage" id="faq_stage" value="调试阶段"><font color="#333"> 调试阶段　</font></span>
 						<span class="span_ur"><input type="radio" name="faq_stage" id="faq_stage" value="使用阶段"><font color="#333"> 使用阶段　</font>
 					</td>
-					<td rowspan="4" class="search-btn"><a href="javascript:void(0);" id="search-btn"><img src="{{ asset('i/client/faq/btn_search.jpg') }}"></a></td>
+					<td rowspan="4" class="search-btn search-btn-pc"><a href="javascript:void(0);" id="search-btn"><img src="{{ asset('i/client/faq/btn_search.jpg') }}"></a></td>
 				</tr>
 				<input type="hidden" name="faqData" value="{{url('service/faq-data')}}"/>
 				<input type="hidden" name="fagSearch" value="{{url('service/faq-search')}}" />
@@ -84,6 +84,7 @@
 					<td><input name="keywords" id="keywords" size="60"></td>
 				</tr>
 			</table>
+			<div class="sp-only search-btn sp-search"><a href="javascript:void(0);" id="search-btn"><img src="{{ asset('i/client/faq/btn_search.jpg') }}"></a></div>
 			<hr>
 			<h3>搜索结果一览</h3>
 			<p id="hkensu" class="text-right">搜索结果 ： <span id="total_result_count"></span> 个</p>

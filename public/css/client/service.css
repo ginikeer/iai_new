@@ -122,6 +122,11 @@ div.service-list>.service-list-item{
 @media screen and (max-width: 750px){
 	.col-lg-2-5{
 		width: 50%;
+    padding: 0 10px;
+    margin-bottom: 10px;
+	}
+	.service-list-container{
+		padding-top: 50px;
 	}
 	.service_warp .container{
 		width: 90%;
@@ -142,6 +147,9 @@ div.service-list>.service-list-item{
 	.anchors{
 		padding-top: 0px;
 		margin-top: 0px;
+	}
+	.col-lg-2-5 h4{
+		font-size: 14px;
 	}
 }
 @media screen and (max-width: 350px){

@@ -24,7 +24,7 @@
 		<div class="card color-white">
 			<h1>目录申请</h1>
 			<form name="catalogForm" method="post" action="{{url('service/catalog')}}">
-				<div class="row row-no-offset">
+				<div class="row row-no-offset application-row">
 					<div class="col-lg-12">
 						<div class="list-lined">
 							<!--delivery info-->
@@ -35,7 +35,7 @@
 									</div>
 									<div class="col-lg-9">
 										（会员信息也是您的收信地址，如需变更，请到我的页面进行变更。）
-										<a href="{{url('/member/info')}}" class="btn btn-red btn-xs last-child">变更信息</a>
+										<a href="{{url('/member/info')}}" class="btn btn-red btn-xs last-child app-btn">变更信息</a>
 									</div>
 								</div>
 							</div>
@@ -81,7 +81,7 @@
 							</div>
 							
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-1">
 									<div class="col-lg-1">
 										目录
 									</div>
@@ -94,7 +94,7 @@
 								</div>
 							</div>
 														
-							<div class="list-item hide-item catalog-item">
+							<div class="list-item hide-item catalog-item app-row-1-1">
 								<div class="row row-no-offset">
 									<div class="col-lg-3 col-lg-offset-1">
 										<label><input name="catalog1[]" type="checkbox" value="2017综合产品目录">2017综合产品目录</label>
@@ -105,7 +105,7 @@
 								</div>
 							</div>
 							
-							<div class="list-item hide-item catalog-item-2">
+							<div class="list-item hide-item catalog-item-2 app-row-1-1">
 								<div class="row row-no-offset">
 									<div class="col-lg-3 col-lg-offset-1">
 										<p><label><input name="catalog2[]" type="checkbox" value="GRS电磁夹爪">GRS电磁夹爪</label></p>
@@ -128,7 +128,7 @@
 							<!-- end -->
 
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-2">
 									<div class="col-lg-1">
 										Q1
 									</div>
@@ -147,7 +147,7 @@
 								</div>
 							</div>
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-2">
 									<div class="col-lg-1">
 										Q2
 									</div>
@@ -163,7 +163,7 @@
 								</div>
 							</div>
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-3">
 									<div class="col-lg-1">
 										Q3
 									</div>
@@ -186,7 +186,7 @@
 								</div>
 							</div>
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-2">
 									<div class="col-lg-1">
 										Q4
 									</div>
@@ -202,7 +202,7 @@
 								</div>
 							</div>
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-2">
 									<div class="col-lg-1">
 										Q5
 									</div>
@@ -218,7 +218,7 @@
 								</div>
 							</div>
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-4">
 									<div class="col-lg-1">
 										Q6
 									</div>
@@ -229,7 +229,7 @@
 								</div>
 							</div>
 							<div class="list-item">
-								<div class="row row-no-offset">
+								<div class="row row-no-offset app-row-5">
 									<div class="col-lg-1">
 										Q7
 									</div>
