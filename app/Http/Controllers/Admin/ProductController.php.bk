@@ -11,7 +11,6 @@ use App\Http\Database\Product_Category;
 use App\Http\Database\Manual;
 use App\Http\Database\Product_Manual_Relationship;
 use App\Http\Database\Cases;
-use App\Http\Database\Case_tag;
 
 use Redirect, Input, Auth, Session, DB;
 
@@ -26,7 +25,6 @@ class ProductController extends Controller {
 		$this->middleware('admin');
 
 		$this->category 									= Product_Category::getAll();
-		$this->tag											= Case_tag::getAll();
 	}
 
 	public function getIndex()
@@ -48,27 +46,31 @@ class ProductController extends Controller {
 	
 	public function getSingle(Request $request)
 	{
-		// //e10adc3949ba59abbe56e057f20f883e
-		// echo md5('oppasswd');exit;
 		$id 												= $request->input('id', '');
-		$tag											    = $this->tag;
-		$category                                           = $this->category;
+		$category											= $this->category;
 		$product 											= array();
 		$selected_manual									= array();
 		$related											= array();
+		$related_product									= array();
 		$cases												= array();
 		$related_case										= array();
 		
-		//获取每个标签下的所有案例信息
-		foreach($tag as $c) {                               
-			$cases["cid_" . $c->id]							= Cases::getDataByTagId($c->id);
+		foreach($category as $c) {
+			// 获得某个产品种类下的所有产品信息  分类  对应下面的  各条产品
+			$related["cid_" . $c->id]						= Product::getDataByCategoryId($c->id); 
+			// 获取某个产品分类下的所有案例信息  分类  对应下面的  各个案例信息
+			$cases["cid_" . $c->id]							= Cases::getDataByCategoryId($c->id);
 		}
+		// dd($cases);
 
 		if(empty($id)) {	//新增
 			$selected_manual['titles']						= "";
 			$selected_manual['ids']							= array();
 			
-			foreach($tag as $c) {
+			foreach($category as $c) {
+				// 相关产品 标题 
+				$related_product["cid_" . $c->id]["titles"]	= "";
+				$related_product["cid_" . $c->id]["ids"]	= array();
 				$related_case["cid_" . $c->id]["titles"]	= "";
 				$related_case["cid_" . $c->id]["ids"]		= array();
 			}
@@ -80,22 +82,25 @@ class ProductController extends Controller {
 			//获取关联的使用说明
 			$selected_manual['titles']						= implode('，', Product_Manual_Relationship::getTitle($pid));
 			$selected_manual['ids']							= Product_Manual_Relationship::getId($pid);
-			foreach($tag as $c) {
+			
+			foreach($category as $c) {
+				//获取相关产品
+				$related_product["cid_" . $c->id]["titles"]	= Product::getRelatedByCategoryId($id, $c->id, 'title', 'string');
+				$related_product["cid_" . $c->id]["ids"]	= Product::getRelatedByCategoryId($id, $c->id, 'id', 'array');
 				//获取相关案例
-				$related_case["cid_" . $c->id]["titles"]	= Product::getCaseByTagId($pid, $c->id, 'title', 'string');
-				$related_case["cid_" . $c->id]["ids"]		= Product::getCaseByTagId($pid, $c->id, 'id', 'array');
+				$related_case["cid_" . $c->id]["titles"]	= Product::getCaseByCategoryId($id, $c->id, 'title', 'string');
+				$related_case["cid_" . $c->id]["ids"]		= Product::getCaseByCategoryId($id, $c->id, 'id', 'array');
 			}
 			// dd($related_case);
-			// dd($cases["cid_2"]);
 		}
 		
 		return view('admin/product-single', [
 			'category' 										=> $category,
-			'tag'                                           => $tag,
 			'manual' 										=> Manual::getAll(['id', 'title']),
 			'selected_manual'								=> $selected_manual,
 			'p' 											=> $product,
 			'related'										=> $related,
+			'related_product' 								=> $related_product,
 			'cases'											=> $cases,
 			'related_case'									=> $related_case
 		]);
@@ -123,8 +128,7 @@ class ProductController extends Controller {
 				$data->image_name							= $request->input('image_name');
 				$data->content								= Helper::newlineEscape($request->input('content'));
 				$data->pdf_name								= $request->input('pdf_name');
-				// $data->related_product_ids					= $this->handelRelatedIds($related_ids);	//相关产品关联
-				$data->tag_id                               = $request->input('tag_id');
+				$data->related_product_ids					= $this->handelRelatedIds($related_ids);	//相关产品关联
 				$data->related_case_ids						= $this->handelRelatedIds($case_ids);	//相关案例
 				$data->save();
 				

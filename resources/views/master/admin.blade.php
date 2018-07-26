@@ -33,7 +33,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('admin/home') }}">首页</a>
+				<!-- <a class="navbar-brand" href="{{ url('admin/home') }}">首页</a> -->
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -80,7 +80,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="dropdown">
+					<!-- <li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">
 							FAQ管理 <span class="caret"></span>
 						</a>
@@ -98,7 +98,7 @@
 								<a href="{{ url('admin/faq/single') }}">FAQ新增</a>
 							</li>
 						</ul>
-					</li>
+					</li> -->
 					<li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">
 							会员管理 <span class="caret"></span>
@@ -116,9 +116,9 @@
 							<li>
 								<a href="{{ url('admin/user/download') }}">会员下载记录</a>
 							</li>
-							<li>
+							<!-- <li>
 								<a href="{{ url('admin/user/paper-apply') }}">纸质目录申请</a>
-							</li>
+							</li> -->
 						</ul>
 					</li>
 				</ul>

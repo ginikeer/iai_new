@@ -168,4 +168,33 @@ class Product extends Model {
 		return $res;
 	}
 	
+	/**
+	 * 获取单个产品某个标签下相关案例
+	 * @param $pid 产品id
+	 * @param $tid 标签id
+	 * @param $type 返回类型
+	 * 
+	 * @return strng 逗号连接的字符串
+	 * 或者
+	 * @return array 数组
+	 */
+	static public function getCaseByTagId($pid, $tid, $select, $type) {
+		
+		$res													= array();
+		$related 												= self::where('id', $pid)->pluck('related_case_ids');
+		
+		if( !empty($related) ) {
+			$res								 				= DB::select("select `" . $select . "` from cases where find_in_set('$tid',`tag_ids`) and `id` in ('$related') order by `id` desc");		
+			$titles                                             = [];
+			foreach ($res as $key => $value) {
+				$titles[] = $value->$select;		
+			}	
+			return 	$type == 'string' ? implode('，', $titles) : $titles;												
+		} else {
+			return $type == 'string' ? '' : $res;
+			
+		}
+
+
+	}
 }

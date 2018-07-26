@@ -16,12 +16,14 @@
 				    <tr>
 				    	<td>标题</td>
 				    	<td>分类</td>
+				    	<td>发布时间</td>
 				    	<td>操作</td>
 				    </tr>
 				    @foreach ($data as $d)
 				    <tr>
 				    	<td><span class="form-span">{{ $d->title }}</span></td>
 				    	<td><span class="form-span">{{ $d->category }}</span></td>
+				    	<td><span class="form-span">{{ $d->created_at }}</span></td>
 				    	<td>
 				    		<a class="btn btn-info edit" href="{{ url('admin/news/single?id=' . $d->id) }}">编辑</a>
 				    		<div class="btn btn-danger del" data-id="{{ $d->id }}">删除</div>

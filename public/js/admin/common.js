@@ -19,10 +19,10 @@ $(function() {
 		});
 		
 		if(ids != '')
-			ids = ids.substr(0, ids.length - 1);
+			ids = ids.substr(0, ids.length - 1);  //截掉最后一个字符
 		
 		if(str != '') 
-			str = str.substr(0, str.length - 1);
+			str = str.substr(0, str.length - 1);  //截掉最后一个字符
 		
 		$(this).parents('.multiple-select').find('.select-input').text(str);
 		$(this).siblings('input[type=hidden]').val(ids);

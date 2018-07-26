@@ -107,29 +107,28 @@
 					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">相关案例：</label>
 						<div class="col-sm-2">
-							<select class="form-control" name="tag_id" id="case-category">
-								@foreach ($tag as $c)
-								<option value="{{ $c->id }}" @if(isset($p->tag_id)) {{$p->tag_id==$c->id ? 'selected' : ''}}  @endif>{{ $c->title }}</option>
+							<select class="form-control" id="case-category">
+								@foreach ($category as $c)
+								<option value="{{ $c->id }}">{{ $c->title }}</option>
 								@endforeach
 							</select>
 						</div>
 						<div class="col-sm-4">
-							@for ($i = 0; $i < count($tag); $i++)
-							<div class="multiple-select related-case related-case-{{ $tag[$i]->id }}" @if($i != 0) style="display: none;" @endif>
-		                        <div class="select-input">{{ $related_case["cid_" . $tag[$i]->id]['titles'] }}</div>
+							@for ($i = 0; $i < count($category); $i++)
+							<div class="multiple-select related-case related-case-{{ $category[$i]->id }}" @if($i != 0) style="display: none;" @endif>
+		                        <div class="select-input">{{ $related_case["cid_" . $category[$i]->id]['titles'] }}</div>
 		                        <ul class="select-list">
-		                        	<!-- 遍历每个标签下的案例信息 -->
-		                        	@foreach ( $cases["cid_" . $tag[$i]->id] as $r )
-
+		                        	<!-- 遍历每个分类下的案例信息 -->
+		                        	@foreach ( $cases["cid_" . $category[$i]->id] as $r )
 	                        		<li>
-                        				<input name="case_select_{{ $tag[$i]->id }}" data-str="{{ $r->title }}" type="checkbox" value="{{ $r->id }}"
-                        					@if(in_array($r->id, $related_case["cid_" . $tag[$i]->id]['ids'])) checked @endif />
+                        				<input name="case_select_{{ $category[$i]->id }}" data-str="{{ $r->title }}" type="checkbox" value="{{ $r->id }}"
+                        					@if(in_array($r->id, $related_case["cid_" . $category[$i]->id]['ids'])) checked @endif >
                         				<span>{{ $r->title }}</span>
 	                        		</li>
 	                        		@endforeach
 	                        		<li>
-	                        			<div data-input-name="case_select_{{ $tag[$i]->id }}" class="btn btn-success">确定</div>
-	                        			<input type="hidden" name="case_ids[]" value="{{ implode(',', $related_case['cid_' . $tag[$i]->id]['ids']) }}" />
+	                        			<div data-input-name="case_select_{{ $category[$i]->id }}" class="btn btn-success">确定</div>
+	                        			<input type="hidden" name="case_ids[]" value="{{ implode(',', $related_case['cid_' . $category[$i]->id]['ids']) }}" />
 	                        		</li>
 	                        	</ul>
 							</div>
@@ -137,7 +136,36 @@
 							
 						</div>
 					</div>
-					
+					<!--<div class="form-group">
+						<label for="" class="col-sm-3 control-label">相关产品：</label>
+						<div class="col-sm-2">
+							<select class="form-control" id="product-category">
+								@foreach ($category as $c)
+								<option value="{{ $c->id }}">{{ $c->title }}</option>
+								@endforeach
+							</select>
+						</div>
+						<div class="col-sm-4">
+							@for ($i = 0; $i < count($category); $i++)
+							<div class="multiple-select related-product related-product-{{ $category[$i]->id }}" @if($i != 0) style="display: none;" @endif>
+		                        <div class="select-input">{{ $related_product["cid_" . $category[$i]->id]['titles'] }}</div>
+		                        <ul class="select-list">
+		                        	@foreach ( $related["cid_" . $category[$i]->id] as $r )
+	                        		<li>
+                        				<input name="related_select_{{ $category[$i]->id }}" data-str="{{ $r->title }}" type="checkbox" value="{{ $r->id }}"
+                        					@if(in_array($r->id, $related_product["cid_" . $category[$i]->id]['ids'])) checked @endif >
+                        				<span>{{ $r->title }}</span>
+	                        		</li>
+	                        		@endforeach
+	                        		<li>
+	                        			<div data-input-name="related_select_{{ $category[$i]->id }}" class="btn btn-success">确定</div>
+	                        			<input type="hidden" name="related_ids[]" value="{{ implode(',', $related_product['cid_' . $category[$i]->id]['ids']) }}" />
+	                        		</li>
+	                        	</ul>
+							</div>
+							@endfor
+						</div>
+					</div>-->
 					<div class="col-sm-12 text-right">
 						<input type="submit" class="btn btn-primary submit" value="提交" />
 					</div>
