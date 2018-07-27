@@ -115,7 +115,7 @@
 						</div>
 						<div class="col-sm-4">
 							@for ($i = 0; $i < count($tag); $i++)
-							<div class="multiple-select related-case related-case-{{ $tag[$i]->id }}" @if($i != 0) style="display: none;" @endif>
+							<div class="multiple-select related-case related-case-{{ $tag[$i]->id }}" @if($related_case["cid_" . $tag[$i]->id]['titles']) style="display: block;" @else @if($i != 0) style="display: none;" @endif @endif>
 		                        <div class="select-input">{{ $related_case["cid_" . $tag[$i]->id]['titles'] }}</div>
 		                        <ul class="select-list">
 		                        	<!-- 遍历每个标签下的案例信息 -->

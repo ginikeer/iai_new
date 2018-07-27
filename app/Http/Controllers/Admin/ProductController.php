@@ -64,6 +64,8 @@ class ProductController extends Controller {
 			$cases["cid_" . $c->id]							= Cases::getDataByTagId($c->id);
 		}
 
+
+
 		if(empty($id)) {	//新增
 			$selected_manual['titles']						= "";
 			$selected_manual['ids']							= array();
@@ -85,6 +87,7 @@ class ProductController extends Controller {
 				$related_case["cid_" . $c->id]["titles"]	= Product::getCaseByTagId($pid, $c->id, 'title', 'string');
 				$related_case["cid_" . $c->id]["ids"]		= Product::getCaseByTagId($pid, $c->id, 'id', 'array');
 			}
+
 			// dd($related_case);
 			// dd($cases["cid_2"]);
 		}
