@@ -12,6 +12,21 @@
 			<div class="panel-heading">产品列表</div>
 		 	<div class="panel-body">
 		 		<input type="hidden" id="url-del" value="{{ url('admin/product/del') }}" />
+		 		<!--筛选条件-->
+				<form id="condition-form" action="" method="get">
+		 			<input type="hidden" id="url-search" value="{{ url('admin/product/list') }}" />
+					<div class="form-group clearfix bg-search">
+						<div class="col-sm-2">
+		 					<input type="text" value="{{$title}}" name="title" placeholder="请填写标题关键字" class="form-control" placeholder="邮箱"  />
+		 				</div>
+		 				<div class="col-sm-2 text-left">
+		 					<div class="btn btn-primary search">查询</div>
+		 				</div>
+		 				
+		 			</div>
+				</form>
+				<h4 class="mb20 mt20">搜索结果：{{$count}}条</h4>
+		 		
 				<table class="table table-bordered text-center">
 				    <tr>
 				    	<td>标题</td>

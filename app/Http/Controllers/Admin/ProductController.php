@@ -34,22 +34,22 @@ class ProductController extends Controller {
 		return Redirect::to('admin/product/list');
 	}
 	
-	public function getList()
+	public function getList(Request $request)
 	{
-		$data 												= Product::orderBy('id', 'desc')->paginate(PER);
-		
+		$title                                              = $request->input('title') ? $request->input('title') : '';
+		$count                                              = Product::where('title','like','%' . $title . '%')->count();
+
+		$data 												= Product::where('title','like','%' . $title . '%')->orderBy('id', 'desc')->paginate(PER);
 		for($i = 0; $i < count($data); $i++) {
 			$data[$i]->category 							= Product_Category::getTitleById($data[$i]->category);
 			$data[$i]->is_new 								= $data[$i]->is_new ? "是" : "否";
 		}
 		
-		return view('admin/product-list', ['data' => $data]);
+		return view('admin/product-list', ['data' => $data,'count'=>$count,'title'=>$title]);
 	}
 	
 	public function getSingle(Request $request)
 	{
-		// //e10adc3949ba59abbe56e057f20f883e
-		// echo md5('oppasswd');exit;
 		$id 												= $request->input('id', '');
 		$tag											    = $this->tag;
 		$category                                           = $this->category;
@@ -87,9 +87,6 @@ class ProductController extends Controller {
 				$related_case["cid_" . $c->id]["titles"]	= Product::getCaseByTagId($pid, $c->id, 'title', 'string');
 				$related_case["cid_" . $c->id]["ids"]		= Product::getCaseByTagId($pid, $c->id, 'id', 'array');
 			}
-
-			// dd($related_case);
-			// dd($cases["cid_2"]);
 		}
 		
 		return view('admin/product-single', [

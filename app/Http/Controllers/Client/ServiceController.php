@@ -58,18 +58,31 @@ class ServiceController extends Controller {
 	public function getManual(Request $request) 
 	{
 		$category											= Manual_Category::getAll();
+		$is_search                                          = $request->input('is_search') ? $request->input('is_search') : '';
 		$manual												= array();
-		
+		$manual_search                                      = array();
+		$keywords                                           = '';
+
+		if(!empty($is_search)){
+			$keywords                                       = $request->input('keywords');
+			$manual_search                                  = Manual::where('title','like','%' . $keywords . '%')->get();
+		} 
+
 		foreach($category as $c) {
 			$manual[$c->id]									= Manual::getDataByCategory($c->id);
 		}
-		
+	
 		return view('client/service-manual', [
 			'nav'											=> $this->nav,
 			'category'										=> $category,
-			'manual'										=> $manual
+			'manual'										=> $manual,
+			'is_search'                                     => $is_search,
+			'manual_search'                                 => $manual_search,
+			'keywords'                                      => $keywords
 		]);
 	}
+
+
 	
 	public function getManualDownload(Request $request) 
 	{

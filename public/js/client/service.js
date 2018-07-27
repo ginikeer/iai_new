@@ -7,10 +7,11 @@ $(function(){
 	});
 	
 	//使用说明书
-	$('#nav-cases>li').click(function(){
+	$('#nav-cases>li:not(._search)').click(function(){
+		$('.search_result').hide();
 		var index = $(this).index();
 		$(this).addClass('active').siblings().removeClass('active');
-		$('.manual-item').eq(index).addClass('show').siblings().removeClass('show');
+		$('.manual-item:not(.search_result)').eq(index).addClass('show').siblings().removeClass('show');
 	});
 	
 });
