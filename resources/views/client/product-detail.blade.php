@@ -37,10 +37,10 @@
 					</div>
 					<div class="row row-no-offset product-detail-btn-list">
 						<div class="col-lg-4">
-							<a class="detail-btn" target="_blank" href="http://linkable.partcommunity.com">3D CAD图纸</a>
+							<a class="detail-btn" target="_blank" href="https://linkable.partcommunity.com/3d-cad-models/iai?info=iai">3D CAD图纸</a>
 						</div>
 						<div class="col-lg-4">
-							<a class="detail-btn" target="_blank" href="{{ asset('pdf/client/product/IAI 3D Download Process.pdf') }}">3D图纸流程</a>
+							<a class="detail-btn" target="_blank" href="{{ asset('pdf/client/product/IAI 3D下载流程.pdf') }}">3D图纸流程</a>
 						</div>
 						<div class="col-lg-4">
 							<a class="detail-btn detail-btn-contact" href="mailto:shanghai@iai-robot.com">联系我们</a>
