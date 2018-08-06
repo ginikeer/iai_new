@@ -13,7 +13,7 @@
 		<div class="container">
 			<ul class="breadcrumb">
 				<li>
-					<a href="index.html">首页</a>
+					<a href="{{ url('/') }}">首页</a>
 				</li>
 				<li>产品使用案例</li>
 			</ul>
@@ -31,8 +31,8 @@
 							@endif
 						@endforeach
 					</dd>
-					<dt>工程</dt>
-					<dd>
+					<dt style="display: none;">工程</dt>
+					<dd style="display: none;">
 						@foreach ($tags as $t)
 							@if($t->type == '工程') 
 								<span class="case-tag-2">{{ $t->title }}</span>
@@ -41,7 +41,7 @@
 					</dd>
 				</dl>
 				<div class="case-text">
-					<img src="{{ asset('i/client/case/' . $logo) }}">
+					<img src="{{ asset('i/client/case/' . $logo) }}" style="display: none;">
 					<p class="fontBold">
 						{{ $sub_title[0] or '' }}<br>
 						<strong style="font-size:160%;">{{ $sub_title[1] or '' }}</strong>
@@ -50,7 +50,10 @@
 				@if(isset($case->video_name))
 				<div class="case-movie">
 					<div class="case-movie-inner">
-						<video autoplay="autoplay" width="640" height="360" src="{{ CASE_VIDEO_PATH . $case->video_name }}" controls="controls"></video>
+						<video controls="controls" autoplay="autoplay" loop="loop" width="480">
+							<source src="{{ CASE_VIDEO_PATH . $case->video_name }}">
+						</video>
+						<!--<video autoplay="autoplay" src="{{ CASE_VIDEO_PATH . $case->video_name }}" controls="controls" loop="loop"></video>-->
 						<!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="240" height="180">
 								<param name="movie" value="{{ asset('i/client/case/10.swf') }}">
 								<param name="quality" value="high">

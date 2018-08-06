@@ -13,7 +13,7 @@
 		<div class="container">
 			<ul class="breadcrumb">
 				<li>
-					<a href="index.html">首页</a>
+					<a href="{{ url('/') }}">首页</a>
 				</li>
 				<li>产品使用案例</li>
 			</ul>

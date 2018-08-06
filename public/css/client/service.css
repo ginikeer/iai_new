@@ -87,6 +87,39 @@ div.service-list>.service-list-item{
 	padding-top: 110px;
 	margin-top: -110px;
 }
+.main_nav {
+    border-bottom: 1px solid #c8d3de;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.container .main_nav ul {
+    margin-bottom: -1px;
+    -webkit-padding-start: 30px;
+}
+.main_nav ul li {
+    float: left;
+    margin: 0 5px;
+    width: 25%;
+}
+.topic_nav_block a {
+    background-color: #E9E9E9;
+    border: 1px solid #c8d3de;
+    color: #333;
+    letter-spacing: 1px;
+    text-decoration: none;
+    width: 100%;
+    font-size: 16px;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 600;
+}
+.topic_nav_block li.active a{
+	background: #FFF;
+	border-bottom: 1px solid #fff;
+}
+
 @media screen and (max-width: 1100px){
 	.col-lg-2-5{
 		width: 25%;
@@ -111,12 +144,17 @@ div.service-list>.service-list-item{
 	.faq-search .search-btn{
 		padding: 15px 8px;
 	}
-	.faq-search td input#keywords{
+	.faq-search td input#keywords,.faq-search td input#alarm-code{
 		width: 100%;
 	}
 	.next-icon{
 		transform: rotateZ(90deg);
 		display: inline-block;
+	}
+	.main_nav ul li {
+	    float: left;
+	    margin: 0 5px;
+	    width: 40%;
 	}
 }
 @media screen and (max-width: 750px){

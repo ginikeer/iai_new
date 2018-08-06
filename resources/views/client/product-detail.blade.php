@@ -53,7 +53,7 @@
 			</div>
 		</div>
 		<div class="detail-more">
-			<div class="detail-tab">
+			<div class="detail-tab" style="display: none;">
 				<div class="container">
 					<div class="row row-no-offset">
 						<div class="col-lg-3 tab-item"><a href="##">产品说明书<i></i></a></div>
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="product-case">
+			<div id="product-case" style="display: none;">
 				<div class="container">
 					<h4 class="product-title">产品使用案例 <i></i></h4>
 					<div class="row row-no-offset row-case case_row">

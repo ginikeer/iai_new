@@ -14,5 +14,12 @@ $(function(){
 		$('.manual-item:not(.search_result)').eq(index).addClass('show').siblings().removeClass('show');
 	});
 	
+	
+//	常见问题
+	$('.faq_nav li').click(function(){
+		$(this).addClass('active').siblings('li').removeClass('active');
+		$('.faq-content').eq($(this).index()).show().siblings('.faq-content').hide();
+	});
+	
 });
 
