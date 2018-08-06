@@ -207,13 +207,18 @@
     display: table-cell;
     vertical-align: middle;
 }
+.case-movie-inner video{
+	max-width: 100%;
+	margin: 20px 0;
+}
 .case-fe-list{
 	list-style: none;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     -webkit-padding-start: 0;
+    padding: 0;
 }
-.fe-list-item{
+.case-fe-list .fe-list-item{
     display: inline-block;
     margin: 5px 6px 5px 0;
 }
@@ -228,9 +233,9 @@
 	background-position:  -56px 0;
 }
 .case-article{
-	margin: 20px 0;
+	margin: 20px 0 0;
 	padding-bottom: 20px;
-	border-bottom: 1px solid #ddd;
+	/*border-bottom: 1px solid #ddd;*/
 }
 .case-article p{
 	font-size: 14px;
@@ -337,6 +342,12 @@
 .isotope-item{
 	transform: translate3d(0px, 0px, 0px);
 	transition: all 0.5s;
+}
+.dendouka_tbl{
+	width: 100%;
+}
+.dendouka_tbl td,.dendouka_tbl th{
+	border: 1px solid #ccc;
 }
 @media screen and (max-width: 1400px){
 	.case_row .col-lg-3{

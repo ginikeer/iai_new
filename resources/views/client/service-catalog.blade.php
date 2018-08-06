@@ -50,7 +50,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>选型资料/技术资料</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue01') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue01&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -61,7 +61,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>单轴机械手</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue02') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue02&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -72,7 +72,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>直交/水平多关节/桌上型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue03') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue03&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -83,7 +83,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>伺服压力机/夹爪/旋转/其他</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue04') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue04&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -94,7 +94,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>无尘/防尘防滴</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue05') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue05&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -105,7 +105,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>控制器</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue06') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2017&n=catalogue06&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -133,7 +133,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>产品概要</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_01_index') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_01_index&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -144,7 +144,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>滑块型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_02_slider') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_02_slider&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -155,7 +155,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>拉杆型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_03_rod') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_03_rod&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -166,7 +166,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>平台型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_04_table') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_04_table&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -177,7 +177,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>夹爪型旋转型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_05_gripper_rotary') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_05_gripper_rotary&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -188,7 +188,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>线性伺服型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_06_linear') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_06_linear&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -199,7 +199,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>无尘室型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_07_cleanroom') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_07_cleanroom&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -210,7 +210,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>防滴防尘型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_08_waterproof') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_08_waterproof&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -221,7 +221,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>控制器</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_09_controller') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_09_controller&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -232,7 +232,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>技术资料</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_10_reference') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=2013&n=CC0203-2A_RC2013_10_reference&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -250,7 +250,7 @@
 						<h2>细小型电缸</h2>
 						<p>各种商品按系列、类型分开放置，请选择所需要的PDF文件夹。</p>
 						<p>
-							<a href="{{ url('service/catalog-download?l=CN&t=micro&n=xixiaoxing') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+							<a href="{{ url('service/catalog-download?l=CN&t=micro&n=xixiaoxing&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 						</p>
 					</div>
 				</div>
@@ -262,7 +262,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>产品概要</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=all') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=all&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -273,7 +273,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>细小型滑块型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=slider') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=slider&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -284,7 +284,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>细小型拉杆型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=rod') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=rod&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -295,7 +295,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>细小型滑台型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=slip') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=slip&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -306,7 +306,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>细小型线性伺服型</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=line') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=line&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
@@ -317,7 +317,7 @@
 							<div class="row row-no-offset">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>选型参考&amp;控制器</big></div>
 								<div class="col-lg-4 text-right">
-									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=control') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
+									<a href="{{ url('service/catalog-download?l=CN&t=micro&n=control&e=pdf') }}" target="_blank" class="btn btn-red btn-xs">点击下载</a>
 								</div>
 							</div>
 						</div>
