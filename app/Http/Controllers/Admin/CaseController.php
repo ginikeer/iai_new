@@ -73,7 +73,6 @@ class CaseController extends Controller {
 		}
 		
 		
-		
 		return view('admin/case-single', [
 			'case'											=> $case,
 			'category' 										=> $this->category,

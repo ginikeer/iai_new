@@ -34,11 +34,23 @@ class ManualController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getIndex()
+	public function getIndex(Request $request)
 	{
-		$data = Manual::orderBy('id', 'desc')->paginate(PER);
+		$title                                              = $request->input('title') ? $request->input('title') : '';
+		$category                                           = $request->input('category') ? $request->input('category') : '';
+		$data 												= Manual::where(function($query) use ($title){
+																if(!empty($title)){
+																	$query->where('title', 'like', '%' . $title . '%');
+																}
+															})
+															->where(function($query) use ($category){
+																if(!empty($category)){
+																	$query->where('category', '=', $category);
+																}
+															})
+															->orderBy('id', 'desc')->paginate(PER);
 		
-		return view('admin/manual', ['data' => $data, 'category' => $this->category]);
+		return view('admin/manual', ['data' => $data, 'category' => $this->category, 'title'=>$title, 'cid'=>$category]);
 	}
 	
 	public function postUpload(Request $request)

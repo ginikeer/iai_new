@@ -29,10 +29,10 @@
 					</p>
 					<div class="row row-no-offset product-detail-btn-list" style="margin-bottom: 0;">
 						<div class="col-lg-4 first-product-btn">
-							<a class="detail-btn" href="{{url('/application')}}">纸质产品目录申请</a>
+							<a class="detail-btn"  href="{{url('/application')}}">纸质产品目录申请</a>
 						</div>
 						<div class="col-lg-4">
-							<a class="detail-btn" href="@if(!empty($product->pdf_name)) {{ PRODUCT_PDF_PATH . $product->pdf_name }} @else javascript:void(0); @endif">产品目录下载</a>
+							<a class="detail-btn" target="_blank" href="@if(!empty($product->pdf_name)) {{ PRODUCT_PDF_PATH . $product->pdf_name }} @else javascript:void(0); @endif">产品目录下载</a>
 						</div>
 					</div>
 					<div class="row row-no-offset product-detail-btn-list">
@@ -71,9 +71,9 @@
 							<div class="row row-no-offset product-detail-row">
 								<div class="col-lg-8"><span class="icon-20 icon-20-file"></span><big>{{ $m->title }}</big></div>
 								<div class="col-lg-4 text-right">
-									@if(!empty($m->cn_pdf_name)) <a href="{{ url('service/manual-download?l=CN&t=manual&n=' . substr($m->cn_pdf_name, 0, -4)) }}" target="_blank" class="btn btn-red btn-xs">下载(CN)</a> @else <div class="btn btn-gray btn-xs">下载(CN)</div> @endif
-									@if(!empty($m->en_pdf_name)) <a href="{{ url('service/manual-download?l=EN&t=manual&n=' . substr($m->en_pdf_name, 0, -4)) }}" target="_blank" class="btn btn-red btn-xs">下载(EN)</a> @else <div class="btn btn-gray btn-xs">下载(EN)</div> @endif
-									@if(!empty($m->ja_pdf_name)) <a href="{{ url('service/manual-download?l=JA&t=manual&n=' . substr($m->ja_pdf_name, 0, -4)) }}" target="_blank" class="btn btn-red btn-xs">下载(JA)</a> @else <div class="btn btn-gray btn-xs">下载(JA)</div> @endif
+									@if(!empty($m->cn_pdf_name)) <a href="{{ url('service/manual-download?l=CN&t=manual&n=' . substr($m->cn_pdf_name, 0, -4)) }}&e=pdf" target="_blank" class="btn btn-red btn-xs">下载(CN)</a> @else <div class="btn btn-gray btn-xs">下载(CN)</div> @endif
+									@if(!empty($m->en_pdf_name)) <a href="{{ url('service/manual-download?l=EN&t=manual&n=' . substr($m->en_pdf_name, 0, -4)) }}&e=pdf" target="_blank" class="btn btn-red btn-xs">下载(EN)</a> @else <div class="btn btn-gray btn-xs">下载(EN)</div> @endif
+									@if(!empty($m->ja_pdf_name)) <a href="{{ url('service/manual-download?l=JA&t=manual&n=' . substr($m->ja_pdf_name, 0, -4)) }}&e=pdf" target="_blank" class="btn btn-red btn-xs">下载(JA)</a> @else <div class="btn btn-gray btn-xs">下载(JA)</div> @endif
 								</div>
 							</div>
 						</div>

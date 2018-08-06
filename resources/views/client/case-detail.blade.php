@@ -31,23 +31,23 @@
 							@endif
 						@endforeach
 					</dd>
-					<dt>工程</dt>
+					<!-- <dt>工程</dt>
 					<dd>
 						@foreach ($tags as $t)
 							@if($t->type == '工程') 
 								<span class="case-tag-2">{{ $t->title }}</span>
 							@endif
 						@endforeach
-					</dd>
+					</dd> -->
 				</dl>
-				<div class="case-text">
+				<!-- <div class="case-text">
 					<img src="{{ asset('i/client/case/' . $logo) }}">
 					<p class="fontBold">
 						{{ $sub_title[0] or '' }}<br>
 						<strong style="font-size:160%;">{{ $sub_title[1] or '' }}</strong>
 					</p>
-				</div>
-				@if(isset($case->video_name))
+				</div> -->
+				@if(!empty($case->video_name))
 				<div class="case-movie">
 					<div class="case-movie-inner">
 						<video autoplay="autoplay" width="640" height="360" src="{{ CASE_VIDEO_PATH . $case->video_name }}" controls="controls"></video>
@@ -65,6 +65,9 @@
 						<img class="icon-case" src="{{ asset('i/client/case/' . $icon) }}" alt="" />
 					</li>
 					@endforeach
+					<li class="fe-list-item">
+						
+					</li>
 				</ul>
 				<div class="case-article">
 					{!! $case->content !!}

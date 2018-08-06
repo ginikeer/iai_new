@@ -8,8 +8,35 @@
 @section('content')
 	<div class="main-container">
 		<div class="panel panel-success">
+			<div class="panel-body">
+		 		
+		 		<form id="condition-form" action="" method="get">
+		 			<input type="hidden" id="url-search" value="{{ url('admin/product/list') }}" />
+					<div class="form-group clearfix bg-search">
+						<div class="col-sm-2">
+								<select class="form-control" name="category">
+									<option value=""> 请选择分类 </option>
+									@foreach ($category as $c)
+									<option value="{{ $c->id }}" {{$c->id == $cid ? 'selected' : ''}}> {{ $c->title }} </option>
+									@endForeach
+								</select>
+							</div>
+						<div class="col-sm-2">
+		 					<input type="text" value="" name="title" placeholder="请填写标题关键字" class="form-control"/>
+		 				</div>
+		 				<div class="col-sm-2 text-left">
+		 					<div class="btn btn-primary search">查询</div>
+		 				</div>
+		 				
+		 			</div>
+				</form>
+			</div>
 			<div class="panel-heading">产品使用说明添加</div>
+				
 		 	<div class="panel-body">
+
+		 		
+
 		 		<form action="{{ url('admin/manual/save') }}" method="post" class="form-horizontal">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 		 			<input type="hidden" id="url_file_upload" value="{{ url('admin/manual/upload') }}" />
@@ -18,7 +45,7 @@
 						<div class="col-sm-6">
 							<label for="" class="col-sm-3 control-label">标题：</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" name="title" required placeholder="产品使用说明名称" maxlength="255">
+								<input type="text" class="form-control" {{$title}} name="title" required placeholder="产品使用说明名称" maxlength="255">
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -139,4 +166,12 @@
 @section('script')
 <script type="text/javascript" src="{{ asset('js/admin/upload.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/admin/ajax-table.js') }}"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".search").on("click", function() {
+			$("#condition-form").submit();
+		});
+	})
+	
+</script>
 @stop

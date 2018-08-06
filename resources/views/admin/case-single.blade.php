@@ -14,13 +14,15 @@
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 					<input type="hidden" id="url_file_upload" value="{{ url('admin/case/upload') }}" />
 					<input type="hidden" name="id" value="{{ $case->id or '' }}" />
+					<input type="hidden" id="upload_success_url" value="{{ asset('i/admin/success.png') }}" />
 					<div class="form-group">
 						<label for="lname" class="col-sm-3 control-label">标题：</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="title" name="title" required maxlength="255" value="{{ $case->title or '' }}">
 						</div>
 					</div>
-					<div class="form-group">
+
+					<!-- <div class="form-group">
 						<label for="" class="col-sm-3 control-label">分类：</label>
 						<div class="col-sm-6">
 							<select class="form-control" name="category" id="category">
@@ -29,7 +31,7 @@
 								@endforeach
 							</select>
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">简介：</label>
 						<div class="col-sm-6">
@@ -65,7 +67,7 @@
 							<img class="img-preview mt20" src="@if(isset($case->cover_image_name)) {{ CASE_IMG_PATH . $case->cover_image_name }} @endif" alt="" />
 						</div>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="" class="col-sm-3 control-label">logo：</label>
 						<div class="col-sm-3 ">
 							<select class="form-control" name="logo" id="logo">
@@ -74,7 +76,7 @@
 								@endforeach
 							</select>
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group">
 						<label for="" class="col-sm-3 control-label">子标题：</label>
 						<div class="col-sm-6">
@@ -85,7 +87,7 @@
 						<label for="" class="col-sm-3 control-label">视频：</label>
 						<div class="col-sm-3 ">
 							<input type="file" class="upload-file" data-action="{{ url('admin/case/video-upload') }}" />
-							<img class="file-upload-success" src="{{ asset('i/admin/success.png') }}" alt="" />
+							<img class="file-upload-success" src="{{ asset('i/admin/uploading.gif') }}" alt="" />
 							<input type="hidden" class="file-name" id="video_name" name="video_name" value="{{ $case->video_name or '' }}" />
 						</div>
 						@if(isset($case->video_name))
