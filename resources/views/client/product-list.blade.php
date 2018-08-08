@@ -151,7 +151,7 @@
 	<div class="col-lg-3">
 		<div class="items-content">
 			<a href="{{ url('product/detail') }}/${id}">
-				<img src="{{ PRODUCT_IMG_PATH }}${cover_image_name}" />
+				<div class="items-content-img"><img src="{{ PRODUCT_IMG_PATH }}${cover_image_name}" /></div>
 				<div class="items-content-text">
 					<h4>${title}</h4>
 					<!--<p class="pre">${brEscape(description)}</p>-->

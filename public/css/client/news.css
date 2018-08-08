@@ -115,6 +115,7 @@
 .article-content{
 	margin-top: 30px;
 	text-align: center;
+	min-height: 300px;
 }
 .article-content p{
 	margin-bottom: 15px;
