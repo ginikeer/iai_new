@@ -64,7 +64,7 @@
 									<li><a href="{{ url('/service/faq') }}">常见问题</a></li>
 									<li><a href="{{ url('/service/delivery') }}">交货期查询</a></li>
 									<li><a href="{{ url('/service/settings') }}">现场网络文件</a></li>
-									<li><a href="{{ url('/service/versionhistory') }}">示教器履历</a></li>
+									<li><a href="{{ url('/service/versionhistory') }}">小工具下载</a></li>
 									<li><a href="{{ url('/service/others') }}">其他公司相关</a></li>
 								</ul>
 							</div>
@@ -120,7 +120,7 @@
 								<li><a href="{{ url('/service/faq') }}"><small>常见问题</small></a></li>
 								<li><a href="{{ url('/service/delivery') }}"><small>交货期查询</small></a></li>
 								<li><a href="{{ url('/service/settings') }}"><small>现场网络文件</small></a></li>
-								<li><a href="{{ url('/service/versionhistory') }}"><small>示教器履历</small></a></li>
+								<li><a href="{{ url('/service/versionhistory') }}"><small>小工具下载</small></a></li>
 								<li><a href="{{ url('/service/others') }}"><small>其他公司相关</small></a></li>
 							</ul>
 						</li>
@@ -181,7 +181,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-7 copyright">
-					<p>&copy; IAI Shanghi Co.,Ltd. All Rights Reserved.</p>
+					<p>&copy; IAI Shanghai Co.,Ltd. All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-5 portal">
 					<img src="http://www.beian.gov.cn/img/ghs.png"/>
