@@ -28,6 +28,7 @@ Route::controller('/admin/case', 'Admin\CaseController');
 Route::controller('/admin/user', 'Admin\UserController');
 Route::controller('/admin/news', 'Admin\NewsController');
 Route::controller('/admin/faq', 'Admin\FaqController');
+Route::controller('/admin/code', 'Admin\CodeController');
 
 Route::controller('/login','Client\LoginController');
 

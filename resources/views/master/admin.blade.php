@@ -80,6 +80,8 @@
 							</li>
 						</ul>
 					</li>
+
+					
 					<!-- <li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">
 							FAQ管理 <span class="caret"></span>
@@ -119,6 +121,20 @@
 							<!-- <li>
 								<a href="{{ url('admin/user/paper-apply') }}">纸质目录申请</a>
 							</li> -->
+						</ul>
+					</li>
+
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">
+							报警代码管理 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="{{ url('admin/code') }}">报警代码列表</a>
+							</li>
+							<li>
+								<a href="{{ url('admin/code/single') }}">新增报警代码</a>
+							</li>
 						</ul>
 					</li>
 				</ul>

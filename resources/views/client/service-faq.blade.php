@@ -117,7 +117,7 @@
 		
 				</ul>
 			</div>
-			
+
 			<div class="faq-content" style="display: none;">
 				<table width="100%" class="faq-search">
 					<tr>
@@ -126,7 +126,9 @@
 						<td class="search-btn search-btn-pc"><a href="javascript:void(0);" id="alarm-btn"><img src="{{ asset('i/client/faq/btn_search.jpg') }}"></a></td>
 					</tr>
 				</table>
-				<div class="sp-only search-btn sp-search"><a href="javascript:void(0);" id="alarm-btn"><img src="{{ asset('i/client/faq/btn_search.jpg') }}"></a></div>
+
+				<input type="hidden" name="codeSearch" value="{{url('service/code-search')}}" />
+				<div class="sp-only search-btn sp-search"><a href="javascript:void(0);" ><img src="{{ asset('i/client/faq/btn_search.jpg') }}"></a></div>
 				<hr>
 				<h3>搜索结果一览</h3>
 				<p id="hkensu" class="text-right">搜索结果 ： <span id="total_result_count_alarm"></span> 个</p>
@@ -134,14 +136,15 @@
 					<tr>
 						<th width="140">报警代码</th><th width="140">报警名称</th><th>原因/对策</th>
 					</tr>
-					<tbody id="tbl-result">
+					
+					<tbody id="tbl-result2">
 					</tbody>
 					<tr>
-						<td colspan="3" id="status" class="text-center"></td>
+						<td colspan="3" id="statusShow" class="text-center"></td>
 					</tr>
 				</table>
 				
-				<ul class="pagination" id="pctr2">
+				<ul class="pagination" id="pctrl2">
 		
 				</ul>
 			</div>
@@ -169,4 +172,5 @@
 @section('script')
 <script type="text/javascript" src="{{ asset('js/client/service.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/client/service_faq.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/service_code.js') }}"></script>
 @stop

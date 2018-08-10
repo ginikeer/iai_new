@@ -161,7 +161,7 @@ class Helper {
 	
 	
 	//将来源不同的文件上传至不同文件夹内
-	static public function uploadFile($request, $disk = "")
+	static public function uploadFile($request, $disk = "", $t = '')
 	{
 		$res 									= array();
 		$file 									= $request->file('file');
@@ -185,6 +185,10 @@ class Helper {
             
             // 上传文件
             $filename 							= $is_img ? (date('YmdHis') . uniqid() . $originalName) : $originalName;
+            if(!empty($t)){
+            	$filename                       = date('YmdHis') . uniqid() . '.' . $ext;
+            }
+
             $bool 								= Storage::disk($disk)->put($filename, file_get_contents($realPath));
             
 			if($bool) {
@@ -268,6 +272,29 @@ class Helper {
 		}
 		return $user;
 	}
+
+	static public function uploadImg($file, $dir){
+		if($file->isValid()){
+			$originalName 								   = $file->getClientOriginalName(); // 文件原名
+            $ext                                           = $file->getClientOriginalExtension();     // 扩展名
+            $realPath                                      = $file->getRealPath();   //临时文件的绝对路径
+            $type                                          = $file->getClientMimeType(); 
+            $name                                          = uniqid() . date('YmdHis');
+            if(\Storage::put('uploads/' . $dir . '/' . $name . '.' . $ext, file_get_contents($realPath))){
+        		$res["code"] 								= 1;
+				$res["message"]                 			= '上传成功';
+        	} else {
+            	$res["code"] 								= 0;
+				$res["message"]                 			= '上传失败';
+        	}
+		} else {
+			$res["code"] 									= 0;
+			$res["message"]                 				= '上传文件无效';
+		}	
+		return $res;
+	}
+
+	
 }
 
 ?>

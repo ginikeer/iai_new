@@ -35,5 +35,6 @@
 	
 	define("CASE_VIDEO_PATH", '/storage/app/uploads/case/video/');
 	
+	define("CASE_CODE_PATH", '/iai-new2/storage/app/uploads/code/img/');
 	
 ?>

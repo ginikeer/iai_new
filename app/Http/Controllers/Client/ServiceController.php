@@ -11,6 +11,7 @@ use App\Http\Database\Catalog_Apply;
 use App\Http\Database\User_Request;
 use App\Http\Database\Faq_Category;
 use App\Http\Database\Faq;
+use App\Http\Database\Code;
 
 use App\Services\Helper;
 
@@ -28,7 +29,7 @@ class ServiceController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('client');
+		$this->middleware('client', ['only' => ['getCatalog', 'getManual', 'getFaq', 'getSettings']]);
 		$this->nav											= 'service';
 		$this->uid											= Cookie::get("iai_user_token");
 	}
@@ -94,6 +95,7 @@ class ServiceController extends Controller {
 	
 	public function getCatalog(Request $request)
 	{
+		$this->middleware('client');
 		return view('client/service-catalog', [
 			'nav'											=> $this->nav
 		]);
@@ -191,6 +193,17 @@ class ServiceController extends Controller {
 		]);
 	}
 
+	public function getCodeDetail(Request $request){
+		
+
+		return view('client/service-code-detail',[
+			'nav'											=> $this->nav,
+			'codeInfo'                                      => Code::getCodeById($request->id)
+		]);
+	}
+
+
+
 	//712
 	public function getFaqDetail(Request $request){
 		
@@ -214,6 +227,38 @@ class ServiceController extends Controller {
 		$box['p']                                            = 0;
 		return json_encode($box);	
 	}
+
+	//报警代码
+	public function getCodeSearch(Request $request){
+		$p                                                   = $request->input('p',0);
+		$limit                                               = $request->input('limit',2);//页码
+		$code                                                = $request->input('code','');
+		$offset                                              = $limit * $p;
+		$where                                               = !empty($code) ? ' where code like "%' . $code . '%"' : '';
+		$where                                              .= 'order by created_at desc';
+
+		$data                                                = DB::select("select * from code " . $where . " limit " . $offset . "," . $limit);
+		$json['data']                                        = [];
+		if(!empty($data)){
+			foreach ($data as $key => $value) {
+				$json['data'][$key]['id']                  = $value->id;
+				$json['data'][$key]['code']                  = $value->code;
+				$json['data'][$key]['name']                  = $value->name;
+				$json['data'][$key]['reason']                = Helper::truncation(Helper::brEscape($value->reason), 50);
+			}
+		}	
+
+		$countArr                                            = DB::select('select count(*) as c from code ' . $where);
+		$json['limit']                                       = $limit;
+		$json['p']                                           = $p;
+		$json['total']                                       = $countArr[0]->c;
+		$json['error']                                       = false;
+		return $json; 
+	}
+
+
+
+
 
 	//712
 	public function getFaqSearch(Request $request){

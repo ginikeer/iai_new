@@ -28,8 +28,10 @@ $(function() {
 				var file_name = res.message;
 				$file_name.val(file_name);
 				if(_is_img) {
+					console.log(1);
 					$img_preview.attr("src", res.img_full_path);
 				} else {
+					console.log(2);
 					$img_success.attr("src",$upload_success_url);
 				}
 			} else {

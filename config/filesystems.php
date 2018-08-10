@@ -95,6 +95,11 @@ return [
             'root' => storage_path('app/uploads/news/pdf'),
         ],
 
+        'code_img' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/code/img'),
+        ],
+
 		'rackspace' => [
 			'driver'    => 'rackspace',
 			'username'  => 'your-username',
